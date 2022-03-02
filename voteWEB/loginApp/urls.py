@@ -1,1 +1,1 @@
-zzzzzzzzz
+print('안녕용ㅇ')
