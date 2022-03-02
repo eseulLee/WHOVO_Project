@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bbs/', include('bbsApp')),
 
+
 ]
