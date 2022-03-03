@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
- joinForm
+    <form action ="../join/" method="post">
+        {% csrf_token %}
+        ID : <input type="text" name="id"><br/>
+        PWD : <input type="password" name="pwd"><br/>
+        NAME : <input type="text" name="name"><br/>
+        POLITICAL PARTY : <input type="text" name="poli"><br/>
+        AGE : <input type="number" name="age"><br/>
+        <input type="submit" value="join">
+    </form>
+
+
 </body>
 </html>
