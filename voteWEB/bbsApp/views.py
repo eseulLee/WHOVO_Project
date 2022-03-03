@@ -5,6 +5,8 @@ from.models           import *
 
 def index(request):
     return render(request, 'index.html')
+def loginPage(request):
+    return render(request,'login.html')
 
 def login(request):
     print('>>>> user login')
@@ -27,7 +29,6 @@ def login(request):
             return render(request, 'index.html', context)
         else :
             return redirect('bbs_index')
-
 
 
 def joinForm(request) :
