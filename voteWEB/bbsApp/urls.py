@@ -9,6 +9,8 @@ urlpatterns = [
     path('loginPage/', views.loginPage, name='bbs_loginPage'),
     path('joinForm/', views.joinForm, name = 'joinForm'),
     path('join/',   views.join, name='join'),
+    path('logout/', views.logout, name='logout'),
+
 
 
 ]

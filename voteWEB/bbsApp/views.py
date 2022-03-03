@@ -44,3 +44,10 @@ def join(request):
     print('>>>> param values - ', id, pwd, name,poli,age)
     WebMember(member_id=id, member_pwd=pwd, member_name=name, member_poli=poli,member_age=age).save()
     return redirect('bbs_index')
+
+def logout(request) :
+    print(">>>> user logout")
+    request.session['member_name'] = {}
+    request.session['member_id'] = {}
+    request.session.modified = True
+    return redirect('bbs_index')
