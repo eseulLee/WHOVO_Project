@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from.models import *
+from.models           import *
 
 # Create your views here.
 
@@ -7,7 +7,27 @@ def index(request):
     return render(request, 'index.html')
 
 def login(request):
-    return render(request, 'login.html')
+    print('>>>> user login')
+    if request.method == 'GET':
+        return redirect('bbs_index')
+    else :
+        print('>>>> request POST')
+        id = request.POST['id']
+        pwd = request.POST['pwd']
+        print('>>>> request param - ', id , pwd)
+        user = WebMember.objects.get(member_id=id, member_pwd=pwd)
+        print('>>>> user result', user)
+        context = {}
+        if user is not None :
+            request.session['member_id'] = user.member_id
+            request.session['member_name'] = user.member_name
+            context['id'] = request.session['member_id']
+            context['name'] = request.session['member_id']
+
+            return render(request, 'index.html', context)
+        else :
+            return redirect('bbs_index')
+
 
 def joinForm(request) :
     return render(request, 'joinForm.html')
