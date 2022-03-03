@@ -29,5 +29,17 @@ def login(request):
             return redirect('bbs_index')
 
 
+
 def joinForm(request) :
     return render(request, 'joinForm.html')
+
+def join(request):
+    print('>>>> user join - ')
+    id = request.POST['id']
+    pwd = request.POST['pwd']
+    name = request.POST['name']
+    poli = request.POST['poli']
+    age = request.POST['age']
+    print('>>>> param values - ', id, pwd, name,poli,age)
+    WebMember(member_id=id, member_pwd=pwd, member_name=name, member_poli=poli,member_age=age).save()
+    return redirect('bbs_index')
