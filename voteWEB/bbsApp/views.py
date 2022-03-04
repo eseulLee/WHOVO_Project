@@ -26,7 +26,7 @@ def login(request):
             context['id'] = request.session['member_id']
             context['name'] = request.session['member_id']
 
-            return render(request, 'index.html', context)
+            return render(request, 'indexTemp.html', context)
         else :
             return redirect('bbs_index')
 
