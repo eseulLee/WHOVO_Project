@@ -1,56 +1,61 @@
+{% load static %}
+
 <!doctype html>
 <html class="no-js" lang="en">
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Polite || Home Version One</title>
+        <title>Welcome to voteWEB :)</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
 		<!-- favicon
 		============================================ -->		
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 	   
 		<!-- Bootstrap CSS
 		============================================ -->		
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 		<!-- font-awesome CSS
 		============================================ -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
         <!-- meanmenu css -->
-        <link rel="stylesheet" href="css/meanmenu.min.css">
+        <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
 		<!-- owl.carousel CSS
 		============================================ -->
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 		<!-- nivo slider CSS
 		============================================ -->
-		<link rel="stylesheet" href="lib/css/nivo-slider.css" type="text/css" />
-		<link rel="stylesheet" href="lib/css/preview.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{% static 'lib/css/nivo-slider.css' %}" type="text/css" />
+		<link rel="stylesheet" href="{% static 'lib/css/preview.css' %}" type="text/css" media="screen" />
 		<!-- chosen CSS
 		============================================ -->
-        <link rel="stylesheet" href="css/chosen.min.css">
+        <link rel="stylesheet" href="{% static 'css/chosen.min.css' %}">
 		<!-- animate CSS
 		============================================ -->
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
         <!-- Magnific Popup CSS
         ============================================ -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
 		<!-- normalize CSS
 		============================================ -->
-        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
 		<!-- main CSS
 		============================================ -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
 		<!-- style CSS
 		============================================ -->
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
 		<!-- responsive CSS
 		============================================ -->
-        <link rel="stylesheet" href="css/responsive.css">
-        
-		<!-- modernizr JS
-		============================================ -->		
-        <script src="js/vendor/modernizr-3.11.7.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+        <!-- modernizr JS
+        ============================================ -->
+        <script src="{% static 'js/vendor/modernizr-3.11.7.min.js' %}"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -100,7 +105,7 @@
                             <div class="col-lg-12">
                                 <div class="logo floatleft">
                                     <a href="index.html">
-                                        <img alt="" src="img/logo/logo.png">
+                                        <img alt="" src="{% static 'img/logo/logo.png' %}">
                                     </a>
                                 </div>
                                 <div class="header-search floatright">
@@ -258,8 +263,8 @@
                 <div class="main-slider an-si">
                     <div class="bend niceties preview-2">
                         <div id="ensign-nivoslider-2" class="slides">	
-                            <img src="img/slider/3.jpg" alt="" title="#slider-direction-3"  />
-                            <img src="img/slider/1.jpg" alt="" title="#slider-direction-1"  />
+                            <img src="{% static 'img/slider/3.jpg' %}" alt="" title="#slider-direction-3"  />
+                            <img src="{% static 'img/slider/1.jpg' %}" alt="" title="#slider-direction-1"  />
                         </div>
                         <!-- direction 1 -->
                         <div id="slider-direction-3" class="t-cn slider-direction Builder">
@@ -459,7 +464,7 @@
                         <div class="two-hover fst">
                             <div class="event-img">
                                 <a href="#">
-                                    <img src="img/event/1.jpg" alt="">
+                                    <img src="{% static 'img/event/1.jpg' %}" alt="">
                                 </a>
                             </div>
                             <div class="event-text">
@@ -485,7 +490,7 @@
                         <div class="two-hover">
                             <div class="event-img">
                                 <a href="#">
-                                    <img src="img/event/2.jpg" alt="">
+                                    <img src="{% static 'img/event/2.jpg' %}" alt="">
                                 </a>
                             </div>
                             <div class="event-text">
@@ -1003,28 +1008,28 @@
         
 		<!-- jquery
 		============================================ -->		
-        <script src="js/vendor/jquery-v2.2.4.min.js"></script>
+        <script src="{% static 'js/vendor/jquery-v2.2.4.min.js' %}"></script>
 		<!-- Popper JS
 		============================================ -->		
-        <script src="js/popper.min.js"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
 		<!-- Bootstrap JS
 		============================================ -->		
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <!-- ajax mails JS
         ============================================ -->
-        <script src="js/ajax-mail.js"></script>
+        <script src="{% static 'js/ajax-mail.js' %}"></script>
 		<!-- wow JS
 		============================================ -->		
-        <script src="js/wow.min.js"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
 		<!-- Nivo slider js
 		============================================ --> 		
-		<script src="lib/js/jquery.nivo.slider.js"></script>
-		<script src="lib/home.js"></script>
+		<script src="{% static 'lib/js/jquery.nivo.slider.js' %}"></script>
+		<script src="{% static 'lib/home.js' %}"></script>
 		<!-- plugins JS
 		============================================ -->
-        <script src="js/plugins.js"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
 		<!-- main JS
 		============================================ -->		
-        <script src="js/main.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
     </body>
 </html>
