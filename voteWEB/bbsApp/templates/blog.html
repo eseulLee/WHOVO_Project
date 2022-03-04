@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Polite || Blog</title>
+        <title>WHOVO || Blog</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- favicon
@@ -69,13 +69,13 @@
                                         <li>
                                             <a href="#">
                                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                                Hotline (+123) 45 67 89 21
+                                                Hotline (+82) 10 2423 2321
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                devitmes@gmail.com
+                                                whovo@gmail.com
                                             </a>
                                         </li>
                                     </ul>
@@ -100,8 +100,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="logo floatleft">
-                                    <a href="index.html">
-                                        <img alt="" src="img/logo/logo.png">
+                                    <a href="../whovo">
+                                        <img alt="" src="{% static 'img/logo/whovologo.png' %}">
                                     </a>
                                 </div>
                                 <div class="header-search floatright">
@@ -118,10 +118,10 @@
                                 <div class="main-menu floatright">
                                     <nav>
                                         <ul>
-                                            <li><a class="menu-icon" href="../index">Home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a class="menu-icon" href="../whovo">Home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
-                                                        <a href="../index">home</a>
+                                                        <a href="../whovo">home</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -138,8 +138,6 @@
                                                     </li>
                                                 </ul>
                                             </li>
-
-
                                         </ul>
                                     </nav>
                                 </div>
@@ -156,14 +154,14 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li><a class="menu-icon" href="index.html">Home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a class="menu-icon" href="../whovo">Home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
-                                                        <a href="index.html">home version one</a>
+                                                        <a href="../whovo">home</a>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="about.html"> About</a></li>
+
                                             <li><a href="../blog"> blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
@@ -177,35 +175,6 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#"> Pages <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                                <ul class="submenu-mainmenu">
-                                                    <li>
-                                                        <a href="about.html">about us</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../donate">login</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="team.html">team</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="team-details.html">team details</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="events.html">event</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="events-details.html">event details</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="contact.html">contact</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="coming-soon.html">Coming soon</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact </a></li>
                                         </ul>
                                     </nav>
                                 </div>					
@@ -235,7 +204,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/1.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/1.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -258,7 +227,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner blg-xs">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/2.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/2.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -281,7 +250,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner bgl-mrg blg-xs">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/3.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/3.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -304,7 +273,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner blog-mrg">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/4.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/4.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -327,7 +296,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner blog-mrg">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/5.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/5.jpg'%}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -350,7 +319,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner blog-mrg">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/6.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/6.jpg'%}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -373,7 +342,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner bgl-mrg blg-xs">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/1.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/1.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -396,7 +365,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner bgl-mrg blg-xs">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/4.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/4.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -419,7 +388,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="blog-container-inner res-event blg-xs">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/2.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/2.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -478,8 +447,8 @@
                             <div class="col-lg-5 col-md-4">
                                 <div class="middle-text">
                                     <div class="footer-icon">
-                                        <a href="index.html">
-                                            <img src="img/logo/logo2.png" alt="">
+                                        <a href="../whovo">
+                                            <img src="{% static 'img/logo/logo2.png' %}" alt="">
                                         </a>
                                     </div>
                                     <div class="middle-mgn">
@@ -520,14 +489,14 @@
                                 <div class="middle-text res-1">
                                     <h3>instagram</h3>
                                     <div class="middle-mgn">
-                                        <div class="img-one"><a href="#"><img alt="" src="img/banner/14.jpg"></a></div>
-                                        <div class="img-one"><a href="#"><img alt="" src="img/banner/15.jpg"></a></div>
-                                        <div class="img-one md-mrg"><a href="#"><img alt="" src="img/banner/18.jpg"></a></div>
-                                        <div class="img-one mgn-none"><a href="#"><img alt="" src="img/banner/17.jpg"></a></div>
-                                        <div class="img-one img-none-sm"><a href="#"><img alt="" src="img/banner/16.jpg"></a></div>
-                                        <div class="img-one img-none-sm"><a href="#"><img alt="" src="img/banner/19.jpg"></a></div>
-                                        <div class="img-one img-none img-none-sm"><a href="#"><img alt="" src="img/banner/20.jpg"></a></div>
-                                        <div class="img-one mgn-none img-none img-none-sm"><a href="#"><img alt="" src="img/banner/21.jpg"></a></div>
+                                        <div class="img-one"><a href="#"><img alt="" src="{% static 'img/banner/14.jpg' %}"></a></div>
+                                        <div class="img-one"><a href="#"><img alt="" src="{% static 'img/banner/15.jpg' %}"></a></div>
+                                        <div class="img-one md-mrg"><a href="#"><img alt="" src="{% static 'img/banner/18.jpg' %}"></a></div>
+                                        <div class="img-one mgn-none"><a href="#"><img alt="" src="{% static 'img/banner/17.jpg' %}"></a></div>
+                                        <div class="img-one img-none-sm"><a href="#"><img alt="" src="{% static 'img/banner/16.jpg' %}"></a></div>
+                                        <div class="img-one img-none-sm"><a href="#"><img alt="" src="{% static 'img/banner/19.jpg' %}"></a></div>
+                                        <div class="img-one img-none img-none-sm"><a href="#"><img alt="" src="{% static 'img/banner/20.jpg' %}"></a></div>
+                                        <div class="img-one mgn-none img-none img-none-sm"><a href="#"><img alt="" src="{% static 'img/banner/21.jpg' %}"></a></div>
                                     </div>
                                 </div>
                             </div>
