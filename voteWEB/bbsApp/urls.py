@@ -4,7 +4,7 @@ from bbsApp         import views
 
 
 urlpatterns = [
-    path('', views.index, name = 'bbs_index'),
+    path('whovo/', views.index, name = 'whovo'),
     path('login/', views.login, name = 'bbs_login'),
     path('loginPage/', views.loginPage, name='bbs_loginPage'),
     path('joinForm/', views.joinForm, name = 'joinForm'),
