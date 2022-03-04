@@ -51,3 +51,14 @@ def logout(request) :
     request.session['member_id'] = {}
     request.session.modified = True
     return redirect('bbs_index')
+
+def blog(request) :
+    return render(request, 'blog.html')
+
+def blogTwo(request):
+    return render(request, 'blog-two.html')
+
+def blogDetail(request):
+    return render(request, 'blog-two-details.html')
+def donate(request):
+    return render(request, 'donate.html')
