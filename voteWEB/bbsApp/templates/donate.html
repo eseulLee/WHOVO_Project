@@ -76,7 +76,7 @@
                                         </span>
                                     </div>
                                     <div class="header-button floatright">
-                                        <a href="../donate">로그인</a>
+                                        <a href="../login">로그인</a>
                                     </div>
                                 </div>
                                 <div class="main-menu floatright">
@@ -92,19 +92,6 @@
                                                     </li>
                                                     <li>
                                                         <a href="../candidate3">심상정 후보 공약보기</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="../blog"> blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                                <ul class="submenu-mainmenu">
-                                                    <li>
-                                                        <a href="../blog">blog</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two">blog sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two-details">blog details</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -135,19 +122,6 @@
                                                     </li>
                                                     <li>
                                                         <a href="../candidate3">심상정 후보 공약보기</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="../blog"> blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                                <ul class="submenu-mainmenu">
-                                                    <li>
-                                                        <a href="../blog">blog</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two">blog sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two-details">blog details</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -182,13 +156,14 @@
                             <div class="donate-sidebar">
                                 <div class="donate-sidebar-bottom">
                                     <h1>회원가입</h1>
-                                    <form action="#">
+                                    <form action="../join/" method="post">
+                                        {% csrf_token %}
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <input class="form-control2" name="id" placeholder="ID" type="text">
                                             </div><p/>
                                             <div class="col-lg-4">
-                                                <input class="form-control2" name="pwd" placeholder="PASSWORD" type="text">
+                                                <input class="form-control2" name="pwd" placeholder="PASSWORD" type="password">
                                             </div><p/>
                                             <div class="col-lg-4">
                                                 <input class="form-control2" name="name" placeholder="이름" type="text">
@@ -256,7 +231,7 @@
         <script src="{% static 'js/ajax-mail.js'%}"></script>
 		<!-- wow JS
 		============================================ -->		
-        <script src="{ % static 'js/wow.min.js'%}"></script>
+        <script src="{% static 'js/wow.min.js'%}"></script>
 		<!-- Nivo slider js
 		============================================ --> 		
 		<script src="{% static 'lib/js/jquery.nivo.slider.js'%}"></script>

@@ -11,7 +11,7 @@ def loginPage(request):
 def login(request):
     print('>>>> user login')
     if request.method == 'GET':
-        return redirect('bbs_index')
+        return redirect('whovo')
     else :
         print('>>>> request POST')
         id = request.POST['id']
@@ -26,9 +26,9 @@ def login(request):
             context['id'] = request.session['member_id']
             context['name'] = request.session['member_id']
 
-            return render(request, 'indexTemp.html', context)
+            return render(request, 'donate.html', context)
         else :
-            return redirect('bbs_index')
+            return redirect('whovo')
 
 
 def joinForm(request) :
@@ -43,14 +43,14 @@ def join(request):
     age = request.POST['age']
     print('>>>> param values - ', id, pwd, name,poli,age)
     WebMember(member_id=id, member_pwd=pwd, member_name=name, member_poli=poli,member_age=age).save()
-    return redirect('bbs_index')
+    return redirect('whovo')
 
 def logout(request) :
     print(">>>> user logout")
     request.session['member_name'] = {}
     request.session['member_id'] = {}
     request.session.modified = True
-    return redirect('bbs_index')
+    return redirect('whovo')
 
 def blog(request) :
     return render(request, 'blog.html')
@@ -66,6 +66,7 @@ def candidate3(request):
 
 def blogDetail(request):
     return render(request, 'blog-two-details.html')
+
 def donate(request):
     return render(request, 'donate.html')
 

@@ -51,7 +51,7 @@
         
 		<!-- modernizr JS
 		============================================ -->		
-        <script src="js/vendor/modernizr-3.11.7.min.js"></script>
+        <script src="{% static 'js/vendor/modernizr-3.11.7.min.js' %}"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -96,19 +96,6 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../blog"> blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                                <ul class="submenu-mainmenu">
-                                                    <li>
-                                                        <a href="../blog">blog</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two">blog sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two-details">blog details</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
                                             <li><a href="../events">event(extra page)</a></li>
                                         </ul>
                                     </nav>
@@ -136,19 +123,6 @@
                                                     </li>
                                                     <li>
                                                         <a href="../candidate3">심상정 후보 공약보기</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="../blog"> blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                                <ul class="submenu-mainmenu">
-                                                    <li>
-                                                        <a href="../blog">blog</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two">blog sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="../blog-two-details">blog details</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -182,7 +156,7 @@
                         <div class="col-lg-9 col-md-8 fix">
                             <div class="blog-container-inner">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/8.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/8.jpg'%}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -203,7 +177,7 @@
                             </div>
                             <div class="blog-container-inner blog-two-mrg">
                                 <div class="post-thumb">
-                                    <a href="#"><img class="attachment-blog-list" src="img/blog/9.jpg" alt=""></a>
+                                    <a href="#"><img class="attachment-blog-list" src="{% static 'img/blog/9.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="visual-inner">
                                     <div class="home-2-blog">
@@ -260,7 +234,7 @@
                                     <div class="categori-list1">
                                         <div class="categori-list-one">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/5n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/5n.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Boluptatem quia Ami </a></h3>
@@ -269,7 +243,7 @@
                                         </div>
                                         <div class="categori-list-one">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/6n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/6n.jpg ' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
@@ -278,7 +252,7 @@
                                         </div>
                                         <div class="categori-list-one">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/7n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/7n.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
@@ -287,7 +261,7 @@
                                         </div>
                                         <div class="categori-list-one mrg-nn">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/8n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/8n.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Nemo enim ipsam</a></h3>
@@ -303,7 +277,7 @@
                                     <div class="categori-list1">
                                         <div class="categori-list-one">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/5n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/5n.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Boluptatem quia Ami </a></h3>
@@ -312,7 +286,7 @@
                                         </div>
                                         <div class="categori-list-one">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/6n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/6n.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
@@ -321,7 +295,7 @@
                                         </div>
                                         <div class="categori-list-one">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/7n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/7n.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
@@ -330,7 +304,7 @@
                                         </div>
                                         <div class="categori-list-one mrg-nn">
                                             <div class="categori-list-img">
-                                                <a href="#"><img src="img/event/8n.jpg" alt=""></a>
+                                                <a href="#"><img src="{% static 'img/event/8n.jpg' %}" alt=""></a>
                                             </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Nemo enim ipsam</a></h3>
