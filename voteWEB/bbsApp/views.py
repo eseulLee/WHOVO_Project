@@ -55,10 +55,19 @@ def logout(request) :
 def blog(request) :
     return render(request, 'blog.html')
 
-def blogTwo(request):
-    return render(request, 'blog-two.html')
+def candidate1(request):
+    return render(request, 'candidate1.html')
+
+def candidate2(request):
+    return render(request, 'candidate2.html')
+
+def candidate3(request):
+    return render(request, 'candidate3.html')
 
 def blogDetail(request):
     return render(request, 'blog-two-details.html')
 def donate(request):
     return render(request, 'donate.html')
+
+def events(request):
+    return render(request, 'events.html')

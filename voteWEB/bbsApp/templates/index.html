@@ -79,21 +79,25 @@
                                         </span>
                                     </div>
                                     <div class="header-button floatright">
-                                        <a href="../donate">Login Now</a>
+                                        <a href="../donate">로그인</a>
                                     </div>
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
                                         <ul>
-                                            <li><a class="menu-icon" href="../whovo">Home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
-                                                        <a href="../whovo">home</a>
+                                                        <a href="../candidate1">이재명 후보 공약보기</a>
                                                     </li>
-
+                                                    <li>
+                                                        <a href="../candidate2">윤석열 후보 공약보기</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="../candidate3">심상정 후보 공약보기</a>
+                                                    </li>
                                                 </ul>
                                             </li>
-
                                             <li><a href="../blog"> blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
@@ -107,6 +111,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
+                                            <li><a href="../events">event(extra page)</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -123,15 +128,19 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li><a class="menu-icon" href="../whovo">Home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
-                                                        <a href="../whovo">home</a>
+                                                        <a href="../candidate1">이재명 후보 공약보기</a>
                                                     </li>
-
+                                                    <li>
+                                                        <a href="../candidate2">윤석열 후보 공약보기</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="../candidate3">심상정 후보 공약보기</a>
+                                                    </li>
                                                 </ul>
                                             </li>
-
                                             <li><a href="../blog"> blog <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
@@ -145,6 +154,9 @@
                                                     </li>
                                                 </ul>
                                             </li>
+                                            <li><a href="../events">event(extra page)</a></li>
+                                            <li><a href="../donate">로그인</a></li>
+
                                         </ul>
                                     </nav>
                                 </div>					
@@ -158,14 +170,14 @@
                 <div class="main-slider an-si">
                     <div class="bend niceties preview-2">
                         <div id="ensign-nivoslider-2" class="slides">	
-                            <img src="{% static 'img/slider/leeJM.png' %}" alt="" title="#slider-direction-3"  />
-                            <img src="{% static 'img/slider/Yun.jpg' %}" alt="" title="#slider-direction-1"  />
-                            <img src="{% static 'img/slider/Sim.jpg' %}" alt="" title="#slider-direction-1"  />
+                            <img src="{% static 'img/slider/leeJM.png' %}" alt="" title="#slider-direction-1"  />
+                            <img src="{% static 'img/slider/Yun.jpg' %}" alt="" title="#slider-direction-2"  />
+                            <img src="{% static 'img/slider/Sim.jpg' %}" alt="" title="#slider-direction-3"  />
                         </div>
                         <!-- direction 1 -->
-                        <div id="slider-direction-3" class="t-cn slider-direction Builder">
+                        <div id="slider-direction-1" class="t-cn slider-direction Builder">
                             <div class="container">
-                                <div class="slide-all">
+                                <div class="slide-all slide1">
                                     <!-- layer 1 -->
                                     <div class="layer-1">
                                         <h3 class="title5">HEY! WE ARE polite</h3>
@@ -180,12 +192,13 @@
                                     </div>
                                     <!-- layer 3 -->
                                     <div class="layer-3">
-                                        <a class="min1" href="#">Read more</a>
+                                        <a class="min1" href="../candidate1">Read more</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="slider-direction-1" class="t-cn slider-direction Builder">
+                        <!-- direction 2 -->
+                        <div id="slider-direction-2" class="t-cn slider-direction Builder">
                             <div class="container">
                                     <div class="slide-all slide2">
                                     <!-- layer 1 -->
@@ -202,7 +215,30 @@
                                     </div>
                                     <!-- layer 3 -->
                                     <div class="layer-3">
-                                        <a class="min1" href="#">Read more</a>
+                                        <a class="min1" href="../candidate2">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- direction 3 -->
+                        <div id="slider-direction-3" class="t-cn slider-direction Builder">
+                            <div class="container">
+                                    <div class="slide-all slide3">
+                                    <!-- layer 1 -->
+                                    <div class="layer-1">
+                                        <h3 class="title5 moment">HEY! WE ARE polite</h3>
+                                    </div>
+                                    <!-- layer 2 -->
+                                    <div class="layer-2">
+                                        <h1 class="title6">Election Day Is Coming</h1>
+                                    </div>
+                                    <!-- layer 2 -->
+                                    <div class="layer-2">
+                                        <h1 class="title6">United for Progress</h1>
+                                    </div>
+                                    <!-- layer 3 -->
+                                    <div class="layer-3">
+                                        <a class="min1" href="../candidate3">Read more</a>
                                     </div>
                                 </div>
                             </div>
