@@ -3,4 +3,5 @@ from candidate2App import views
 
 urlpatterns = [
     path('index/', views.candidate2),
+    path('detail/', views.detail),
 ]
