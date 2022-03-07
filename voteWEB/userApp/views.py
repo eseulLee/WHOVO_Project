@@ -27,7 +27,7 @@ def login(request):
             context['id'] = request.session['member_id']
             context['name'] = request.session['member_id']
 
-            return render(request, 'donate.html', context)
+            return render(request, '../index.html', context)
         else :
             return redirect('whovo')
 
