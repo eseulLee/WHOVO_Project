@@ -13,5 +13,4 @@ urlpatterns = [
     path('detail08/', views.detail08),
     path('detail09/', views.detail09),
     path('detail10/', views.detail10),
-
 ]
