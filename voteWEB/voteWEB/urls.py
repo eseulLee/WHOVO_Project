@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from voteWEB    import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('bbsApp.urls')),
-
-
+    path('whovo/', views.index, name='index'),
+    path('user/', include('userApp.urls')),
+    path('candidate1/', include('candidate1App.urls'), name='candidate1'),
+    path('candidate2/', include('candidate2App.urls'), name='candidate2'),
+    path('candidate3/', include('candidate3App.urls'), name='candidate3'),
 
 ]

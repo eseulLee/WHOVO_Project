@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bbsApp',
+    'userApp',
+    'candidate1App',
+    'candidate2App',
+    'candidate3App',
 
 ]
 
@@ -123,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'bbsApp', 'static')
+    os.path.join(BASE_DIR, 'bbsApp', 'static','candidate1App', 'candidate2App', 'candidate3App', 'userApp')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

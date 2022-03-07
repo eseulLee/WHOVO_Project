@@ -8,11 +8,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- favicon
-		============================================ -->
+		============================================ -->		
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-
+	   
 		<!-- Bootstrap CSS
-		============================================ -->
+		============================================ -->		
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
 		<!-- font-awesome CSS
 		============================================ -->
@@ -47,9 +47,9 @@
 		<!-- responsive CSS
 		============================================ -->
         <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
-
+        
 		<!-- modernizr JS
-		============================================ -->
+		============================================ -->		
         <script src="{% static 'js/vendor/modernizr-3.11.7.min.js'%}"></script>
     </head>
     <body>
@@ -76,7 +76,7 @@
                                         </span>
                                     </div>
                                     <div class="header-button floatright">
-                                        <a href="../donate">로그인</a>
+                                        <a href="../login">로그인</a>
                                     </div>
                                 </div>
                                 <div class="main-menu floatright">
@@ -155,8 +155,8 @@
                         <div class="col-lg-12">
                             <div class="donate-sidebar">
                                 <div class="donate-sidebar-bottom">
-                                    <h1>로그인</h1>
-                                    <form action="../login/" method="post">
+                                    <h1>회원가입</h1>
+                                    <form action="../join/" method="post">
                                         {% csrf_token %}
                                         <div class="row">
                                             <div class="col-lg-4">
@@ -165,11 +165,21 @@
                                             <div class="col-lg-4">
                                                 <input class="form-control2" name="pwd" placeholder="PASSWORD" type="password">
                                             </div><p/>
+                                            <div class="col-lg-4">
+                                                <input class="form-control2" name="name" placeholder="이름" type="text">
+                                            </div><p/>
+                                            <div class="col-lg-4">
+                                                <input class="form-control2" name="age" placeholder="출생 연도 (4자리로 입력 예) 2022)" type="int">
+                                            </div><p/>
+                                            <div class="col-lg-4">
+                                                <select class="email s-email s-wid" name="poli" >
+                                                    <option>선호정당</option>
+                                                    <option>더불어민주당</option>
+                                                    <option>국민의힘</option>
+                                                    <option>정의당</option>
+                                                </select>
                                         </div>
-                                        <button class="submit" type="submit" onclick="location.href = '../whovo/'">
-                                            로그인
-                                        </button>
-                                        <button class="submit" type="submit" onclick="location.href= '../donate/'">
+                                        <button class="submit" type="submit">
                                             회원가입
                                         </button>
                                     </form>
@@ -201,36 +211,36 @@
                 <i class="fa fa-chevron-up"></i>
             </div>
         </div>
-
-
-
-
-
-
+        
+        
+        
+        
+        
+        
 		<!-- jquery
-		============================================ -->
+		============================================ -->		
         <script src="{% static 'js/vendor/jquery-v2.2.4.min.js'%}"></script>
         <!-- Popper JS
-		============================================ -->
+		============================================ -->		
         <script src="{% static 'js/popper.min.js'%}"></script>
 		<!-- bootstrap JS
-		============================================ -->
+		============================================ -->		
         <script src="{% static 'js/bootstrap.min.js'%}"></script>
         <!-- ajax mails JS
         ============================================ -->
         <script src="{% static 'js/ajax-mail.js'%}"></script>
 		<!-- wow JS
-		============================================ -->
-        <script src="{ % static 'js/wow.min.js'%}"></script>
+		============================================ -->		
+        <script src="{% static 'js/wow.min.js'%}"></script>
 		<!-- Nivo slider js
-		============================================ -->
+		============================================ --> 		
 		<script src="{% static 'lib/js/jquery.nivo.slider.js'%}"></script>
 		<script src="{% static 'lib/home.js'%}"></script>
 		<!-- plugins JS
 		============================================ -->
         <script src="{% static 'js/plugins.js'%}"></script>
 		<!-- main JS
-		============================================ -->
+		============================================ -->		
         <script src="{% static 'js/main.js'%}"></script>
     </body>
 </html>
