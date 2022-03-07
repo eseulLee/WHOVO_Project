@@ -11,25 +11,26 @@ def donate(request):
 
 def login(request):
     print('>>>> user login')
-    if request.method == 'GET':
-        return redirect('whovo')
-    else :
-        print('>>>> request POST')
+    if request.method == 'POST':
+        print('>>>> request post')
         id = request.POST['id']
         pwd = request.POST['pwd']
-        print('>>>> request param - ', id , pwd)
-        user = WebMember.objects.get(member_id=id, member_pwd=pwd)
-        print('>>>> user result', user)
+        print('>>>> request param - ', id, pwd)
         context = {}
-        if user is not None :
-            request.session['member_id'] = user.member_id
-            request.session['member_name'] = user.member_name
-            context['id'] = request.session['member_id']
-            context['name'] = request.session['member_id']
+        try:
+            user = WebMember.objects.get(member_id=id, member_pwd=pwd)
 
-            return render(request, 'donate.html', context)
-        else :
+            request.session['member_name'] = user.member_name
+            request.session['member_id'] = user.member_id
+
+            context['session_member_name'] = request.session['member_name']
+            context['session_member_id'] = request.session['member_id']
+            # return render(request, 'index.html', context)
             return redirect('whovo')
+        except Exception as e:
+            context['error'] = 'invalid id, pwd'
+            return render(request, 'user/donate.html', context)
+
 
 def join(request):
     print('>>>> user join - ')
