@@ -19,7 +19,7 @@ from voteWEB    import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('whovo/', views.index, name='index'),
+    path('whovo/', views.index, name='whovo'),
     path('user/', include('userApp.urls')),
     path('candidate1/', include('candidate1App.urls'), name='candidate1'),
     path('candidate2/', include('candidate2App.urls'), name='candidate2'),
