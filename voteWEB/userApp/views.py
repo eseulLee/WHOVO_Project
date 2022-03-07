@@ -25,8 +25,10 @@ def login(request):
 
             context['session_member_name'] = request.session['member_name']
             context['session_member_id'] = request.session['member_id']
+
             # return render(request, 'index.html', context)
-            return render(request, 'index.html', context)
+            return render(request, 'user/home.html', context)
+
         except Exception as e:
             context['error'] = 'invalid id, pwd'
             return render(request, 'user/donate.html', context)
