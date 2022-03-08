@@ -76,9 +76,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
                                     <div class="header-button floatright">
-                                        <a href="../../user/index/">로그인</a>
+                                        <a href="../../user/logout">로그아웃</a>
                                     </div>
+                                    {% else %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/index">로그인</a>
+                                    </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>

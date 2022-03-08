@@ -8,7 +8,7 @@ def candidate1(request):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
-            'session_member_name' :  request.session.get('member_name'), # 동일) request.session['user_name'] = user.user_name
+            'session_member_name' :  request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/candidate1.html',context)
@@ -22,7 +22,6 @@ def detail01(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail1.html',context)
@@ -36,7 +35,6 @@ def detail02(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail2.html',context)
@@ -50,7 +48,6 @@ def detail03(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail3.html',context)
@@ -64,7 +61,6 @@ def detail04(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail4.html',context)
@@ -78,7 +74,6 @@ def detail05(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail5.html',context)
@@ -92,7 +87,6 @@ def detail06(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail6.html',context)
@@ -106,7 +100,6 @@ def detail07(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail7.html',context)
@@ -120,7 +113,6 @@ def detail08(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail8.html',context)
@@ -134,7 +126,6 @@ def detail09(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail9.html',context)
@@ -148,7 +139,6 @@ def detail10(request):
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            # 동일) request.session['user_name'] = user.user_name
             'session_member_id': request.session.get('member_id'),
         }
         return render(request, 'candidate1/blogDetail10.html',context)
