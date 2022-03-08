@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/logout">로그아웃</a>
+                                    </div>
+                                    {% else %}
                                     <div class="header-button floatright">
                                         <a href="../../user/index">로그인</a>
                                     </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -164,9 +172,50 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <h5>모든 일하는 사람에게 노동권 보장</h5>
+                                        <h5>자영업자 코로나 피해 부담 경감 및 골목경제 활성화, 농산어촌의 녹색대전환 시작</h5></br>
+                                        <h4>이행방법</h4>
+                                        <h5>‘일하는 시민’ 모두에게 노동기본권 보장</h5>
+                                        <li>< 일하는 시민을 위한 기본법> 제정, 플랫폼·프리랜서·자영업자·특고 등 노동기본권 보장</li>
+                                        <li>5인 미만 사업장 근로기준법 전면 적용, 비정규직 사용사유 제한, 동일가치 동일임금 법제화</li>
+                                        <li>모든 시민에게 노조할 권리 보장, 노동조합 설립신고에서 정보제출로 단순화</li>
+                                        <li>성평등교섭 의무화 및 성평등임금공시제 도입</li>
+                                        <li>최저임금 인상, 최고임금법 제정, 정규직보다 높은 비정규직 ‘평등수당’ 도입</li>
+                                        <li>단체협약 효력확장 도입, 원하청 공동사용자성 인정, 교섭창구단일화 제도 폐지·개선</li></br>
+                                        <h5>주4일제 도입 및 쉴 권리 확대</h5>
+                                        <li>2022년 사회적 공론화 및 합의→2023년 시범운영→2027년까지 입법 완료</li>
+                                        <li>연차휴가 25일로 확대, 최소노동시간보장제 도입, 생애주기별 노동시간 선택제 도입</li>
+                                        <li>전국민 상병수당(소득의 70%) 및 질병휴가 도입</li></br>
+                                        <h5>원스톱 산재보험 도입 및 중대기업처벌법 제정</h5>
+                                        <li>국민건강보험과 같이 병원에서 먼저 산재치료 및 요양을 받는 < 신청-승인 > 제도에서< 선보장 >제도로 전환, 산재보험 적용대상 확대</li>
+                                        <li>중대재해기업처벌법 개정으로 적용범위 확대, 처벌 강화, 징벌적 손해배상 하한 도입, 인과관계 추정 규정, 양형절차 특례규정, 공무원 처벌규정 신설</li>
+                                        <li>산업안전보건법, 취약대상별 특성에 따른 안전보건대책 마련, 건설안전특별법 제정</li>
+                                        <li>위험의 외주화 금지, 과로사 예방 및 정신건강 보장, 노동자‧시민의 알권리, 참여권, 작 업중지권 보장</li></br>
+                                        <h5>전국민일자리보장제</h5>
+                                        <li>산업전환, 노인, 청년 등에게 생활임금 이상의 학습·경력개발(유지)형 국가일자리 제공</li>
+                                        <li>일하는 시민 모두에게 평생학습 자기계발계좌(연간 150-300만원) 지원</li></br>
+                                        <h5>코로나19 자영업자 손실보상·피해지원 확대, 골목상권 활성화</h5>
+                                        <li>코로나19 손실보상금 확대, 자영업자 임대료 부담 경감, 자영업자 부채 이자 탕감 및 고통 분담 방안 마련,</li>
+                                        <li>코로나19 특별재난연대세 부과 및 특별재난연대기금 조성</li>
+                                        <li>온라인 플랫폼 독점 규제,‘온라인 플랫폼 공정화법’ 제정</li>
+                                        <li>‘알고리즘 투명화법’ 제정</li>
+                                        <li>‘허위 리뷰 방지법’ 제정</li>
+                                        <li>골목상권 활성화를 위한 대규모 점포·복합쇼핑몰 규제 강화</li>
+                                        <li>대규모 점포 의무휴일제 확대</li>
+                                        <li>가맹점 분야 이익 배분 개선을 위한 최저이익보장제 도입</li>
+                                        <li>상가 임대료 부담 완화·젠트리피케이션 방지</li>
+                                        <li>자영업자 사회안전망 강화</li></br>
+                                        <h5>농산어촌의 녹색대전환 시작</h5>
+                                        <li>모든 농어민에게 월 30만 원 기본소득 지급, 연간 2.4조 규모의 공익형 직불제를 연간 5조원 규모로 확충</li>
+                                        <li>‘국가식량주권 위원회’설치, 식량 자급률 법제화, 곡물자급률 30% 달성</li>
+                                        <li>‘전국민 먹거리 기본법’ 제정</li>
+                                        <li>유전자변형농식품의 완전표시제 시행</li>
+                                        <li>생태농어업 비중 30% 이상 확대, 농약·화학비료사용을 50% 이상 감축</li>
+                                        <li>농어업재해보험의 복구비 현실화로 실소득 손실액의 80%까지 지원</li></br>
+                                        <h4>재원조달방안 등</h4>
+                                        <h5>일반회계 및 기금 활용</h5>
                                     </div>
                                 </div>
                                 <div class="blog-tag">

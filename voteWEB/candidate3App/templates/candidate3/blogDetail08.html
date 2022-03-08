@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/logout">로그아웃</a>
+                                    </div>
+                                    {% else %}
                                     <div class="header-button floatright">
                                         <a href="../../user/index">로그인</a>
                                     </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -164,9 +172,53 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <h5>장애인, 이주민, 성소수자 등 사회적 소수자 차별 해소</h5>
+                                        <h5>동물복지 강화와 국민 모두의 삶터 안전 실현</h5></br>
+                                        <h4>이행방법</h4>
+                                        <h5>차별없는 대한민국</h5>
+                                        <li>차별금지법 제정, 다양한 가족구성 인정하는 동반자등록법 제정</li>
+                                        <li>성별 변경 성소수자 인권 보호, HIV 감염인 건강 등 인권보호</li>
+                                        <li>공공기관 인권교육과 국가인권위원회 강화</li></br>
+                                        <h5>이주사회 전환 기반 구축</h5>
+                                        <li>재외동포 기본법 제정과 전담기구 설치, 이주민 전담기구설치, 이민법 제정</li>
+                                        <li>노동비자 영주제도 도입과 인권친화적 고용허가제 도입</li>
+                                        <li>인권을 존중하는 난민법 제정</li>
+                                        <li>한국-ASEAN 인권협력기구 설치</li>
+                                        <h5>장애시민의 삶이 선진국인 평등과 존엄의 나라</h5>
+                                        <li>OECD 평균 수준으로 장애인 예산 확보</li>
+                                        <li>장애인등록제 폐지, 장애서비스법/장애인권리보장법 제정, 선택의정서 국회 비준</li>
+                                        <li>비리시설 원스트라이크 아웃제 도입, 신규 거주시설 설치 금지 등 10년 내 탈시설 실현</li>
+                                        <li>발달장애인 등 중증장애인 24시간 활동지원서비스 보장</li>
+                                        <li>시내버스 대폐차 차량 100% 저상버스, 고속버스 및 시외버스 등 50% 저상버스</li>
+                                        <li>보조공학기기 공공특허제 마련, 음성 및 화면지원 보조기기 지원 강화</li>
+                                        <li>장애인 최저임금 적용, 한국형 장애인공기업 설립, 권리형 중증장애인 공공일자리 창출</li></br>
+                                        <h5>동물과 사람이 함께 사는 생명존중 사회</h5>
+                                        <li>동물을 물건이 아닌 생명으로 대하도록 법 제·개정</li>
+                                        <li>동물학대, 안락사, 동물살처분, 번식장, 개식용 없는 ‘생명존중 5無 사회’ 실현</li>
+                                        <li>공공적 성격의 반려동물 건강보험 도입</li>
+                                        <li>공공 장례시설에 반려동물 화장장 추가 및 지방자치단체 동물장례시설 설치 의무화</li>
+                                        <li>대규모 번식장 단계적 폐지, ‘공공 동물보호센터’ 입양 활성화, 반려동물이력제 도입 </li>
+                                        <li>동물보호감시원을 동물보호전담공무원으로 개편하고 인원 충원 </li>
+                                        <li>유실·유기·야생동물 구조 강화 및 안락사 금지</li>
+                                        <li>채식문화 확산, 동물복지농장 확대, 전시·실험동물 존엄성 고취</li></br>
+                                        <h5>삶터가 안전한 나라</h5>
+                                        <li>생명안전기본법 제정 및 피해자 권리 보장</li>
+                                        <li>교통안전 강화</li>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;보행자‧자전거 중심의 교통안전체계 구축, 노인친화 보행환경 구축</h7></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;교통이동권‧공공교통‧교통격차‧‧교통전환을 위한 국민의 권리 명시 교통 기본법 제정</h7></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;운송노동자 안전운임제 적용 및 확대, 시민과 노동자의 공공교통 정책 참여 보장</h7></br>
+                                        <li>안전취약계층 보호</li>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;여성‧장애인‧노인‧영유아 등 안전취약계층에 대한 상황별 매뉴얼과 지원대책 마련</h7></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;범죄예방환경 조성 및 지역사회 안전거버넌스 구축</h7></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;고시원 등 화재취약계층 주거시설 스프링클러‧소화기 지원</h7></br>
+                                        <li>경찰‧소방 공무원 처우 개선</li></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;기본급 공안직 수준 인상 및 위험근무수당‧화재진압수당 등 현실화</h7></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;직급체계 개선으로 승진적체 해소, 소방공무원 공상추정제도 도입</h7></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;경찰공무원 단결권‧단체교섭권 부여</h7></br>
+                                        <h4>재원조달방안 등</h4>
+                                        <h5>법·제도 개선, 일반회계 등으로 조달</h5>
                                     </div>
                                 </div>
                                 <div class="blog-tag">

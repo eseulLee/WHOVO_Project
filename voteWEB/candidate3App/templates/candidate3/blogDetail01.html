@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/logout">로그아웃</a>
+                                    </div>
+                                    {% else %}
                                     <div class="header-button floatright">
                                         <a href="../../user/index">로그인</a>
                                     </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -164,9 +172,52 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <h5>탈탄소사회로의 대전환을 통해 기후위기를 극복하고 불평등 해소</h5><br/>
+                                        <h4>이행방법</h4>
+                                        <h5>탈탄소사회로의 전환</h5>
+                                        <li>'기후에너지부'를 신설, 대통령 직속의 '탈탄소사회전환 위원회' 설치</li>
+                                        <li>2030년 국가 온실가스 감축목표를 2010년 대비 50% 이상으로 상향</li>
+                                        <li>노동자, 시민단체, 정부, 산업계가 참여하는 '정의로운 일자리 전환 위원회' 설치</li><br/>
+                                        <h5>정의로운 에너지전환</h5>
+                                        <li>2030년까지 석탄화력발전소 가동중지, 신규 석탄화력 발전소 건설 전면 중단</li>
+                                        <li>2030년 재생에너지 발전비중 50% 달성</li>
+                                        <li>2023년~2030년까지 매년 20GW이상 설치하여 180GW의 재생에너지 발전설비 확보</li>
+                                        <li>한전발전자회사를 '재생에너지공사'로 통합</li>
+                                        <li>1가구 1태양광 시대 실현</li>
+                                        <li>공통주택 및 농어촌 마을에 태양광 무상 설치 및 배터리 지원</li>
+                                        <li>「에너지복지법」 제정 및 환경성과 사회성을 고려한 에너지정책 수립</li><br/>
+                                        <h5>그린노믹스로 녹색혁신 선도, 공존과 번영의 신경제 수립</h5>
+                                        <li>재생에너지발전기술 선도국가로 발전. 지능형 전력망 구축</li>
+                                        <li>제2의 반도체산업으로 배터리산업 육성</li>
+                                        <li>그린수소기술 개발, 산업공정 탄소배출 감축</li>
+                                        <li>지역경제 부흥으로 150만개 일자리 창출</li>
+                                        <li>산업은행을 녹색은행으로 전환</li></br>
+                                        <h5>「탈핵기본법」 제정을 통해 2040년 탈핵 달성</h5>
+                                        <li>「원자력진흥법」 폐지 및 신한울 3·4호기 등 신규 핵발전소 건설 원천적 방지</li>
+                                        <li>소형모듈원자로 개발에 대한 투자를 재생에너지·에너지 저장장치 기술 투자로 전환</li>
+                                        <li>폐로지역 충격 완화 및 지원과 보상을 위한 「발전소주변지역에 관한 법률」 개정</li>
+                                        <li>핵사고 및 안전관리 강화, 핵 취급시설 주민 안전 강화</li>
+                                        <li>고준위핵폐기물 직접영구처분</li></br>
+                                        <h5>자연과 사람이 공생하는 생태환경</h5>
+                                        <li>생활화학제품 전성분 100% 표시 의무화, 알권리 강화</li>
+                                        <li>국가산업단지 지역주민 건강 보호 강화. 환경오염피해 사후구제조치 강화</li>
+                                        <li>석면, 가습기살균제 등에 대한 피해구제 강화 및 예방 강화</li>
+                                        <li>산업단지·석탄화력발전소 배출 미세먼지 감축</li>
+                                        <li>미세먼지 상시노출 노동자 보호 강화</li>
+                                        <li>자원순환 사회 실현을 위한 시스템 구축</li>
+                                        <li>물 공공성, 안전성 강화. 하천 및 하구 생태 회복</li>
+                                        <li>생태교육 강화 및 육상 생태 관리 강화, 해양 생태계 보호 강화</li></br>
+                                        <h5>기후위기 시대 교통정책 전면 전환</h5>
+                                        <li>광역과 기초가 통합적으로 운영되는 버스공영제 중심의 공공교통체계 확립</li>
+                                        <li>교통시설특별회계를 통한 PSO와 비수익 공영노선 지원 확대</li>
+                                        <li>고속도로를 대체하는 철도 중심의 광역교통망 확대</li>
+                                        <li>자가용 중심 도시에서의 토지사용 전환, 녹지축의 확대</li></br>
+                                        <h4>재원조달방안 등</h4>
+                                        <h5>-탄소세 도입, 녹색채권 등 공적재원 활용 및 공공투자를 중심으로 민간펀드 활용</h5>
+                                        <h5>-산업은행을 녹색투자은행으로 전환하고 2030년까지 500조 녹색공공투자</h5>
+                                        <h5>-일반회계 및 특별회계 활용</h5>
                                     </div>
                                 </div>
                                 <div class="blog-tag">

@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/logout">로그아웃</a>
+                                    </div>
+                                    {% else %}
                                     <div class="header-button floatright">
                                         <a href="../../user/index">로그인</a>
                                     </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -165,9 +173,41 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <h5>성차별․ 폭력 없는 성평등 사회 실현</h5>
+                                        <h5>청년이 미래를 그릴 수 있는 사회 보장, 청소년이 가진 다양성이 존중받는 사회</h5></br>
+                                        <h4>이행방법</h4>
+                                        <h5>젠더폭력 없는 안전사회 실현</h5>
+                                        <li>비동의 강간죄 도입, 스토킹 데이트폭력 규제 강화, 가정폭력범죄처벌법 전면 개정, 성착취·성매매·인신매매 근절 법률 제·개정, 이차피해방지법 마련 개정</li>
+                                        <li>디지털 성차별·성폭력 대응 강화(적극적 국제공조체제마련, 수사기관부터 불법 촬영물 신속 삭제</li>
+                                        <li>디지털성범죄 삭제 전담반 확대, 구글·애플 등 앱마켓 운영 사업자 조치 의무화, 신고부터 사후관리까지 종합서비스 지원시스템 구축</li>
+                                        <li>아동청소년 성착취 및 성매매 성산업 확산 방지(온라인 그루밍 현장점검 강화)</li>
+                                        <li>성착취 디지털기술제공자 강력처벌, 채팅앱 규제 등 </li></br>
+                                        <h5>성평등 일터 보장, ‘전국민육아휴직제 도입’으로 일․생활 균형 실현</h5>
+                                        <li>성평등임금공시제 도입, 성별임금격차해소법 제정</li>
+                                        <li>채용 성차별 규제(성평등 담당관 선출, 성차별 의심기관 불시감독)</li>
+                                        <li>‘전국민육아휴직제 도입’: 육아휴직 급여 현실화(통상임금 80%, 상한 285만원으로 인상), 사후지급금 폐지, 육아휴직 엄마아빠 3개월씩 할당, 자동육아휴직제도 도입, 특수고용, 플랫폼, 자영업자 등도 육아휴직 대상으로 포함, 고용보험기금에 대한 일반 회계 분담비율 확대, 국가 책임 강화, 대체인력지원센터 설립·운영, ‘대체인력평등수당(육아휴직자 1.5배) 신설</li></br>
+                                        <h5>여성대표성 강화와 성평등 추진체계 강화</h5>
+                                        <li>성평등한 관점에서의 헌법 개정. 헌법에 남녀동등권의 명문화 </li>
+                                        <li>여성가족부의 성평등부 전환, 정부 지자체의 성주류화 정책 전담 추진 기능 강화</li></br>
+                                        <h5>국가일자리보장제로 청년 일자리 30만개 창출</h5>
+                                        <li>청년 누구에게나 생활임금과 사회보험, 역량교육 제공하는 일자리 보장</li>
+                                        <li>시군구별 일자리보장위원회와 일자리보장센터 운영으로 지역사회 일자리 발굴</li></br>
+                                        <h5>세입자 청년을 위한 안정적 전월세 주거 보장 </h5>
+                                        <li>보증금 제로 공공임대주택 공급 및 월세 지원(월 20만원, 3년간, 중위소득 150% 이상</li>
+                                        <li>최저주거기준 상향(1인당 14㎡→25㎡) 및 고시원과 컨테이너 등에도 적용</li></br>
+                                        <h5>청년기초자산제, 코로나 시기 졸업생 취업교육 및 부채 경감 지원</h5>
+                                        <li>20세가 되면 사회진출 디딤돌 3천만원 지급, 21세~29세는 매년 3백만원 지급</li>
+                                        <li>평생교육바우처 등 지원 확대 및 폴리텍대학 진학시 등록금 면제</li>
+                                        <li>생계비 대출(햇살론 유스) 만기 30년으로 연장, 학자금 대출 50% 경감</li></br>
+                                        <h5>아동청소년 포함한 통합적 청소년 정책 지원</h5>
+                                        <li>교육부, 보건복지부, 여성가족부로 분절된 아동청소년 정책 통합</li></br>
+                                        <h5>청소년 무상교통으로 교육체험 기회 확장</h5>
+                                        <li>지역부터 시작하여 청소년 버스요금 무상화 (만 7~18세 대상)</li>
+                                        <li>이후 지하철 요금 무상화 순차적 추진 및 공공자전거 확대로 대중교통 연계</li></br>
+                                        <h4>재원조달방안 등</h4>
+                                        <h5>일반회계 및 기금 활용</h5>
                                     </div>
                                 </div>
                                 <div class="blog-tag">

@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/logout">로그아웃</a>
+                                    </div>
+                                    {% else %}
                                     <div class="header-button floatright">
                                         <a href="../../user/index">로그인</a>
                                     </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -164,9 +172,48 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <h5>불공정한 경제 구조 개혁, 플랫폼경제 민주화와 플랫폼 노동자 권리 강화</h5>
+                                        <h5>현장 중심 과학기술 연구개발, 보편적 정보접근권 보장, 시민의 권리 확립</h5></br>
+                                        <h4>이행방법</h4>
+                                        <h5>「디지털플랫폼기업 독점방지법」 제정</h5>
+                                        <li>플랫폼 기업의 이해충돌 행위 금지</li>
+                                        <li>플랫폼독점기업에 계열분리·기업분할제 도입</li>
+                                        <li>불공정거래 행위 처벌 강화</li>
+                                        <li>정보·알고리즘 공유와 수수료 상한제 도입</li>
+                                        <li>플랫폼 이용사업자들에게 단체 구성 및 협의 권한 부여</li></br>
+                                        <h5>플랫폼 이용사업자들에게 단체 구성 및 협의 권한 부여</h5>
+                                        <li>배달·배송·모빌리티 플랫폼 등에 안전운임제·안전운반료 도입</li>
+                                        <li>큐레이션형 플랫폼의 과도한 수수료 개선 및 누적 MG 제도 금지</li></br>
+                                        <h5>경제력 집중 해소 위한 구조 개혁, 대기업 지배구조 개선</h5>
+                                        <li>계열분리·기업분할 명령제 도입, 기업집단 출자구조 2층 구조로 제한</li>
+                                        <li>MOM(Majority Of Minority) 규칙 도입 </li>
+                                        <li>분할 신설회사 보유 자기주식에 대한 신주 배정 금지, 의무공개매수제도 도입</li>
+                                        <li>공익법인, 금융계열사가 보유한 계열사 의결권 사용 금지</li>
+                                        <li>감사위원회 사외이사후보추천위원회 등은 전원 사외이사로 구성</li>
+                                        <li>ESG 기업가치에 중점을 둔 국민연금의 주주권 적극 행사</li>
+                                        <li>주주대표소송 요건 완화</li></br>
+                                        <h5>대중소기업 상생 협력 경제체제 구축</h5>
+                                        <li>초과이익공유제 도입, 중소기업·납품업체 집단교섭 보장 및 납품단가 연동제 도입</li>
+                                        <li>한국형 증거개시제도(디스커버리) 도입</li></br>
+                                        <h5>100개의 강소형 다이버시티로 지역균형발전 시작</h5>
+                                        <li> 100개의 ‘강소형 다이버시티(DiverCity)’ 조성. 다양한 영역의 특화된 다이버시티로 탈탄소, 도시 내 15분 접근, 지역 특화산업이 조성되는 도시 실현</li>
+                                        <li>강소형 다이버시티 아래 읍·면 등의 단위로 2,000개의 ‘마을 커뮤니티’ 조성</li>
+                                        <li>300여개 공공기관과 권력기관의 2차 지방 이전 추진 및 지역인재할당제 50% 상향</li>
+                                        <li>지역재투자법 제정으로 지역 금융 불평등 해소</li>
+                                        <li>생활인프라 투자로 청년과 은퇴세대의 정주여건 획기적 개선</li></br>
+                                        <h5>분권을 넘어 지역민주주의가 확대되는 자치분권 실현</h5>
+                                        <li>지방분권 헌법개정 추진, ‘지방분권국가’ 지향 명시, ‘지방자치단체’ 명칭을 ‘지방정부’ 로 변경, 보충성의 원칙 명시, 자치입법권‧자치재정권 보장</li>
+                                        <li>국무총리 소속 ‘자치분권처’ 신설해 지방자치 지원</li>
+                                        <li>지역시민단체, 노동조합, 정당 등 주민자치회 위원 구성의 다양성 제고, 주민자치회의 대표성 확보 및 의사결정 권한 강화 등 주민자치 활성화</li>
+                                        <li>주민밀착형 자치경찰제 도입, 자치경찰 사무 확대, 국가경찰과 자치경찰의 실질적 이원화 추진, 자치경찰위원회 위원 구성 개선</li>
+                                        <li>과감한 사무이양, 2단계 지방일괄이양법 제정 추진</li>
+                                        <li>단체장 결선투표제 및 광역의회 연동형 비례대표제 도입, 기초의회 중선거구제 강화</li>
+                                        <li>지방의원 외유성 해외연수 금지, 선심성 재량사업비 편성 금지, 셀프징계 방지, 지방의원 이해충돌 방지 강화, 시민참여형 지방의회 모니터링 제도화</li>
+                                        <li> 지방의회 인사청문회 도입 제도화, 지방의회 소속 독립적 감사위원회 설치, 단체장의 예산안 재의요구권 폐지, 다양한 기관구성 활성화</li></br>
+                                        <h4>재원조달방안 등</h4>
+                                        <h5>법·제도 개선, 일반회계 및 기금 활용</h5>
                                     </div>
                                 </div>
                                 <div class="blog-tag">

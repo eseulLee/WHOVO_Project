@@ -75,9 +75,15 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+                                    {% if session_member_name %}
                                     <div class="header-button floatright">
-                                        <a href="../../user/index/">로그인</a>
+                                        <a href="../../user/logout">로그아웃</a>
                                     </div>
+                                    {% else %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/index">로그인</a>
+                                    </div>
+                                    {% endif %}
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -164,9 +170,169 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <li>어르신, 환자, 장애인, 아동, 영·유아 5대 돌봄에 대한 국가책임 완성과 국민안심 국가 실현</li><br/>
+
+                                        <h4>이행방법</h4>
+                                        <h5>어르신 돌봄 국가 책임 강화로 고령화 대응</h5>
+                                        <li>
+                                            현재 소득 하위 70%인 기초연금 대상을 더 많은 어르신에게 지급할 수 있도록 점진적으로 확대 추진
+                                        </li>
+                                        <li>
+                                            기초연금 부부 감액 폐지 및 일하는 어르신 국민연금 깎지 않고 지급 추진
+                                        </li>
+                                        <li>
+                                            방문간호, 재택의료 서비스 확대 등 어르신 요양 돌봄 서비스 강화
+                                        </li>
+                                        <li>
+                                            치아 임플란트 건강보험 적용 확대, 어르신 주치의제 확대
+                                        </li>
+                                        <li>
+                                            어르신 일자리 80만 개에서 140만 개로 확대, 공익형 일자리 100만 개 확충
+                                        </li><br/>
+
+                                        <h5>환자 돌봄의 국가 책임 강화로 가족부담 경감</h5>
+                                        <li>
+                                            방문간호 및 방문 의료 서비스 전국 확대 등 어르신 요양 돌봄 서비스 강화
+                                        </li>
+                                        <li>
+                                            환자와 가족 맞춤형 제도 개선을 통해 간호·간병 통합 돌봄 강화
+                                        </li><br/>
+
+                                        <h5>장애인 돌봄의 국가 책임 강화로 자립 지원</h5>
+                                        <li>
+                                            상시 서비스 체계 구축 등 장애인 돌봄 서비스 강화
+                                        </li>
+                                        <li>
+                                            유니버설 디자인 공공부문부터 확대
+                                        </li>
+                                        <li>
+                                            대통령 직속 국가장애인위원회 설치, 장애인 예산 증액
+                                        </li>
+                                        <li>
+                                            소득하위 70% 모든 중증장애인에게 장애인 연금 지급
+                                        </li>
+                                        <li>
+                                            장애(아동)수당 소득하위 70%까지 단계적 확대
+                                        </li><br/>
+
+                                        <h5>아동, 영·유아 돌봄의 국가 책임 강화로 저출생 대응</h5>
+                                        <li>
+                                            초등 돌봄서비스 강화 및 지역사회 아동돌봄 존 구축
+                                        </li>
+                                        <li>
+                                            어린이집 교사 대 아동비율 하향과 공간 확대 등 영유아 보육서비스 강화
+                                        </li>
+                                        <li>
+                                            육아휴직 급여액 현실화, 부모쿼터제‧자동육아휴직등록제 도입
+                                        </li>
+                                        <li>
+                                            지역사회통합 돌봄 체계 구축 등으로 저출생·고령화에 효과적 대응
+                                        </li>
+                                        <li>
+                                            아동·청소년 중증 아토피 치료 등 건강보험 적용 확대
+                                        </li><br/>
+
+                                        <h5>촘촘한 소득보장체계</h5>
+                                        <li>
+                                            기초연금, 장애인연금, 장년수당, 아동ᆞ청소년수당, 기초생활보장 등의 보장성 확대
+                                        </li>
+                                        <li>
+                                            상병수당 등 신규 소득보장제도 도입
+                                        </li><br/>
+
+                                        <h5>사회적 요구 반영 보장성 확대</h5>
+                                        <li>
+                                            탈모치료, 치아임플란트, 아동·청소년 중증 아토피 치료 등 건강보험 적용 확대
+                                        </li><br/>
+
+                                        <h5>1인 가구·한부모 가족 등 다양한 가족의 삶 존중</h5>
+                                        <li>
+                                            행복마을관리소 모델 확대로 1인 가구 지원 강화
+                                        </li>
+                                        <li>
+                                            여성 1인 가구 주거 안전시설 지원 확대
+                                        </li>
+                                        <li>
+                                            돌봄·의료·장례 영역에 연대관계 등록제 도입 및 임의 후견제도 활성화
+                                        </li>
+                                        <li>
+                                            한부모 가족 양육비 국가 대지급제 도입
+                                        </li>
+                                        <li>
+                                            한부모가족증명서발급소득기준폐지, 아동양육비지급대상소득기준상향
+                                        </li><br/>
+
+                                        <h5>국민의 안전을 위해 헌신하는 분들에 대한 예우 강화</h5>
+                                        <li>
+                                            공무원 등의 공무수행 중 부상·질병에 대한 공상추정제도 도입
+                                        </li>
+                                        <li>
+                                            경찰, 소방, 해경 직군을 공안직 보수체계로 편입
+                                        </li>
+                                        <li>
+                                            소방관의 건강과 복지에 대한 국가책임 강화
+                                        </li><br/>
+
+                                        <h5>범죄로부터 안전한 사회를 통한 국민안심국가 건설</h5>
+                                        <li>
+                                            범죄경력자 관리·감독 강화하여 흉악범죄 재범률 하향
+                                        </li>
+                                        <li>
+                                            범죄 피해자에 대한 효율적 지원을 위한 전담 기구 설치 및 보호 기금 확충
+                                        </li>
+                                        <li>
+                                            빅데이터·AI 등 첨단기술 활용 및 경찰 전담 인력 확대로 보이스피싱 박멸
+                                        </li>
+                                        <li>
+                                            자율방범대 등 민·관·경 유기적 협력을 통한 생활안전 역량 확충
+                                        </li><br/>
+
+                                        <h5>자연 및 사회적 재난으로부터 안전한 사회 건설</h5>
+                                        <li>
+                                            국가적 재난으로 인한 대규모 손해 배상 및 보상을 위한 국가재난기금 설치
+                                        </li>
+                                        <li>
+                                            통합 기상재난예보 시스템 구축, 유해 물질 위협으로부터 국민건강 지킴
+                                        </li>
+                                        <li>
+                                            홍수피해 국가 차원 예방, 생활밀착형 미세먼지 관리 체계 구축
+                                        </li>
+                                        <li>
+                                            안전한 수돗물, 합리적인 공급시스템 구축, 4대강과 지류·지천 자연성 회복
+                                        </li>
+                                        <li>
+                                            해양쓰레기 감축, 유통시설 개선으로 국민 안심 수산물 제공
+                                        </li>
+                                        <li>
+                                            보행자가 안심하고 걸을 수 있는 교통환경 조성
+                                        </li>
+                                        <li>
+                                            플라스틱 제로 사회 구현, 폐기물 수거 및 처리 체계 공공책임 강화
+                                        </li><br/>
+
+                                        <h5>국민의 먹거리 기본권과 안전 보장</h5>
+                                        <li>
+                                            임산부 친환경 꾸러미 공급, 어린이 과일 간식 및 취약계층 농식품 바우처 사업 확대
+                                        </li>
+                                        <li>
+                                            ‘긴급끼니 돌봄’ 제도 도입
+                                        </li>
+                                        <li>
+                                            어린이집과 군대, 복지시설에 공공급식 체계 확대
+                                        </li>
+                                        <li>
+                                            유전자 변형 농산물(GMO) 완전 표시제 도입
+                                        </li><br/>
+
+                                        <h4>재원조달방안</h4>
+                                        <li>
+                                            국비 및 지방비, 건보재정 등 활용
+                                        </li><br/>
+
+
+
                                     </div>
                                 </div>
                                 <div class="blog-tag">

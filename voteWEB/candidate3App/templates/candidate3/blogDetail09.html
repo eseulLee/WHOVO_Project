@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- favicon
-		============================================ -->		
+		============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 	   
 		<!-- Bootstrap CSS
@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/logout">로그아웃</a>
+                                    </div>
+                                    {% else %}
                                     <div class="header-button floatright">
                                         <a href="../../user/index">로그인</a>
                                     </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -164,9 +172,52 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <h5>대권이 아니라 시민권이 강한 나라, 청와대 정부에서 혁신가형 정부로</h5>
+                                        <h5>입법부, 행정부, 사법부 개혁으로 국민 주권 회복</h5><br/>
+
+                                        <h4>이행방법</h4>
+                                        <h5>법 앞의 평등, 시민을 위한 사법 민주화</h5>
+                                        <li>제왕적 대법원장 체제 해체와 법원 민주화, 대법관과 헌법재판관 다양성 보장</li>
+                                        <li>민주적 군사법제도 실현과 군인 권리 보호</li>
+                                        <li>전관예우 근절과 법조비리 척결, 피의사실 공표 제한적 허용과 인권존중 수사과정 정착</li>
+                                        <li>재벌 총수 사면, 황제노역, 유전무죄 특혜 근절</li>
+                                        <li>국민 사법서비스 향상, 시민을 위한 국립 법학전문대학원 설치</li><br/>
+
+                                        <h5>정치 개혁</h5>
+                                        <li>100% 연동형 비례대표제 도입, 위성정당 재발 방지, 대통령선거 결선투표제 도입</li>
+                                        <li>대통령 피선거권 연령 18세로 하향, 선거권 연령 16세로 하향, 미성년자 선거운동 허용, 정당가입 기준연령 폐지 및 청소년 당원 가입시 법정대리인 동의서 첨부 조항 삭제, 공무원·교원 정치적 기본권 보장, 지방공기업‧협동조합 직원 선거운동 허용, 일하는 시민의 참정권 보장, 국민발안제‧국민소환제 도입</li>
+                                        <li>거대정당에 유리한 국고보조금 배분제도 개선, 고액 기탁금 개선, 정당 지역기반 강화</li>
+                                        <li>규제 위주의 선거법 전면 개정, 예비후보자 등록기간 및 선거운동 방법 확대</li>
+                                        <li>장애인의 투표소 접근권 보장 및 맞춤형 선거정보 제공, 시설 장애인의 참정권 보장</li><br/>
+                                        <h5>국회 개혁</h5>
+                                        <li>국회의원 징계에 민간위원 참여로 셀프징계 방지, 독립적 윤리감독관 도입으로 이해충돌 방지, 외부인사로 구성되는 국회의원보수산정위원회 설치로 셀프세비인상 방지, 직무관련성과 관계없이 모든 보유주식 백지신탁</li>
+                                        <li>교섭단체 기준 완화, 국회운영의 시스템화, 예산결산특별위원회 개혁</li><br/>
+                                        <h5>정부 개혁</h5>
+                                        <li>청와대 비서실을 실무형 스탭 조직으로 축소, 국무총리 중심 내각 운영, 국무총리 국회추천제 도입, 제왕적 대통령제의 분권으로 의회중심제 전환의 기틀 마련
+                                        <li>노동복지부총리 도입으로 ‘국가의 왼손’ 강화
+                                        <li>남녀동수 내각, 세대연대 내각 원칙 실현</li>
+                                        <li>적극적이고 능동적인 혁신가형 정부 실현</li>
+                                        <li>고위공직자인사검증법 제정, 청와대의 사전검증 강화 및 검증자료의 국회제출 의무화,행정고시(5급 공개경쟁채용시험)‧경찰대‧소방간부후보생제도 폐지</li>
+                                        <li>공공정보의 사전공개 및 수요자 중심 공개 원칙 실현</li>
+                                        <li>공익목적 소송의 소송비용 면제 제도 도입, 공익신고자의 신원 보장 및 불이익 조치에 대한 보호 강화</li>
+                                        <li>공익신고자보호법 적용대상 확대, 공익신고자 보상금 지급기준 상향(상한액 기준 폐지)</li>
+                                        <li>대통령 직속 독립기구로 국가청렴위원회 부활</li>
+                                        <li>공직윤리 법제의 통합 추진, 공직자 윤리관련 법제 강화, 공직자 재산공개 범위 확대 및 시민의 접근성 향상</li>
+                                        <li>특수활동비 편성 최소화, 국가정보원 안보비 개선, 일정기간 경과 후 특수활동비 집행 내역의 국회보고 의무화, 특정업무경비 지출내역 공개</li><br/>
+                                        <h5>경찰개혁, 공공기관 개혁</h5>
+                                        <li>민주적 감독기구로 국가경찰위원회 실질화, 민주적 외부통제기구 신설, 정보경찰 폐지</li>
+                                        <li>노동이사 비율 확대, 노동이사의 감사위원회 참여 의무화 등 실질적 권한 부여, 노동이사 활동보장의 공공기관 평가 반영</li>
+                                        <li>공공기관 소재 지역주민 등이 참여하는 시민이사제 도입</li>
+                                        <li>공공기관운영위원회에 국회 추천 민간위원 포함, 기획재정부의 공공기관 관리감독 권한 폐지</li><br/>
+
+                                        <h4>이행기간</h4>
+                                        <h5>임기 내</h5><br/>
+
+                                        <h4>재원조달방안 등</h4>
+                                        <h5>법·제도 개선</h5>
+
                                     </div>
                                 </div>
                                 <div class="blog-tag">

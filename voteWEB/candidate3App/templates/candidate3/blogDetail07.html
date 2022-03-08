@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/logout">로그아웃</a>
+                                    </div>
+                                    {% else %}
                                     <div class="header-button floatright">
                                         <a href="../../user/index">로그인</a>
                                     </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -164,9 +172,50 @@
                                         </span>
                                         <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
                                     </div>
-                                    <div class="blog-content"> 
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. Dramatically cultivate viral paradigms after team building e-services. Energistically network worldwide systems after highly efficient innovation.Dramatically leverage other’s cross-unit expertise vis-a-vis cross-platform ideas. Uniquely disintermediate cross-media synergy without fully researched internal or “organic” sources. Monotonectally empower competitive innovation after alternative core competencies. Professionally optimize turnkey deliverables after enterprise bandwidth. Assertively foster inexpensive “outside the box” thinking rather than intermandated niche markets.</p>
-                                        <p class="blog-paragraph">Interactively implement intermandated architectures without vertical methods of empowerment. Enthusiastically streamline multidisciplinary e-business after frictionless schemas. Phosfluorescently fabricate intuitive architectures through empowered manufactured products. Professionally repurpose dynamic products whereas team driven process improvements. Authoritatively grow leading-edge process improvements vis-a-vis cooperative internal or “organic” sources.</p> 
+                                    <div class="blog-content">
+                                        <h4>목표</h4>
+                                        <h5>유아부터 대학까지 미래형 맞춤교육, 직업교육 강화, 대학서열 완화로 사교육비 경감</h5>
+                                        <h5>문화다양성 증진, 표현의 자유 보장</h5></br>
+                                        <h4>이행방법</h4>
+                                        <h5>포스트 코로나 시대를 여는 맞춤교육</h5>
+                                        <li>한반 20명 미래형 학교</li>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;수업과 평가 혁신</h7></br>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;변혁적 역량 중심 교육과정</h7>
+                                        <li>동그라미 작은 학교 확대</li>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;냉난방‧화장실‧식수대 등 가정보다 편안한 학교</h7>
+                                        <li>서울대 10개 만들기, 고등교육재정교부금법 제정, 전문대부터 무상교육 </li>
+                                        <li>작지만 강한 미래대학 육성</li>
+                                        <h7>&nbsp;&nbsp;·&nbsp;&nbsp;현행 대학기본역량진단 폐지, 정원 일괄조정</h7></br>
+                                        <h5>출발선 평등 위한 아동돌봄, 모두의 탁월성 키우는 책임교육, 민주적 학교</h5>
+                                        <li>국공립유치원 확충, 유보통합, 유아 3년 무상의무교육, 국가책임 아동돌봄</li>
+                                        <li>3단계 중층 기본학력 보장 시스템, 학생 맞춤형 지원 확대, 고교체제 개편</li>
+                                        <li>학교구성원의 참여 보장, 사립학교의 민주적 운영</li>
+                                        <li>노동인권교육 활성화</li></br>
+                                        <h5>노동 존중사회 위한 직업교육, 대입제도 개편 및 사교육 개혁, 평생교육 강화</h5>
+                                        <li>고졸 첫 임금 250만원, 정부부터 고졸채용 앞장, 전문대 재정지원 확대</li>
+                                        <li>수능 절대평가 확대 및 자격고사화, 학원 일요휴무제, 학력학벌차별금지법</li>
+                                        <li>모두의 자아실현 위한 평생교육: 시민학습공동체 육성 및 지원</li></br>
+                                        <h5>‘우리동네 문화센터’ 조성</h5>
+                                        <li>읍면동 단위의 우리동네 문화센터 조성</li>
+                                        <li>문화적 지역재생: 유휴공간 및 폐시설에 우리동네 미술관, 도서관, 문화예술 교육시설 등 문화 기반시설 조성, 예술인 창작공간 조성, 예술인 공공 임대주택 공급</li></br>
+                                        <h5>OTT 콘텐츠쿼터제</h5>
+                                        <li>모든 OTT에 국내 콘텐츠(영화, 드라마, 애니메이션 등) 30% 이상 구성 의무화</li>
+                                        <li>국내 OTT의 경쟁력 제고, 해외 OTT의 국내 콘텐츠 투자 확대 유도 </li></br>
+                                        <h5>국민의 손으로 공영방송 이사 선출, 사장 추천</h5>
+                                        <li>방송통신위원회에 지역·성별·연령 등 균형있게 선정한 ‘이사추천국민위원회’ 설치</li>
+                                        <li>이사추천국민위원회가 KBS, MBC, EBS 등 공영방송 이사 후보자를 대상으로 면접을 실시하고, 투표를 통해 이사 선출</li></br>
+                                        <h5>현장 중심 과학기술 연구개발, 보편적 정보접근권 보장, 시민의 권리 확립</h5>
+                                        <li>과기부총리 신설, 과기부 간부급 보직 개방 확대, 장기 기술전략 위임제도 도입</li>
+                                        <li>PBS(연구과제중심제도) 폐지, 출연연 연구비 70%는 정부 책임으로</li>
+                                        <li>IT노동자 포괄임금제 폐지, 일가정 양립 지원 등 여성과학기술인 지원 강화</li>
+                                        <li>주민참여형 혁신연구허브를 거점국립대 설치</li>
+                                        <li>1만원대 전국민 무상 인터넷 도입 및 이동통신비 원가공개</li>
+                                        <li>알고리즘 투명화 및 설명가능 인공지능 장려</li>
+                                        <li>전자제품에 ‘수리할 권리’ 보장</li>
+                                        <li>‘종이 없는 행정’과 탈탄소 기반 디지털 전환 실현</li>
+                                        <li>빅테크 기업의 운영체제(OS) 갑질 금지, 오픈소스SW 이용 활성화 및 산업 육성</li></br>
+                                        <h4>재원조달방식 등</h4>
+                                        <h5>일반회계, 특별회계, 교부금 등 활용</h5>
                                     </div>
                                 </div>
                                 <div class="blog-tag">

@@ -75,9 +75,17 @@
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
+
+                                    {% if session_member_name %}
                                     <div class="header-button floatright">
-                                        <a href="../../user/index/">로그인</a>
+                                        <a href="../../user/logout">로그아웃</a>
                                     </div>
+                                    {% else %}
+                                    <div class="header-button floatright">
+                                        <a href="../../user/index">로그인</a>
+                                    </div>
+                                    {% endif %}
+
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -204,6 +212,8 @@
                                         <h5>- 일반, 특별회계 및 기금 예산 편성 확대</h5>
                                         <h5>- 과학기술 기반 혁신 일자리 창출을 통한 세입 확충</h5>
                                         <h5>- 공약 우선순위는 지출효율화(재량지출 감축, 성과를 반영한 조정 등)를 추진하고, 이후 필요시 재정당국 및 국회와 협의</h5>
+
+
 
                                     </div>
                                 </div>
