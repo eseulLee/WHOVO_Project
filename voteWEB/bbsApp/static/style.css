@@ -1238,7 +1238,7 @@ span.published2 i {
     color: #ea000d;
 }
 .timeline-content {
-    border: 1px solid #e7e7e7;
+    border: 0px solid #e7e7e7;
     display: block;
     width: 100%;
 }
@@ -4016,7 +4016,7 @@ span.tag {
     float: left;
 }
 .blog-img-details {
-    padding-left: 123px;
+    padding-left: 10px;
 }
 .blog-title > h3 {
     color: #333;
@@ -4067,7 +4067,7 @@ span.tag {
     padding: 40px 30px;
 }
 .blog-top-mrg {
-    margin-left: 123px;
+    margin-left: 60px;
     margin-top: 30px;
 }
 .blog-reply-all2 {
