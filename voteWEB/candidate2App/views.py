@@ -17,16 +17,25 @@ def candidate2(request):
 
 def detail01(request):
     print('>>> candidate2')
+    candidate_num = 2
+    detail_num = 1
+
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
-            'session_member_id': request.session.get('member_id'),
+            'session_member_id'  : request.session.get('member_id'),
+            'candidate_num'      : candidate_num,
+            'detail_num'         : detail_num
         }
         return render(request, 'candidate2/blogDetail01.html',context)
     else:
-        return render(request, 'candidate2/blogDetail01.html' )
+        context = {
+            'candidate_num'      : candidate_num,
+            'detail_num'         : detail_num
+        }
+        return render(request, 'candidate2/blogDetail01.html' ,context)
 
 def detail02(request):
     print('>>> detail02')
