@@ -199,30 +199,7 @@
                                 </div>
                                 <div class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
-                                    <div class="blog-reply-all">
-                                        <div class="blog-top">
 
-                                            <div class="blog-img-details">
-                                                <div class="blog-title">
-                                                    <h3>Jannatul Ferdaous</h3>
-                                                    <a href="#">Reply</a>
-                                                </div>
-                                                <span>15 january 2015 At 10:30 pm</span>
-                                                <p class="p-border">Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam, ea cum lupta definitionem. Vocibus suscipit prodesset vim ei, equidem perpetua eu per.</p>
-                                            </div>
-                                        </div>
-                                        <div class="blog-top blog-top-mrg">
-
-                                            <div class="blog-img-details">
-                                                <div class="blog-title">
-                                                    <h3>Matt James</h3>
-                                                    <a href="#">Reply</a>
-                                                </div>
-                                                <span>15 january 2015 At 10:30 pm</span>
-                                                <p>Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam, ea cum lupta definitionem. Vocibus suscipit prodesset vim ei, equidem perpetua eu per.</p>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="blog-reply-all2">
                                         <div class="blog-top">
 
@@ -239,21 +216,23 @@
                                 </div>
                                 <div class="blog-input">
                                     <p><i class="fa fa-reply" aria-hidden="true"></i>Leave A Reply:</p>
-                                    <form method="post" name="form">
+                                    <form method="post" action="../../bbs/postForm" name="form">
                                         {% csrf_token %}
                                         <div class="blog-from">
                                             <div class="row">
                                                 <div class="col-lg-6">
+                                                    <input type="hidden" name="candidate_num" id="candidate_num" value="{{ candidate_num }}">
+                                                    <input type="hidden" name="detail_num" id="detail_num" value="{{ detail_num }}">
                                                     {% if session_member_id %}
-                                                    <input class="form-control bmrg" required="" type="text" value="{{ session_member_id }}" readonly>
+                                                    <input class="form-control bmrg" required="" id="writer_id" name= "writer_id" type="text" value="{{ session_member_id }}" readonly>
                                                     {% else %}
                                                     <input class="form-control bmrg" required="" type="text" placeholder="name*" disabled/>
                                                     {% endif %}
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <textarea class="form-control" required="" placeholder="Comment"></textarea>
+                                                    <textarea class="form-control" required="" name="content" id="content" placeholder="Comment"></textarea>
                                                     {% if session_member_id %}
-                                                    <button class="submit" type="submit" value = "post" onclick="javascript: form.action='/bbs/postForm';">
+                                                    <button class="submit" id="postBtn" type="button" value = "post">
                                                         Post Comment
                                                         <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                                     </button>
@@ -464,6 +443,35 @@
 		============================================ -->		
         <script src="{% static 'js/main.js' %}"></script>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('#postBtn').click(function() {
+                alert('postbtn click')
+                writer_id = $('#writer_id').val()
+                candidate_num = $('#candidate_num').val()
+                detail_num = $('#detail_num').val()
+                content = $('#content').val()
+                $.ajax({
+                    url : '../../bbs/postForm/' ,
+                    type : 'post' ,
+                    data : {'csrfmiddlewaretoken' : '{{csrf_token}}' ,
+                            'candidate_num' : candidate_num ,
+                            'detail_num' : detail_num ,
+                            'writer_id' : writer_id ,
+                            'content' : content } ,
+                    dataType : 'json' ,
+                    success : function(lst) {
+                        alert(obj)
+                        $('#tbody').empty()
+                        var txt = ""
+
+                    }
+                })
+            })
+        })
+
+    </script>
     </body>
 </html>

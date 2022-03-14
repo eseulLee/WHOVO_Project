@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('whovo/', views.index, name='whovo'),
     path('user/', include('userApp.urls')),
+    path('bbs/', include('bbsApp.urls')),
     path('candidate1/', include('candidate1App.urls'), name='candidate1'),
     path('candidate2/', include('candidate2App.urls'), name='candidate2'),
     path('candidate3/', include('candidate3App.urls'), name='candidate3'),
