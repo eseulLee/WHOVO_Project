@@ -197,23 +197,25 @@
                                 <div class="blog-tag">
                                     <p><i class="fa fa-tags" aria-hidden="true"></i><span class="tag">Tags:</span> Political, <span class="vidos2">Video</span>, Politico, Donate, Blog</p>
                                 </div>
-                                <div class="blog-comment">
+
+                                <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
-
                                     <div class="blog-reply-all2">
-                                        <div class="blog-top">
-
-                                            <div class="blog-img-details">
+                                        <div id="blog-top" class="blog-top">
+                                            {% for bbs in Posts %}
+                                            <div  class="blog-img-details">
                                                 <div class="blog-title">
-                                                    <h3>Jannatul Ferdaous</h3>
+                                                    <h3>{{bbs.writer_id}}</h3>
                                                     <a href="#">Reply</a>
                                                 </div>
-                                                <span>15 january 2015 At 10:30 pm</span>
-                                                <p>Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam, ea cum lupta definitionem. Vocibus suscipit prodesset vim ei, equidem perpetua eu per.</p>
+                                                <p>{{bbs.content}}</p>
+                                                <span>{{bbs.create_date}}</span>
                                             </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="blog-input">
                                     <p><i class="fa fa-reply" aria-hidden="true"></i>Leave A Reply:</p>
                                     <form method="post" action="../../bbs/postForm" name="form">
@@ -443,7 +445,7 @@
 		============================================ -->		
         <script src="{% static 'js/main.js' %}"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -462,14 +464,24 @@
                             'writer_id' : writer_id ,
                             'content' : content } ,
                     dataType : 'json' ,
-                    success : function(lst) {
+                    success : function(obj) {
                         alert(obj)
-                        $('#tbody').empty()
+                        $('#blog-top').empty()
                         var txt = ""
-
+                        $.each(obj, function(idx, data) {
+                            txt += "<div class='blog-img-details'>"
+                            txt += "<div class='blog-title'>"
+                            txt += "<h3>" + data.writer_id + "</h3>"
+                            txt += "<a href='#'>Reply</a>"
+                            txt += "</div>"
+                            txt += "<p>" + data.content + "</p>"
+                            txt += "<span>" + data.create_date + "</span>"
+                            txt += "</div>"
+                        })
+                        $('#blog-top').html(txt)
                     }
                 })
-            })
+            });
         })
 
     </script>

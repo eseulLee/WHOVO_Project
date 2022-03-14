@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from bbsApp.models import Post
 
 # Create your views here.
 
@@ -20,14 +21,16 @@ def detail01(request):
     candidate_num = 2
     detail_num = 1
 
+    Posts = Post.objects.all()
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id'  : request.session.get('member_id'),
-            'candidate_num'      : candidate_num,
-            'detail_num'         : detail_num
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts' : Posts
         }
         return render(request, 'candidate2/blogDetail01.html',context)
     else:
@@ -36,6 +39,8 @@ def detail01(request):
             'detail_num'         : detail_num
         }
         return render(request, 'candidate2/blogDetail01.html' ,context)
+
+
 
 def detail02(request):
     print('>>> detail02')

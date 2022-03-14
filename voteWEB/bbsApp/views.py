@@ -28,16 +28,19 @@ def postForm(request) :
     print('>>>> post save')
 
     jsonAry = []
-
-    for bbs in Post.objects.all() :
+    Posts = Post.objects.all()
+    print('data - ', Posts)
+    for bbs in Posts:
         jsonAry.append({
             'candidate_num': bbs.candidate_num,
             'detail_num': bbs.detail_num,
             'writer_id': bbs.writer_id,
-            'content': bbs.content
+            'content': bbs.content,
+            "create_date" : bbs.create_date
         })
 
     return JsonResponse(jsonAry, safe=False)
+
 
     # return render(request, 'html' )
 
