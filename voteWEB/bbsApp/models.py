@@ -23,10 +23,10 @@ class Post(models.Model):
     content       = models.TextField(blank=False, null=False)
     create_date   = models.DateTimeField(auto_now=True)
     modify_date   = models.DateTimeField(auto_now=True)
-
+'''
     def __str__(self):
         return self.id+"\t"+self.writer_id
-
+'''
 class Comment(models.Model):
     # id(pk), contents, writer_id, writer_name, bbs_id(fk)
     post         = models.ForeignKey("Post", on_delete=models.CASCADE, db_column="post")
@@ -35,8 +35,8 @@ class Comment(models.Model):
     contents     = models.TextField(blank=False, null=False)
     create_date  = models.DateTimeField(auto_now=True)
     modify_date  = models.DateTimeField(auto_now=True)
-
+'''
     def __str__(self):
         return self.id+"\t"+self.writer_id
-
+'''
 # post, comment 둘다 좋아요 수 미기재
