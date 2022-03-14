@@ -1238,7 +1238,7 @@ span.published2 i {
     color: #ea000d;
 }
 .timeline-content {
-    border: 1px solid #e7e7e7;
+    border: 0px solid #e7e7e7;
     display: block;
     width: 100%;
 }

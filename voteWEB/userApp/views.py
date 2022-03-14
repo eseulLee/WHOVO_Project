@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from.models import *
+from .models          import *
 
 # Create your views here.
 
@@ -27,11 +27,11 @@ def login(request):
             context['session_member_id'] = request.session['member_id']
 
             # return render(request, 'index.html', context)
-            return render(request, 'user/home.html', context)
+            return render(request, 'index.html', context)
 
         except Exception as e:
-            context['error'] = 'invalid id, pwd'
-            return render(request, 'user/donate.html', context)
+            context['error'] = '아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.'
+            return render(request, 'user/login.html', context)
 
 
 def join(request):
