@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from.models           import *
+from django.http      import JsonResponse
+
 
 # Create your views here.
 
@@ -23,5 +25,19 @@ def postForm(request) :
     # ORM - insert
     post = Post(candidate_num=candidate_num, detail_num=detail_num, writer_id=writer_id, content=content)
     post.save()
+    print('>>>> post save')
 
-    return redirect()
+    jsonAry = []
+
+    for bbs in Post.objects.all() :
+        jsonAry.append({
+            'candidate_num': bbs.candidate_num,
+            'detail_num': bbs.detail_num,
+            'writer_id': bbs.writer_id,
+            'content': bbs.content
+        })
+
+    return JsonResponse(jsonAry, safe=False)
+
+    # return render(request, 'html' )
+
