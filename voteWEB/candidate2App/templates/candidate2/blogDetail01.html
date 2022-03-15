@@ -204,8 +204,9 @@
                                             {% for bbs in Posts %}
                                             <div  class="blog-img-details">
                                                 <div class="blog-title">
+                                                    <input type="hidden" name ="id" id= "id" value ="{{bbs.id}}">
                                                     <h3>{{bbs.writer_id}}</h3>
-                                                    <a href="#">수정</a>
+                                                    <button>수정</button>
                                                 </div>
                                                 <p>{{bbs.content}}</p>
                                                 <span>{{bbs.create_date}}</span>
@@ -415,8 +416,9 @@
                         $.each(obj, function(idx, data) {
                             txt += "<div class='blog-img-details'>"
                             txt += "<div class='blog-title'>"
+                            txt += "<input type='hidden' name ='id' id= 'id' value ='{{bbs.id}}'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
-                            txt += "<a href='#'>수정</a>"
+                            txt += "<button>수정</button>"
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
@@ -425,6 +427,11 @@
                         $('#blog-top').html(txt)
                     }
                 })
+            });
+            $('#removeBtn').click(function(){
+                alert('removebtn click')
+                bbs_id = $('#id').val()
+                location.href = '../bbs/remove?id='+bbs_id ;
             });
         })
 
