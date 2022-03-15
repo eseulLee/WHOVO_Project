@@ -36,7 +36,8 @@ def detail01(request):
     else:
         context = {
             'candidate_num'      : candidate_num,
-            'detail_num'         : detail_num
+            'detail_num'         : detail_num,
+            'Posts': Posts
         }
         return render(request, 'candidate2/blogDetail01.html' ,context)
 

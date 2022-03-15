@@ -206,6 +206,7 @@
                                             <div  class="blog-img-details">
                                                 <div class="blog-title">
                                                     <h3>{{bbs.writer_id}}</h3>
+                                                    <a href="#">수정</a>
                                                 </div>
                                                 <p>{{bbs.content}}</p>
                                                 <span>{{bbs.create_date}}</span>
@@ -449,7 +450,7 @@
     <script>
         $(document).ready(function() {
             $('#postBtn').click(function() {
-                alert('postbtn click')
+                alert('댓글입력됨')
                 writer_id = $('#writer_id').val()
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
@@ -464,13 +465,13 @@
                             'content' : content } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert(obj)
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
                             txt += "<div class='blog-img-details'>"
                             txt += "<div class='blog-title'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
+                            txt += "<a href='#'>수정</a>"
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
