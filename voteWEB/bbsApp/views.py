@@ -12,17 +12,6 @@ def blog(request) :
 def events(request):
     return render(request, 'events.html')
 
-def postForm(request):
-    print(">>>> bbs create")
-    writer_id = request.POST['writer_id']
-    content = request.POST['content']
-    print('debuge - ', writer_id, content)
-
-    # orm - insert - save()
-    can2 = Post(writer_id=writer_id, content=content)
-    can2.save()
-    return redirect('2_1')
-
 def postForm(request) :
     print('>>>> bbs postForm')
     candidate_num = request.POST['candidate_num']
