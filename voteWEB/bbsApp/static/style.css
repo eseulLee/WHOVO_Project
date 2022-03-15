@@ -4582,6 +4582,17 @@ span.tag {
     -webkit-transition: all .3s ease 0s;
     transition: all .3s ease 0s;
 }
-
+button.submit1 {
+    background-color: #ea000d;
+    border: inherit;
+    color: #fff;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    -webkit-transition: all .3s ease 0s;
+    transition: all .3s ease 0s;
+    align-content: end;
+}
 
 
