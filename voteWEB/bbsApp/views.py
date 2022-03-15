@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from.models           import *
 from django.http      import JsonResponse
+from .urls            import *
 
 
 # Create your views here.
@@ -42,4 +43,19 @@ def postForm(request) :
 
 
     # return render(request, 'html' )
+
+def remove(request):
+    print('>>>> bbs remove')
+
+    id = request.GET['id']
+    print('debug - ', id)
+
+    post = Post.objects.get(id = id)
+    post.delete()
+
+    return redirect ('candidate2_detail01')
+
+
+
+
 
