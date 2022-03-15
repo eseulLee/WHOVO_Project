@@ -425,12 +425,14 @@
                             txt += "</div>"
                         })
                         $('#blog-top').html(txt)
+                        $('#content').val("");
                     }
                 })
             });
             $('#removeBtn').click(function(){
                 alert('removebtn click')
                 bbs_id = $('#id').val()
+                alert($('#id').val())
                 location.href = '../../bbs/remove?id='+bbs_id ;
             });
         })
