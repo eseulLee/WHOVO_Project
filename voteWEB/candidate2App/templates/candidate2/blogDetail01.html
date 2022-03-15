@@ -197,6 +197,7 @@
                                 <div class="blog-tag">
                                     <p><i class="fa fa-tags" aria-hidden="true"></i><span class="tag">Tags:</span> Political, <span class="vidos2">Video</span>, Politico, Donate, Blog</p>
                                 </div>
+
                                 <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
                                     <div class="blog-reply-all2">
@@ -205,6 +206,7 @@
                                             <div  class="blog-img-details">
                                                 <div class="blog-title">
                                                     <h3>{{bbs.writer_id}}</h3>
+                                                    <a href="#">수정</a>
                                                 </div>
                                                 <p>{{bbs.content}}</p>
                                                 <span>{{bbs.create_date}}</span>
@@ -223,7 +225,6 @@
                                                 <div class="col-lg-6">
                                                     <input type="hidden" name="candidate_num" id="candidate_num" value="{{ candidate_num }}">
                                                     <input type="hidden" name="detail_num" id="detail_num" value="{{ detail_num }}">
-<!--                                                    <input type="hidden" name="create_date" id="create_date" value="{{ create_date }}">-->
                                                     {% if session_member_id %}
                                                     <input class="form-control bmrg" required="" id="writer_id" name= "writer_id" type="text" value="{{ session_member_id }}" readonly>
                                                     {% else %}
@@ -252,60 +253,6 @@
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="issues-categoris issues-top2 two-mrg-two">
-                                <h3>Issues Categories</h3>
-                                <div class="cat-one">
-                                    <ul>
-                                        <li><a href="#">Political News</a></li>
-                                        <li><a href="#">Financial News</a></li>
-                                        <li><a href="#">Country's news</a></li>
-                                        <li><a href="#">International News</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="issues-categoris issues-top3 blog-two2">
-                                <h3>Last News</h3>
-                                <div class="event-sidebar-2">
-                                    <div class="categori-list1">
-                                        <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/5n.jpg' %}" alt=""></a>
-                                            </div>
-                                            <div class="post-details">
-                                                <h3><a href="#">Boluptatem quia Ami </a></h3>
-                                                <p>But I must explain to how all this</p>
-                                            </div>
-                                        </div>
-                                        <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/6n.jpg' %}" alt=""></a>
-                                            </div>
-                                            <div class="post-details">
-                                                <h3><a href="#">Ami Tomari preomi </a></h3>
-                                                <p>But I must explain to how all this</p>
-                                            </div>
-                                        </div>
-                                        <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/7n.jpg' %}" alt=""></a>
-                                            </div>
-                                            <div class="post-details">
-                                                <h3><a href="#">Ami Tomari preomi </a></h3>
-                                                <p>But I must explain to how all this </p>
-                                            </div>
-                                        </div>
-                                        <div class="categori-list-one mrg-nn">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/8n.jpg' %}" alt=""></a>
-                                            </div>
-                                            <div class="post-details">
-                                                <h3><a href="#">Nemo enim ipsam</a></h3>
-                                                <p>But I must explain to how all this </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="issues-categoris issues-top3 blog-two2">
                                 <h3>Recent Post</h3>
                                 <div class="event-sidebar-2">
@@ -449,7 +396,7 @@
     <script>
         $(document).ready(function() {
             $('#postBtn').click(function() {
-                alert('댓글이 입력됨')
+                alert('댓글입력됨')
                 writer_id = $('#writer_id').val()
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
@@ -464,13 +411,13 @@
                             'content' : content } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert(obj)
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
                             txt += "<div class='blog-img-details'>"
                             txt += "<div class='blog-title'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
+                            txt += "<a href='#'>수정</a>"
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
