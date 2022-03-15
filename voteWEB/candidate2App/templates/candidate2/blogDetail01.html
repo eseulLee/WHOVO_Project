@@ -206,7 +206,7 @@
                                                 <div class="blog-title">
                                                     <input type="hidden" name ="id" id= "id" value ="{{bbs.id}}">
                                                     <h3>{{bbs.writer_id}}</h3>
-                                                    <button>수정</button>
+                                                    <button id='removeBtn'> 삭제</button>
                                                 </div>
                                                 <p>{{bbs.content}}</p>
                                                 <span>{{bbs.create_date}}</span>
@@ -418,7 +418,7 @@
                             txt += "<div class='blog-title'>"
                             txt += "<input type='hidden' name ='id' id= 'id' value ='{{bbs.id}}'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
-                            txt += "<button>수정</button>"
+                            txt += "<button id='removeBtn'>삭제</button>"
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
@@ -431,7 +431,7 @@
             $('#removeBtn').click(function(){
                 alert('removebtn click')
                 bbs_id = $('#id').val()
-                location.href = '../bbs/remove?id='+bbs_id ;
+                location.href = '../../bbs/remove?id='+bbs_id ;
             });
         })
 
