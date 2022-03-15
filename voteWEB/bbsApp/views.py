@@ -27,7 +27,7 @@ def postForm(request) :
     print('>>>> post save')
 
     jsonAry = []
-    Posts = Post.objects.all()
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     print('data - ', Posts)
     for bbs in Posts:
         jsonAry.append({
