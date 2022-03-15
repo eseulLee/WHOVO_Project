@@ -9,10 +9,19 @@ from django.http      import JsonResponse
 def blog(request) :
     return render(request, 'blog.html')
 
-
-
 def events(request):
     return render(request, 'events.html')
+
+def postForm(request):
+    print(">>>> bbs create")
+    writer_id = request.POST['writer_id']
+    content = request.POST['content']
+    print('debuge - ', writer_id, content)
+
+    # orm - insert - save()
+    can2 = Post(writer_id=writer_id, content=content)
+    can2.save()
+    return redirect('2_1')
 
 def postForm(request) :
     print('>>>> bbs postForm')
@@ -20,6 +29,7 @@ def postForm(request) :
     detail_num = request.POST['detail_num']
     writer_id = request.POST['writer_id']
     content = request.POST['content']
+    # writer_time = request.POST['create_date']
     print('>>>> debuge -', candidate_num, detail_num, writer_id, content)
 
     # ORM - insert
@@ -36,7 +46,7 @@ def postForm(request) :
             'detail_num': bbs.detail_num,
             'writer_id': bbs.writer_id,
             'content': bbs.content,
-            "create_date" : bbs.create_date
+            'create_date': bbs.create_date,
         })
 
     return JsonResponse(jsonAry, safe=False)

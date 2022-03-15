@@ -197,7 +197,6 @@
                                 <div class="blog-tag">
                                     <p><i class="fa fa-tags" aria-hidden="true"></i><span class="tag">Tags:</span> Political, <span class="vidos2">Video</span>, Politico, Donate, Blog</p>
                                 </div>
-
                                 <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
                                     <div class="blog-reply-all2">
@@ -224,6 +223,7 @@
                                                 <div class="col-lg-6">
                                                     <input type="hidden" name="candidate_num" id="candidate_num" value="{{ candidate_num }}">
                                                     <input type="hidden" name="detail_num" id="detail_num" value="{{ detail_num }}">
+<!--                                                    <input type="hidden" name="create_date" id="create_date" value="{{ create_date }}">-->
                                                     {% if session_member_id %}
                                                     <input class="form-control bmrg" required="" id="writer_id" name= "writer_id" type="text" value="{{ session_member_id }}" readonly>
                                                     {% else %}
@@ -449,7 +449,7 @@
     <script>
         $(document).ready(function() {
             $('#postBtn').click(function() {
-                alert('postbtn click')
+                alert('댓글이 입력됨')
                 writer_id = $('#writer_id').val()
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()

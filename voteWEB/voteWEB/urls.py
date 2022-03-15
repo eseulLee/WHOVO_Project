@@ -25,5 +25,7 @@ urlpatterns = [
     path('candidate1/', include('candidate1App.urls'), name='candidate1'),
     path('candidate2/', include('candidate2App.urls'), name='candidate2'),
     path('candidate3/', include('candidate3App.urls'), name='candidate3'),
+    path('bbsApp/', include('bbsApp.urls'), name='bbsApp'),
+
 
 ]

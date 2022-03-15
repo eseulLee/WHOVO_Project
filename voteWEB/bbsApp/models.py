@@ -8,7 +8,7 @@ class WebMember(models.Model):
     member_pwd = models.TextField(max_length=100)
     member_name = models.TextField(max_length=100, unique=True)
     member_poli = models.TextField(max_length=100)
-    member_age = models.IntegerField()
+    member_age = models.BigIntegerField()
     member_regdate = models.DateTimeField(auto_now=True)
 
     def __str__(self):

@@ -52,3 +52,10 @@ def logout(request) :
     request.session['member_id'] = {}
     request.session.modified = True
     return redirect('whovo')
+
+def change(request):
+    context = {
+        'session_member_name': request.session.get('member_name'),
+        'session_member_id': request.session.get('member_id'),
+    }
+    return render(request, )

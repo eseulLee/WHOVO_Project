@@ -144,4 +144,3 @@ def detail10(request):
         return render(request, 'candidate1/blogDetail10.html',context)
     else:
         return render(request, 'candidate1/blogDetail10.html' )
-

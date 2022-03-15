@@ -4570,7 +4570,18 @@ span.tag {
 	padding: 0px;
 }
 
-
+.login-font{
+    color: #0b0b0b ;
+    text-align: left;
+    background-color: #0a53be;
+    border: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    -webkit-transition: all .3s ease 0s;
+    transition: all .3s ease 0s;
+}
 
 
 
