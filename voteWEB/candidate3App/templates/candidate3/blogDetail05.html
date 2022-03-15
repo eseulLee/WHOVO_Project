@@ -220,60 +220,53 @@
                                     <p><i class="fa fa-tags" aria-hidden="true"></i><span class="tag">Tags:</span> Political, <span class="vidos2">Video</span>, Politico, Donate, Blog</p>
                                 </div>
 
-                                <div class="blog-comment">
+                                <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
-                                    <div class="blog-reply-all">
-                                        <div class="blog-top">
-                                            <div class="blog-img-details">
-                                                <div class="blog-title">
-                                                    <h3>Jannatul Ferdaous</h3>
-                                                    <a href="#">Reply</a>
-                                                </div>
-                                                <span>15 january 2015 At 10:30 pm</span>
-                                                <p class="p-border">Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam, ea cum lupta definitionem. Vocibus suscipit prodesset vim ei, equidem perpetua eu per.</p>
-                                            </div>
-                                        </div>
-                                        <div class="blog-top blog-top-mrg">
-                                            <div class="blog-img-details">
-                                                <div class="blog-title">
-                                                    <h3>Matt James</h3>
-                                                    <a href="#">Reply</a>
-                                                </div>
-                                                <span>15 january 2015 At 10:30 pm</span>
-                                                <p>Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam, ea cum lupta definitionem. Vocibus suscipit prodesset vim ei, equidem perpetua eu per.</p>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="blog-reply-all2">
-                                        <div class="blog-top">
-                                            <div class="blog-img-details">
+                                        <div id="blog-top" class="blog-top">
+                                            {% for bbs in Posts %}
+                                            <div  class="blog-img-details">
                                                 <div class="blog-title">
-                                                    <h3>Jannatul Ferdaous</h3>
-                                                    <a href="#">Reply</a>
+                                                    <h3>{{bbs.writer_id}}</h3>
+                                                    <a href="#">수정</a>
                                                 </div>
-                                                <span>15 january 2015 At 10:30 pm</span>
-                                                <p>Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam, ea cum lupta definitionem. Vocibus suscipit prodesset vim ei, equidem perpetua eu per.</p>
+                                                <p>{{bbs.content}}</p>
+                                                <span>{{bbs.create_date}}</span>
                                             </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="blog-input">
                                     <p><i class="fa fa-reply" aria-hidden="true"></i>Leave A Reply:</p>
-                                    <form action="#">
+                                    <form method="post" action="../../bbs/postForm" name="form">
+                                        {% csrf_token %}
                                         <div class="blog-from">
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <input class="form-control bmrg" required="" type="text" placeholder="Name*">
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <input class="form-control" required="" type="email" placeholder="Email*">
+                                                    <input type="hidden" name="candidate_num" id="candidate_num" value="{{ candidate_num }}">
+                                                    <input type="hidden" name="detail_num" id="detail_num" value="{{ detail_num }}">
+                                                    {% if session_member_id %}
+                                                    <input class="form-control bmrg" required="" id="writer_id" name= "writer_id" type="text" value="{{ session_member_id }}" readonly>
+                                                    {% else %}
+                                                    <input class="form-control bmrg" required="" type="text" placeholder="name*" disabled/>
+                                                    {% endif %}
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <textarea class="form-control" required="" placeholder="Comment"></textarea>
-                                                    <button class="submit" type="submit">
+                                                    <textarea class="form-control" required="" name="content" id="content" placeholder="Comment"></textarea>
+                                                    {% if session_member_id %}
+                                                    <button class="submit" id="postBtn" type="button" value = "post">
                                                         Post Comment
                                                         <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                                     </button>
+                                                    {% else %}
+                                                    <button class="submit" type="submit" value= "loginback" onclick="if(confirm('로그인 후 이용가능합니다. 로그인 페이지로 이동합니다.')){javascript: form.action='/user/index/';}">
+                                                        Post Comment
+                                                        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                                    </button>
+                                                    {% endif %}
+
                                                 </div>
                                             </div>
                                         </div>
@@ -420,5 +413,45 @@
 		<!-- main JS
 		============================================ -->		
         <script src="{% static 'js/main.js' %}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#postBtn').click(function() {
+                alert('댓글입력됨')
+                writer_id = $('#writer_id').val()
+                candidate_num = $('#candidate_num').val()
+                detail_num = $('#detail_num').val()
+                content = $('#content').val()
+                $.ajax({
+                    url : '../../bbs/postForm/' ,
+                    type : 'post' ,
+                    data : {'csrfmiddlewaretoken' : '{{csrf_token}}' ,
+                            'candidate_num' : candidate_num ,
+                            'detail_num' : detail_num ,
+                            'writer_id' : writer_id ,
+                            'content' : content } ,
+                    dataType : 'json' ,
+                    success : function(obj) {
+                        $('#blog-top').empty()
+                        var txt = ""
+                        $.each(obj, function(idx, data) {
+                            txt += "<div class='blog-img-details'>"
+                            txt += "<div class='blog-title'>"
+                            txt += "<h3>" + data.writer_id + "</h3>"
+                            txt += "<a href='#'>수정</a>"
+                            txt += "</div>"
+                            txt += "<p>" + data.content + "</p>"
+                            txt += "<span>" + data.create_date + "</span>"
+                            txt += "</div>"
+                        })
+                        $('#blog-top').html(txt)
+                    }
+                })
+            });
+        })
+
+    </script>
     </body>
 </html>

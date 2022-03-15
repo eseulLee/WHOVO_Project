@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from bbsApp.models import Post
 
 # Create your views here.
 
@@ -16,133 +17,251 @@ def candidate3(request):
         return render(request, 'candidate3/candidate3.html' )
 
 def detail01(request):
-    print('>>> candidate2')
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 1
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail01.html',context)
+        return render(request, 'candidate3/blogDetail01.html', context)
     else:
-        return render(request, 'candidate3/blogDetail01.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail01.html', context)
+
 
 def detail02(request):
-    print('>>> detail02')
-    if request.session.get('member_name'):
-        print('>>> our member')
-        # 세션을 계속 심어줘야 함
-        context = {
-            'session_member_name': request.session.get('member_name'),
-            'session_member_id': request.session.get('member_id'),
-        }
-        return render(request, 'candidate3/blogDetail02.html',context)
-    else:
-        return render(request, 'candidate3/blogDetail02.html' )
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 2
 
-def detail03(request):
-    print('>>> detail03')
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail03.html',context)
+        return render(request, 'candidate3/blogDetail02.html', context)
     else:
-        return render(request, 'candidate3/blogDetail03.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail02.html', context)
+def detail03(request):
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 3
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
+    if request.session.get('member_name'):
+        print('>>> our member')
+        # 세션을 계속 심어줘야 함
+        context = {
+            'session_member_name': request.session.get('member_name'),
+            'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail03.html', context)
+    else:
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail03.html', context)
 
 def detail04(request):
-    print('>>> detail04')
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 4
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail04.html',context)
+        return render(request, 'candidate3/blogDetail04.html', context)
     else:
-        return render(request, 'candidate3/blogDetail04.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail04.html', context)
 
 def detail05(request):
-    print('>>> detail05')
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 5
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail05.html',context)
+        return render(request, 'candidate3/blogDetail05.html', context)
     else:
-        return render(request, 'candidate3/blogDetail05.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail05.html', context)
 
 def detail06(request):
-    print('>>> detail06')
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 6
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail06.html',context)
+        return render(request, 'candidate3/blogDetail06.html', context)
     else:
-        return render(request, 'candidate3/blogDetail06.html' )
-
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail06.html', context)
 def detail07(request):
-    print('>>> detail07')
-    if request.session.get('member_name'):
-        print('>>> our member')
-        # 세션을 계속 심어줘야 함
-        context = {
-            'session_member_name': request.session.get('member_name'),
-            'session_member_id': request.session.get('member_id'),
-        }
-        return render(request, 'candidate3/blogDetail07.html',context)
-    else:
-        return render(request, 'candidate3/blogDetail07.html' )
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 7
 
-def detail08(request):
-    print('>>> detail08')
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail08.html',context)
+        return render(request, 'candidate3/blogDetail07.html', context)
     else:
-        return render(request, 'candidate3/blogDetail08.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail07.html', context)
+def detail08(request):
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 8
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
+    if request.session.get('member_name'):
+        print('>>> our member')
+        # 세션을 계속 심어줘야 함
+        context = {
+            'session_member_name': request.session.get('member_name'),
+            'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail08.html', context)
+    else:
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail08.html', context)
 
 def detail09(request):
-    print('>>> detail09')
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 9
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail09.html',context)
+        return render(request, 'candidate3/blogDetail09.html', context)
     else:
-        return render(request, 'candidate3/blogDetail09.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail09.html', context)
 
 def detail10(request):
-    print('>>> detail10')
+    print('>>> candidate3')
+    candidate_num = 3
+    detail_num = 10
+
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
     if request.session.get('member_name'):
         print('>>> our member')
         # 세션을 계속 심어줘야 함
         context = {
             'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
         }
-        return render(request, 'candidate3/blogDetail10.html',context)
+        return render(request, 'candidate3/blogDetail10.html', context)
     else:
-        return render(request, 'candidate3/blogDetail10.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'detail_num': detail_num,
+            'Posts': Posts
+        }
+        return render(request, 'candidate3/blogDetail10.html', context)
 
 
