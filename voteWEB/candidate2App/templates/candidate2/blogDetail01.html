@@ -69,13 +69,6 @@
                                     </a>
                                 </div>
                                 <div class="header-search floatright">
-                                    <div id="search" class="search-top floatleft">
-                                       <input class="form-control input-lg" placeholder="Search" value="" name="search" type="text">
-                                        <span class="search">
-                                            <i class="fa fa-search"></i>
-                                        </span>
-                                    </div>
-
                                     {% if session_member_name %}
                                     <div class="header-button floatright">
                                         <a href="../../user/logout">로그아웃</a>
@@ -103,7 +96,18 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a href=""> my page <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="../../user/change"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -120,7 +124,7 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
                                                         <a href="../../candidate1/index/">이재명 후보 공약보기</a>
@@ -133,7 +137,18 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a href=""> my page <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="#"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"> 내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>					
@@ -166,12 +181,6 @@
                                     <h3 class="blog-title">
                                         코로나 극복 긴급구조 및 포스트 코로나 플랜
                                     </h3>
-                                    <div class="blog-meta">
-                                        <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 26 June, 2017
-                                        </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
-                                    </div>
                                     <div class="blog-content">
                                         <h4>목표</h4>
                                         <h5>- 재정자금 확보해 정당하고 온전한 손실보상</h5>
@@ -193,9 +202,6 @@
                                         <h5>- 조달수단별 우선순위는 먼저 지출효율화(재량지출 감축, 성과를 반영한 조정 등)를 추진</h5>
                                         <h5>- 재정지출시기와 조달시기의 불일치 발생 시, 지출시기를 조정하고, (단기적) 국가부채를 탄력적으로 활용</h5><br/>
                                     </div>
-                                </div>
-                                <div class="blog-tag">
-                                    <p><i class="fa fa-tags" aria-hidden="true"></i><span class="tag">Tags:</span> Political, <span class="vidos2">Video</span>, Politico, Donate, Blog</p>
                                 </div>
                                 <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
@@ -256,62 +262,34 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="issues-categoris issues-top3 blog-two2">
-                                <h3>Recent Post</h3>
+                                <h3>다른 후보자의 비슷한 공약</h3>
                                 <div class="event-sidebar-2">
                                     <div class="categori-list1">
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/5n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
-                                                <h3><a href="#">Boluptatem quia Ami </a></h3>
-                                                <p>But I must explain to how all this</p>
+                                                <h3><a href="#">공약 제목 </a></h3>
+                                                <p>후보자 이름</p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/6n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
                                                 <p>But I must explain to how all this</p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/7n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
                                                 <p>But I must explain to how all this </p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one mrg-nn">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/8n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Nemo enim ipsam</a></h3>
                                                 <p>But I must explain to how all this </p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="issues-categoris issues-top4">
-                                <h3>Keyword</h3>
-                                <div class="categori-list">
-                                    <ul>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                        <li><a href="#">Elements</a></li>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
