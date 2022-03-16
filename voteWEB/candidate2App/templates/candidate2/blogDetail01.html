@@ -385,6 +385,7 @@
         })
 
         function removePost(id) {
+            if(confirm('삭제하시겠습니까?')) {
             alert('remove')
             alert(id)
             $.ajax({
@@ -419,7 +420,10 @@
                 }
 
             })
-
+            }
+            else {
+            return false ;
+            }
         }
 
     </script>
