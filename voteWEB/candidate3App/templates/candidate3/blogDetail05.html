@@ -368,12 +368,17 @@
     <script>
         $(document).ready(function() {
             $(document).on('click', '#postBtn', function() {
-                alert('댓글입력됨')
                 writer_id = $('#writer_id').val()
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
                 id = $('#id').val()
+                if(content ==""){
+                    alert("내용을 입력해주세요.");
+                    return false;
+                }else {
+                    alert("댓글등록");
+                }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
                     type : 'post' ,
