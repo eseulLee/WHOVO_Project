@@ -401,9 +401,9 @@
                             txt += "<div class='blog-title' align='right'>"
                             txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
-                            txt += "{% if "+ data.writer_id == session_member_id +"%}"
-                            txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
-                            txt += "{% endif %}"
+                            if( data.writer_id == '{{session_member_id}}' ) {
+                                txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                            }
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
@@ -440,7 +440,9 @@
                         txt += "<div class='blog-title' align='right'>"
                         txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
                         txt += "<h3>" + data.writer_id + "</h3>"
-                        txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                        if( data.writer_id == '{{session_member_id}}' ) {
+                            txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                        }
                         txt += "</div>"
                         txt += "<p>" + data.content + "</p>"
                         txt += "<span>" + data.create_date + "</span>"
