@@ -103,7 +103,18 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a href=""> my page <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="../../user/change"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -133,7 +144,18 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a> my page </a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="../../user/change"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>					
@@ -166,12 +188,6 @@
                                     <h3 class="blog-title">
                                         스마트강군 건설, 실용외교로 평화안보 실현
                                     </h3>
-                                    <div class="blog-meta">
-                                        <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 26 June, 2017 
-                                        </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
-                                    </div>
                                     <div class="blog-content">
                                         <h4>목표</h4>
                                         <li>스마트 강군, 국익중심 실용외교로 한반도 비핵화 실현, 평화체제 제도화</li><br/>
@@ -249,9 +265,7 @@
                                         </li><br/>
                                     </div>
                                 </div>
-                                <div class="blog-tag">
-                                    <p><i class="fa fa-tags" aria-hidden="true"></i><span class="tag">Tags:</span> Political, <span class="vidos2">Video</span>, Politico, Donate, Blog</p>
-                                </div>
+
                                 <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
                                     <div class="blog-reply-all2">
@@ -259,8 +273,11 @@
                                             {% for bbs in Posts %}
                                             <div  class="blog-img-details">
                                                 <div class="blog-title" align="right">
+                                                    <input type="hidden" name ="id" id= "id" value ="{{bbs.id}}">
                                                     <h3>{{bbs.writer_id}}</h3>
-                                                    <button class="submit1">삭제</button>
+                                                    {% if bbs.writer_id == session_member_id %}
+                                                    <button class="submit1" onclick="javascript:removePost({{bbs.id}})">삭제</button>
+                                                    {% endif %}
                                                 </div>
                                                 <p>{{bbs.content}}</p>
                                                 <span>{{bbs.create_date}}</span>
@@ -307,63 +324,35 @@
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="issues-categoris issues-top2 two-mrg-two">
-                                <h3>Recent Post</h3>
+                            <div class="issues-categoris issues-top3 blog-two2">
+                                <h3>다른 후보자의 비슷한 공약</h3>
                                 <div class="event-sidebar-2">
                                     <div class="categori-list1">
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/5n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
-                                                <h3><a href="#">Boluptatem quia Ami </a></h3>
-                                                <p>But I must explain to how all this</p>
+                                                <h3><a href="#">공약 제목 </a></h3>
+                                                <p>후보자 이름</p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/6n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
                                                 <p>But I must explain to how all this</p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/7n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
                                                 <p>But I must explain to how all this </p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one mrg-nn">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/8n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Nemo enim ipsam</a></h3>
                                                 <p>But I must explain to how all this </p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="issues-categoris issues-top4">
-                                <h3>Keyword</h3>
-                                <div class="categori-list">
-                                    <ul>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                        <li><a href="#">Elements</a></li>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -448,8 +437,11 @@
                         $.each(obj, function(idx, data) {
                             txt += "<div class='blog-img-details'>"
                             txt += "<div class='blog-title' align='right'>"
+                            txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
-                            txt += "<button class='submit1'>삭제</button>"
+                            if( data.writer_id == '{{session_member_id}}' ) {
+                                txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                            }
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
@@ -463,6 +455,43 @@
             });
         })
 
+        function removePost(id) {
+            alert('remove')
+            alert(id)
+            $.ajax({
+                url : '../../bbs/remove/' ,
+                type : 'post' ,
+                data : {'csrfmiddlewaretoken' : '{{csrf_token}}' ,
+                        'candidate_num' : $('#candidate_num').val() ,
+                        'detail_num' : $('#detail_num').val() ,
+                        'writer_id' : $('#writer_id').val() ,
+                        'content' : $('#content').val() ,
+                         'id' : id } ,
+                dataType : 'json' ,
+                success : function(obj) {
+                    alert($('#writer_id').val())
+                    $('#blog-top').empty()
+                    var txt = ""
+                    $.each(obj, function(idx, data) {
+                        txt += "<div class='blog-img-details'>"
+                        txt += "<div class='blog-title' align='right'>"
+                        txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
+                        txt += "<h3>" + data.writer_id + "</h3>"
+                        if( data.writer_id == '{{session_member_id}}' ) {
+                            txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                        }
+                        txt += "</div>"
+                        txt += "<p>" + data.content + "</p>"
+                        txt += "<span>" + data.create_date + "</span>"
+                        txt += "</div>"
+                    })
+                    $('#blog-top').html(txt)
+                    $('#content').val("");
+                }
+
+            })
+
+        }
     </script>
     </body>
 </html>
