@@ -103,7 +103,18 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a href=""> my page <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="../../user/change"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -120,7 +131,7 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a> 후보별 공약 </a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
                                                         <a href="../../candidate1/index">이재명 후보 공약보기</a>
@@ -133,7 +144,18 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a> my page </a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="#"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"> 내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>					
@@ -166,12 +188,6 @@
                                     <h3 class="blog-title">
                                         맞춤교육, 문화다양성, 표현의 자유가 보장되는 나라
                                     </h3>
-                                    <div class="blog-meta">
-                                        <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 26 June, 2017 
-                                        </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i> 01 Comment </span>
-                                    </div>
                                     <div class="blog-content">
                                         <h4>목표</h4>
                                         <h5>유아부터 대학까지 미래형 맞춤교육, 직업교육 강화, 대학서열 완화로 사교육비 경감</h5>
@@ -218,10 +234,6 @@
                                         <h5>일반회계, 특별회계, 교부금 등 활용</h5>
                                     </div>
                                 </div>
-                                <div class="blog-tag">
-                                    <p><i class="fa fa-tags" aria-hidden="true"></i><span class="tag">Tags:</span> Political, <span class="vidos2">Video</span>, Politico, Donate, Blog</p>
-                                </div>
-
                                 <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
                                     <div class="blog-reply-all2">
@@ -231,6 +243,27 @@
                                                 <div class="blog-title" align="right">
                                                     <h3>{{bbs.writer_id}}</h3>
                                                     <button class="submit1">삭제</button>
+                                                </div>
+                                                <p>{{bbs.content}}</p>
+                                                <span>{{bbs.create_date}}</span>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div  class="blog-comment">
+                                    <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
+                                    <div class="blog-reply-all2">
+                                        <div id="blog-top" class="blog-top">
+                                            {% for bbs in Posts %}
+                                            <div  class="blog-img-details">
+                                                <div class="blog-title" align="right">
+                                                    <input type="hidden" name ="id" id= "id" value ="{{bbs.id}}">
+                                                    <h3>{{bbs.writer_id}}</h3>
+                                                    {% if bbs.writer_id == session_member_id %}
+                                                    <button class="submit1" onclick="javascript:removePost({{bbs.id}})">삭제</button>
+                                                    {% endif %}
                                                 </div>
                                                 <p>{{bbs.content}}</p>
                                                 <span>{{bbs.create_date}}</span>
@@ -279,62 +312,34 @@
                         <div class="col-lg-3">
 
                             <div class="issues-categoris issues-top3 blog-two2">
-                                <h3>Recent Post</h3>
+                                <h3>다른 후보자의 비슷한 공약</h3>
                                 <div class="event-sidebar-2">
                                     <div class="categori-list1">
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/5n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
-                                                <h3><a href="#">Boluptatem quia Ami </a></h3>
-                                                <p>But I must explain to how all this</p>
+                                                <h3><a href="#"> 공약 제목 </a></h3>
+                                                <p>후보자 이름</p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/6n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
                                                 <p>But I must explain to how all this</p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/7n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Ami Tomari preomi </a></h3>
                                                 <p>But I must explain to how all this </p>
                                             </div>
                                         </div>
                                         <div class="categori-list-one mrg-nn">
-                                            <div class="categori-list-img">
-                                                <a href="#"><img src="{% static 'img/event/8n.jpg' %}" alt=""></a>
-                                            </div>
                                             <div class="post-details">
                                                 <h3><a href="#">Nemo enim ipsam</a></h3>
                                                 <p>But I must explain to how all this </p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="issues-categoris issues-top4">
-                                <h3>Keyword</h3>
-                                <div class="categori-list">
-                                    <ul>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                        <li><a href="#">Elements</a></li>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -362,48 +367,49 @@
                 <i class="fa fa-chevron-up"></i>
             </div>
         </div>
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
 		<!-- jquery
-		============================================ -->		
+		============================================ -->
         <script src="{% static 'js/vendor/jquery-v2.2.4.min.js' %}"></script>
         <!-- Popper JS
-		============================================ -->		
+		============================================ -->
         <script src="{% static 'js/popper.min.js' %}"></script>
 		<!-- bootstrap JS
-		============================================ -->		
+		============================================ -->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <!-- ajax mails JS
         ============================================ -->
         <script src="{% static 'js/ajax-mail.js' %}"></script>
 		<!-- wow JS
-		============================================ -->		
+		============================================ -->
         <script src="{% static 'js/wow.min.js' %}"></script>
 		<!-- Nivo slider js
-		============================================ --> 		
+		============================================ -->
 		<script src="{% static 'lib/js/jquery.nivo.slider.js' %}"></script>
 		<script src="{% static 'lib/home.js' %}"></script>
 		<!-- plugins JS
 		============================================ -->
         <script src="{% static 'js/plugins.js' %}"></script>
 		<!-- main JS
-		============================================ -->		
+		============================================ -->
         <script src="{% static 'js/main.js' %}"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            $('#postBtn').click(function() {
+            $(document).on('click', '#postBtn', function() {
                 alert('댓글입력됨')
                 writer_id = $('#writer_id').val()
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
+                id = $('#id').val()
                 $.ajax({
                     url : '../../bbs/postForm/' ,
                     type : 'post' ,
@@ -411,28 +417,72 @@
                             'candidate_num' : candidate_num ,
                             'detail_num' : detail_num ,
                             'writer_id' : writer_id ,
-                            'content' : content } ,
+                            'content' : content ,
+                             'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
+                        alert($('#writer_id').val())
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
                             txt += "<div class='blog-img-details'>"
                             txt += "<div class='blog-title' align='right'>"
+                            txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
-                            txt += "<button class='submit1'>삭제</button>"
+                            if( data.writer_id == '{{session_member_id}}' ) {
+                                txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                            }
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
                             txt += "</div>"
+
                         })
                         $('#blog-top').html(txt)
                         $('#content').val("");
-
                     }
                 })
             });
+
         })
+
+        function removePost(id) {
+            alert('remove')
+            alert(id)
+            $.ajax({
+                url : '../../bbs/remove/' ,
+                type : 'post' ,
+                data : {'csrfmiddlewaretoken' : '{{csrf_token}}' ,
+                        'candidate_num' : $('#candidate_num').val() ,
+                        'detail_num' : $('#detail_num').val() ,
+                        'writer_id' : $('#writer_id').val() ,
+                        'content' : $('#content').val() ,
+                         'id' : id } ,
+                dataType : 'json' ,
+                success : function(obj) {
+                    alert($('#writer_id').val())
+                    $('#blog-top').empty()
+                    var txt = ""
+                    $.each(obj, function(idx, data) {
+                        txt += "<div class='blog-img-details'>"
+                        txt += "<div class='blog-title' align='right'>"
+                        txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
+                        txt += "<h3>" + data.writer_id + "</h3>"
+                        if( data.writer_id == '{{session_member_id}}' ) {
+                            txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                        }
+                        txt += "</div>"
+                        txt += "<p>" + data.content + "</p>"
+                        txt += "<span>" + data.create_date + "</span>"
+                        txt += "</div>"
+                    })
+                    $('#blog-top').html(txt)
+                    $('#content').val("");
+                }
+
+            })
+
+        }
 
     </script>
     </body>
