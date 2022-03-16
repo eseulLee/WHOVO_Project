@@ -206,7 +206,9 @@
                                                 <div class="blog-title" align="right">
                                                     <input type="hidden" name ="id" id= "id" value ="{{bbs.id}}">
                                                     <h3>{{bbs.writer_id}}</h3>
-                                                    <button class="submit1">삭제</button>
+                                                    {% if bbs.writer_id == writer_id %}
+                                                    <button class="submit1" onclick="javascript:removePost({{bbs.id}})">삭제</button>
+                                                    {% endif %}
                                                 </div>
                                                 <p>{{bbs.content}}</p>
                                                 <span>{{bbs.create_date}}</span>
@@ -395,12 +397,13 @@
 
     <script>
         $(document).ready(function() {
-            $('#postBtn').click(function() {
+            $(document).on('click', '#postBtn', function() {
                 alert('댓글입력됨')
                 writer_id = $('#writer_id').val()
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
+                id = $('#id').val()
                 $.ajax({
                     url : '../../bbs/postForm/' ,
                     type : 'post' ,
@@ -408,33 +411,70 @@
                             'candidate_num' : candidate_num ,
                             'detail_num' : detail_num ,
                             'writer_id' : writer_id ,
-                            'content' : content } ,
+                            'content' : content ,
+                             'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
+                        alert($('#writer_id').val())
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
                             txt += "<div class='blog-img-details'>"
                             txt += "<div class='blog-title' align='right'>"
-                            txt += "<input type='hidden' name ='id' id= 'id' value ='{{bbs.id}}'>"
+                            txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
                             txt += "<h3>" + data.writer_id + "</h3>"
-                            txt += "<button class='submit1'>삭제</button>"
+                            txt += "{% if "+ data.writer_id == $('#writer_id').val() +"%}"
+                            txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                            txt += "{% endif %}"
                             txt += "</div>"
                             txt += "<p>" + data.content + "</p>"
                             txt += "<span>" + data.create_date + "</span>"
                             txt += "</div>"
+
                         })
                         $('#blog-top').html(txt)
                         $('#content').val("");
                     }
                 })
             });
-            $('#removeBtn').click(function(){
-                alert('removebtn click')
-                bbs_id = $('#id').val()
-                location.href = '../bbs/remove?id='+bbs_id ;
-            });
+
         })
+
+        function removePost(id) {
+            alert('remove')
+            alert(id)
+            $.ajax({
+                url : '../../bbs/remove/' ,
+                type : 'post' ,
+                data : {'csrfmiddlewaretoken' : '{{csrf_token}}' ,
+                        'candidate_num' : $('#candidate_num').val() ,
+                        'detail_num' : $('#detail_num').val() ,
+                        'writer_id' : $('#writer_id').val() ,
+                        'content' : $('#content').val() ,
+                         'id' : id } ,
+                dataType : 'json' ,
+                success : function(obj) {
+                    alert($('#writer_id').val())
+                    $('#blog-top').empty()
+                    var txt = ""
+                    $.each(obj, function(idx, data) {
+                        txt += "<div class='blog-img-details'>"
+                        txt += "<div class='blog-title' align='right'>"
+                        txt += "<input type='hidden' name ='id' id= 'id' value ='"+ data.id +"'>"
+                        txt += "<h3>" + data.writer_id + "</h3>"
+                        txt += "<button class='submit1' onclick='javascript:removePost("+data.id+")'>삭제</button>"
+                        txt += "</div>"
+                        txt += "<p>" + data.content + "</p>"
+                        txt += "<span>" + data.create_date + "</span>"
+                        txt += "</div>"
+                    })
+                    $('#blog-top').html(txt)
+                    $('#content').val("");
+                }
+
+            })
+
+        }
 
     </script>
     </body>

@@ -3,6 +3,8 @@ from.models           import *
 from django.http      import JsonResponse
 from .urls            import *
 
+import datetime
+
 
 # Create your views here.
 
@@ -36,7 +38,8 @@ def postForm(request) :
             'detail_num': bbs.detail_num,
             'writer_id': bbs.writer_id,
             'content': bbs.content,
-            'create_date': bbs.create_date,
+            'create_date': bbs.create_date.strftime('%B %d. %Y. %I:%M %p'),
+            'id' : bbs.id
         })
 
     return JsonResponse(jsonAry, safe=False)
@@ -47,14 +50,33 @@ def postForm(request) :
 def remove(request):
     print('>>>> bbs remove')
 
-    id = request.GET['id']
-    print('debug - ', id)
+    candidate_num = request.POST['candidate_num']
+    detail_num = request.POST['detail_num']
+    writer_id = request.POST['writer_id']
+    content = request.POST['content']
+    id = request.POST['id']
+    # writer_time = request.POST['create_date']
+    print('>>>> debuge -', candidate_num, detail_num, writer_id, content, id)
+    print('>>>> session - ', request.session.get('member_id'))
 
     post = Post.objects.get(id = id)
     post.delete()
+    print('>>>> post deleted')
 
-    return redirect ('candidate2_detail01')
+    jsonAry = []
+    Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
+    print('data - ', Posts)
+    for bbs in Posts:
+        jsonAry.append({
+            'candidate_num': bbs.candidate_num,
+            'detail_num': bbs.detail_num,
+            'writer_id': bbs.writer_id,
+            'content': bbs.content,
+            'create_date': bbs.create_date.strftime('%B %d. %Y. %I:%M %p'),
+            'id' : bbs.id
+        })
 
+    return JsonResponse(jsonAry, safe=False)
 
 
 
