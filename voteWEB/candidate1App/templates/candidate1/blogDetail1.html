@@ -96,13 +96,10 @@
                                                 </ul>
                                             </li>
                                             {% if session_member_name %}
-                                            <li><a href=""> my page <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a href=""> {{ session_member_name }} 님 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
-                                                        <a href="../../user/change"> 회원정보 </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">내가 쓴 글 </a>
+                                                        <a href="../../user/mypage"> MY PAGE </a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -137,16 +134,7 @@
                                                 </ul>
                                             </li>
                                             {% if session_member_name %}
-                                            <li><a> my page </a>
-                                                <ul class="submenu-mainmenu">
-                                                    <li>
-                                                        <a href="../../user/change"> 회원정보 </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">내가 쓴 글 </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="../../user/mypage"> MY PAGE</a></li>
                                             {% endif %}
                                         </ul>
                                     </nav>
@@ -234,8 +222,6 @@
                                         <p class="blog-paragraph"></p>
                                     </div>
                                 </div>
-
-
                                 <div  class="blog-comment">
                                     <p><i class="fa fa-comments" aria-hidden="true"></i>Write Comment:</p>
                                     <div class="blog-reply-all2">
@@ -272,7 +258,7 @@
                                                     {% endif %}
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <textarea class="form-control" required="" name="content" id="content" placeholder="Comment"></textarea>
+                                                    <textarea class="form-control" name="content" id="content" placeholder="Comment" required></textarea>
                                                     {% if session_member_id %}
                                                     <button class="submit" id="postBtn" type="button" value = "post">
                                                         Post Comment
@@ -386,11 +372,19 @@
     <script>
         $(document).ready(function() {
             $('#postBtn').click(function() {
-                alert('댓글입력됨')
                 writer_id = $('#writer_id').val()
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
+
+                if($.trim(content) ==""){
+                    alert("내용을 입력해주세요.")
+                    $('#content').val("");
+                    return false;
+                }else {
+                    alert("댓글등록");
+                }
+
                 $.ajax({
                     url : '../../bbs/postForm/' ,
                     type : 'post' ,
@@ -425,6 +419,7 @@
         })
 
         function removePost(id) {
+            if(confirm('삭제하시겠습니까?')) {
             alert('remove')
             alert(id)
             $.ajax({
@@ -459,6 +454,10 @@
                 }
 
             })
+            }
+            else {
+            return false ;
+            }
 
         }
     </script>
