@@ -367,7 +367,8 @@
                 content = $('#content').val()
                 id = $('#id').val()
                 if(content ==""){
-                    alert("내용을 입력해주세요.");
+                    alert("내용을 입력해주세요.")
+                    $('#content').val("");
                     return false;
                 }else {
                     alert("댓글등록");

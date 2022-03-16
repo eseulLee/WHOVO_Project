@@ -409,7 +409,8 @@
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
                 if(content ==""){
-                    alert("내용을 입력해주세요.");
+                    alert("내용을 입력해주세요.")
+                    $('#content').val("");
                     return false;
                 }else {
                     alert("댓글등록");
