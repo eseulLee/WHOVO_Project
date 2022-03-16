@@ -70,13 +70,6 @@
                                     </a>
                                 </div>
                                 <div class="header-search floatright">
-                                    <div id="search" class="search-top floatleft">
-                                       <input class="form-control input-lg" placeholder="Search" value="" name="search" type="text">
-                                        <span class="search">
-                                            <i class="fa fa-search"></i>
-                                        </span>
-                                    </div>
-
                                     {% if session_member_name %}
                                     <div class="header-button floatright">
                                         <a href="../../user/logout">로그아웃</a>
@@ -104,7 +97,19 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a href=""> my page <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="../../user/change"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a>{{ session_member_name }} 님</a></li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -121,7 +126,7 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a>후보별 공약</a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
                                                         <a href="../../candidate1/index">이재명 후보 공약보기</a>
@@ -134,7 +139,18 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="../../events">event(extra page)</a></li>
+                                            {% if session_member_name %}
+                                            <li><a>my page</a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="../../user/change"> 회원정보 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"> 내가 쓴 글 </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -174,9 +190,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -192,9 +207,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -210,9 +224,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -228,9 +241,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -246,9 +258,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -264,9 +275,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -282,9 +292,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -300,9 +309,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -318,9 +326,8 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
                             </div>
@@ -336,36 +343,16 @@
                                     </div>
                                     <div class="blog-meta">
                                         <span class="published3">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14 May, 2017
                                         </span>
-                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i><a href="#"> 03 Comment </a></span>
+                                        <span class="published4"><i class="fa fa-comments-o" aria-hidden="true"></i>03 Comment</span>
                                     </div>
                                 </div>
-                            </div>
-                                <div class="pages">
-                                <ul>
-                                    <li>pages :</li>
-                                    <li class="current">
-                                        <a href="#">1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">3</a>
-                                    </li>
-                                    <li class="cut">
-                                        <a href="#">
-                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
 
                         <div class="col-lg-3 col-md-4">
                             <div class="issues-categoris issues-top2">
-                                <h3>Recent Post</h3>
+                                <h3>이재명 후보 관련 뉴스</h3>
                                 <div class="event-sidebar-2">
                                     <div class="categori-list1">
                                         <div class="categori-list-one">
@@ -405,22 +392,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="issues-categoris issues-top4">
-                                <h3>Keyword</h3>
-                                <div class="categori-list">
-                                    <ul>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                        <li><a href="#">Elements</a></li>
-                                        <li><a href="#">Political</a></li>
-                                        <li><a href="#">Politico</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Issues</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>

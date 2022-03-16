@@ -55,6 +55,8 @@
 .row {
 	margin-right: calc(var(--bs-gutter-x) * -.6);
 	margin-left: calc(var(--bs-gutter-x) * -.6);
+	justify-content: center;
+
 }
 .row > * {
 	padding-right: calc(var(--bs-gutter-x) * .6);
