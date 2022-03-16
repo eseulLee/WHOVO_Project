@@ -79,5 +79,6 @@ def remove(request):
     return JsonResponse(jsonAry, safe=False)
 
 
-
+def ddddd(request):
+    pass
 
