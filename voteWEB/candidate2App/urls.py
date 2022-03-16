@@ -3,7 +3,7 @@ from candidate2App import views
 
 urlpatterns = [
     path('index/', views.candidate2),
-    path('detail01/', views.detail01),
+    path('detail01/', views.detail01, name="candidate2_detail01"),
     path('detail02/', views.detail02),
     path('detail03/', views.detail03),
     path('detail04/', views.detail04),
