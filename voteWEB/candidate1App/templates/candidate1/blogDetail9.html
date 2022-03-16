@@ -104,13 +104,10 @@
                                                 </ul>
                                             </li>
                                             {% if session_member_name %}
-                                            <li><a href=""> my page <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a href=""> {{ session_member_name }} 님 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
-                                                        <a href="../../user/change"> 회원정보 </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">내가 쓴 글 </a>
+                                                        <a href="../../user/mypage"> MY PAGE </a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -145,16 +142,7 @@
                                                 </ul>
                                             </li>
                                             {% if session_member_name %}
-                                            <li><a> my page </a>
-                                                <ul class="submenu-mainmenu">
-                                                    <li>
-                                                        <a href="../../user/change"> 회원정보 </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">내가 쓴 글 </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="../../user/mypage"> MY PAGE</a></li>
                                             {% endif %}
                                         </ul>
                                     </nav>
