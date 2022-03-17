@@ -77,3 +77,45 @@ def mypage(request) :
         }
         return render(request, 'user/mypage.html', context)
 
+def update_page(request):
+    print('>>> update_page')
+
+    context = {
+        'session_member_name': request.session.get('member_name'),
+        'session_member_id': request.session.get('member_id'),
+    }
+    return render(request, 'user/member_update.html', context)
+
+def update(request):
+    print('>>>> user update ')
+
+    id = request.POST['id']
+    pwd = request.POST['pwd']
+    name = request.POST['name']
+    poli = request.POST['poli']
+    age = request.POST['age']
+    print('>>>> param values - ', id, pwd, name, poli, age)
+
+    # orm - update
+    member = WebMember.objects.get(member_id=id)
+    member.member_pwd = pwd
+    member.member_name = name
+    member.member_poli = poli
+    member.member_age = age
+    member.save()
+
+    print(member)
+
+    return redirect('mypage')
+
+def remove(request):
+    print('>>> remove')
+
+    id= request.session.get('member_id')
+    member = WebMember.objects.get(member_id=id)
+    member.delete()
+    request.session['member_name'] = {}
+    request.session['member_id'] = {}
+    request.session.modified = True
+
+    return redirect('../../whovo')
