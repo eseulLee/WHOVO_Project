@@ -54,6 +54,8 @@
         <!-- modernizr JS
         ============================================ -->
         <script src="{% static 'js/vendor/modernizr-3.11.7.min.js' %}"></script>
+
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -197,75 +199,39 @@
                                         <i class="fa fa-bookmark" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                                <p>Our mission is to create a society in which an informed and active citizenry is sovereign and makes policy decisions based on the will of the majority.</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="service-area-all mb-40">
-                                <div class="offer-icon">
-                                    <i class="fa fa-crosshairs" aria-hidden="true"></i>
-                                </div>
                                 <div class="offer-text">
-                                    <h3>Our Mission</h3>
-                                    <p>To create a society in which an informed and active citizenry is sovereign and makes policy decisions based on the will.</p>
+                                    <div id="piechart" style="width: 500px; height: 400px;"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="service-area-all mb-40">
-                                <div class="offer-icon">
-                                    <i class="fa fa-volume-up" aria-hidden="true"></i>
-                                </div>
                                 <div class="offer-text">
-                                    <h3>Our Campaings</h3>
-                                    <p>We oppose discrimination based on race, color, spiritual belief, gender, sexual orientation, age, physical ability, and origin.</p>
+                                    <div id="piechart1" style="width: 500px; height: 400px;"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="service-area-all mb-40">
-                                <div class="offer-icon">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                </div>
                                 <div class="offer-text">
-                                    <h3>Our Election</h3>
-                                    <p>We believe that our mission calls for non-traditional approaches, and we call for every citizen to participate in upcoming elections.</p>
+                                    <div id="piechart2" style="width: 500px; height: 400px;"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="service-area-all mb-40">
-                                <div class="offer-icon">
-                                    <i class="fa fa-street-view" aria-hidden="true"></i>
-                                </div>
-                                <div class="offer-text">
-                                    <h3>Join Volunteers</h3>
-                                    <p>Volunteers is the backbone of our movement. Find out more about volunteering with our party and opportunities available.</p>
-                                </div>
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="service-area-all mb-40">
-                                <div class="offer-icon">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </div>
-                                <div class="offer-text">
-                                    <h3>Our Projects</h3>
-                                    <p>We will build democracy through activism and education and change the law to ensure that political processes.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="service-area-all mb-40">
-                                <div class="offer-icon">
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                </div>
-                                <div class="offer-text">
-                                    <h3>Communities</h3>
-                                    <p>A sound and healthy state is one in which government recognizes and protects the independent responsibilities that belong.</p>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -604,5 +570,81 @@
 		<!-- main JS
 		============================================ -->		
         <script src="{% static 'js/main.js' %}"></script>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        lst = {{chart_data}}
+        console.log(">>>>>")
+        console.log(lst)
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['후보자', '2030대 회원수'],
+            ['이재명',  lst[0]],
+            ['윤석열',  lst[1]],
+            ['심상정',  lst[2]]
+            ]);
+
+            var options = {
+            title: '2030 회원 연령별 정당 지지 차트'
+         };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+        </script>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['후보자', '4050대 회원수'],
+            ['이재명',  50],
+            ['윤석열',  10],
+            ['심상정',  35]
+            ]);
+
+            var options = {
+            title: '4050 회원 연령별 정당 지지 차트'
+         };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+
+            chart.draw(data, options);
+        }
+        </script>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['후보자', '60대이상 회원수'],
+            ['이재명',  20],
+            ['윤석열',  40],
+            ['심상정',  15]
+            ]);
+
+            var options = {
+            title: '60대이상 회원 연령별 정당 지지 차트'
+         };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+            chart.draw(data, options);
+        }
+        </script>
+
+
     </body>
 </html>
