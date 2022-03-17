@@ -226,12 +226,19 @@
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="service-area-all mb-40">
-
+                                <div id="bar_chart1" style="width: 500px; height: 400px;"></div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="service-area-all mb-40">
-
+                                <div class="offer-text">
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="service-area-all mb-40">
+                                <div id="bar_chart2" style="width: 500px; height: 400px;"></div>
                             </div>
                         </div>
                     </div>
@@ -575,26 +582,27 @@
         <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
-        lst = {{chart_data}}
+        lst = {{chart_data1}}
         console.log(">>>>>")
         console.log(lst)
         function drawChart() {
 
             var data = google.visualization.arrayToDataTable([
-            ['후보자', '2030대 회원수'],
-            ['이재명',  lst[0]],
-            ['윤석열',  lst[1]],
-            ['심상정',  lst[2]]
+            ['정당', '30대이하 회원수'],
+            ['더불어민주당',  lst[0]],
+            ['국민의힘',  lst[1]],
+            ['정의당',  lst[2]]
             ]);
 
             var options = {
-            title: '2030 회원 연령별 정당 지지 차트'
+            title: '30이하 회원 연령별 정당 지지 차트'
          };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
             chart.draw(data, options);
         }
+
         </script>
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -603,12 +611,15 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            lst = {{chart_data2}}
+            console.log(">>>>>")
+            console.log(lst)
 
             var data = google.visualization.arrayToDataTable([
-            ['후보자', '4050대 회원수'],
-            ['이재명',  50],
-            ['윤석열',  10],
-            ['심상정',  35]
+            ['정당', '4050대 회원수'],
+            ['더불어민주당',  lst[0]],
+            ['국민의힘',  lst[1]],
+            ['정의당',  lst[2]]
             ]);
 
             var options = {
@@ -620,23 +631,25 @@
             chart.draw(data, options);
         }
         </script>
-
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            lst = {{chart_data3}}
+            console.log(">>>>>")
+            console.log(lst)
 
             var data = google.visualization.arrayToDataTable([
-            ['후보자', '60대이상 회원수'],
-            ['이재명',  20],
-            ['윤석열',  40],
-            ['심상정',  15]
+            ['정당', '60대이상 회원수'],
+            ['더불어민주당',  lst[0]],
+            ['국민의힘',  lst[1]],
+            ['정의당',  lst[2]]
             ]);
 
             var options = {
-            title: '60대이상 회원 연령별 정당 지지 차트'
+            title: '60대 이상 회원 연령별 정당 지지 차트'
          };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
@@ -644,6 +657,85 @@
             chart.draw(data, options);
         }
         </script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['bar']});
+            google.charts.setOnLoadCallback(drawStuff);
+
+              function drawStuff() {
+
+                    lst = {{chart_data4}}
+                    console.log(">>>>>")
+                    console.log(lst)
+
+                var data = new google.visualization.arrayToDataTable([
+                  ['정당', '회원수'],
+                  ["더불어민주당", lst[0]],
+                  ["국민의힘", lst[1]],
+                  ["정의당", lst[2]]
+                ]);
+
+                var options = {
+                  width: 400,
+                  legend: { position: 'none' },
+                    color: ['red','blue,','yellow'],
+                  chart: {
+                    title: '회원별 지지 정당'},
+                  axes: {
+                    x: {
+                      0: { side: '회원수', label: '정당'} // Top x-axis.
+                    }
+                  },
+                  bar: { groupWidth: "30%" }
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('bar_chart1'));
+                // Convert the Classic options to Material options.
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+              };
+            </script>
+
+        </script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['bar']});
+            google.charts.setOnLoadCallback(drawStuff);
+
+              function drawStuff() {
+
+                    lst = {{chart_data5}}
+                    console.log(">>>>>")
+                    console.log(lst)
+
+                var data = new google.visualization.arrayToDataTable([
+                  ['정당', '회원수'],
+                  ["이재명", lst[0]],
+                  ["윤석열", lst[1]],
+                  ["심상정", lst[2]]
+                ]);
+
+                var options = {
+                  width: 400,
+                  legend: { position: 'none' },
+                  chart: {
+                    title: '공약별 댓글 개수'},
+                  axes: {
+                    x: {
+                      0: { side: '댓글수', label: '후보자'} // Top x-axis.
+                    }
+                  },
+                  bar: { groupWidth: "30%" }
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('bar_chart2'));
+                // Convert the Classic options to Material options.
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+              };
+            </script>
+
+
+
+
 
 
     </body>
