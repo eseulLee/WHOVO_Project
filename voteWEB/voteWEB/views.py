@@ -10,7 +10,6 @@ def index(request) :
         lst = []
 
 
-
         context = {
             'session_member_name' :  request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
