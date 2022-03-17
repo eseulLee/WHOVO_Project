@@ -1,23 +1,49 @@
 from django.shortcuts import render, redirect
 from bbsApp.models import Post
+from django.db.models import Count
 
 # Create your views here.
 
 def candidate1(request):
     print('>>> candidate1 index')
-    if request.session.get('member_name') :
-        print('>>> our member')
-        # 세션을 계속 심어줘야 함
+
+    candidate_num = 1
+
+    Posts = Post.objects.filter(candidate_num=candidate_num).values('detail_num').annotate(dcount=Count('detail_num'))
+    # select detal_num , count(detail_num) as dcount from table group by detail_num
+
+    dcount1 = Posts.get(detail_num=1)['dcount']
+    dcount2 = Posts.get(detail_num=2)['dcount']
+    dcount3 = Posts.get(detail_num=3)['dcount']
+    dcount4 = Posts.get(detail_num=4)['dcount']
+    dcount5 = Posts.get(detail_num=5)['dcount']
+    dcount6 = Posts.get(detail_num=6)['dcount']
+    dcount7 = Posts.get(detail_num=7)['dcount']
+    dcount8 = Posts.get(detail_num=8)['dcount']
+    dcount9 = Posts.get(detail_num=9)['dcount']
+    dcount10 = Posts.get(detail_num=10)['dcount']
+
+    if request.session.get('member_name'):
         context = {
-            'session_member_name' :  request.session.get('member_name'),
+            'session_member_name': request.session.get('member_name'),
             'session_member_id': request.session.get('member_id'),
+            'candidate_num': candidate_num,
+            'dcount1': dcount1, 'dcount2': dcount2, 'dcount3': dcount3, 'dcount4': dcount4, 'dcount5': dcount5,
+            'dcount6': dcount6, 'dcount7': dcount7, 'dcount8': dcount8, 'dcount9': dcount9, 'dcount10': dcount10
         }
-        return render(request, 'candidate1/candidate1.html',context)
+
+        return render(request, 'candidate1/candidate1.html', context)
     else:
-        return render(request, 'candidate1/candidate1.html' )
+        context = {
+            'candidate_num': candidate_num,
+            'dcount1': dcount1, 'dcount2': dcount2, 'dcount3': dcount3, 'dcount4': dcount4, 'dcount5': dcount5,
+            'dcount6': dcount6, 'dcount7': dcount7, 'dcount8': dcount8, 'dcount9': dcount9, 'dcount10': dcount10
+        }
+        return render(request, 'candidate1/candidate1.html', context)
+
 
 def detail01(request):
-    print('>>> candidate2')
+    print('>>> detail1')
     candidate_num = 1
     detail_num = 1
 
@@ -42,7 +68,7 @@ def detail01(request):
         return render(request, 'candidate1/blogDetail1.html', context)
 
 def detail02(request):
-    print('>>> candidate2')
+    print('>>> detail2')
     candidate_num = 1
     detail_num = 2
 
@@ -67,7 +93,7 @@ def detail02(request):
         return render(request, 'candidate1/blogDetail2.html', context)
 
 def detail03(request):
-    print('>>> candidate2')
+    print('>>> detail3')
     candidate_num = 1
     detail_num = 3
 
@@ -92,7 +118,7 @@ def detail03(request):
         return render(request, 'candidate1/blogDetail3.html', context)
 
 def detail04(request):
-    print('>>> candidate2')
+    print('>>> detail04')
     candidate_num = 1
     detail_num = 4
 
@@ -117,7 +143,7 @@ def detail04(request):
         return render(request, 'candidate1/blogDetail4.html', context)
 
 def detail05(request):
-    print('>>> candidate2')
+    print('>>> detail05')
     candidate_num = 1
     detail_num = 5
 
@@ -142,7 +168,7 @@ def detail05(request):
         return render(request, 'candidate1/blogDetail5.html', context)
 
 def detail06(request):
-    print('>>> candidate2')
+    print('>>> detail06')
     candidate_num = 1
     detail_num = 6
 
@@ -167,7 +193,7 @@ def detail06(request):
         return render(request, 'candidate1/blogDetail6.html', context)
 
 def detail07(request):
-    print('>>> candidate2')
+    print('>>> detail07')
     candidate_num = 1
     detail_num = 7
 
@@ -192,7 +218,7 @@ def detail07(request):
         return render(request, 'candidate1/blogDetail7.html', context)
 
 def detail08(request):
-    print('>>> candidate2')
+    print('>>> detail08')
     candidate_num = 1
     detail_num = 8
 
@@ -217,7 +243,7 @@ def detail08(request):
         return render(request, 'candidate1/blogDetail8.html', context)
 
 def detail09(request):
-    print('>>> candidate1')
+    print('>>> detail09')
     candidate_num = 1
     detail_num = 9
 
@@ -242,7 +268,7 @@ def detail09(request):
         return render(request, 'candidate1/blogDetail9.html', context)
 
 def detail10(request):
-    print('>>> candidate2')
+    print('>>> detail10')
     candidate_num = 1
     detail_num = 10
 
