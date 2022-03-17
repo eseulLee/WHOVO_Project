@@ -13,34 +13,44 @@ def candidate2(request):
     # select detal_num , count(detail_num) as dcount from table group by detail_num
     try:
         dcount1 = Posts.get(detail_num=1)['dcount']
-    except: 0
+    except:
+        dcount1 = 0
     try:
         dcount2 = Posts.get(detail_num=2)['dcount']
-    except: 0
+    except:
+        dcount2 = 0
     try:
         dcount3 = Posts.get(detail_num=3)['dcount']
-    except: 0
+    except:
+        dcount3 = 0
     try:
         dcount4 = Posts.get(detail_num=4)['dcount']
-    except: 0
+    except:
+        dcount4 = 0
     try:
         dcount5 = Posts.get(detail_num=5)['dcount']
-    except: 0
+    except:
+        dcount5 = 0
     try:
         dcount6 = Posts.get(detail_num=6)['dcount']
-    except: 0
+    except:
+        dcount6 = 0
     try:
         dcount7 = Posts.get(detail_num=7)['dcount']
-    except: 0
+    except:
+        dcount7 = 0
     try:
         dcount8 = Posts.get(detail_num=8)['dcount']
-    except: 0
+    except:
+        dcount8 = 0
     try:
         dcount9 = Posts.get(detail_num=9)['dcount']
-    except: 0
+    except:
+        dcount9 = 0
     try:
         dcount10 = Posts.get(detail_num=10)['dcount']
-    except: 0
+    except:
+        dcount10 = 0
 
     if request.session.get('member_name'):
         context = {
