@@ -79,6 +79,15 @@ def remove(request):
     return JsonResponse(jsonAry, safe=False)
 
 
-def ddddd(request):
-    pass
+def bar_chart(request):
+    label = []
+    data = []
+
+    candidate = WebMember.objects.order_by('-candidate_num')
+    for post in candidate:
+        label.append(post.candidate_num)
+        date.append(post.detail_num)
+
+    print(label, data)
+
 
