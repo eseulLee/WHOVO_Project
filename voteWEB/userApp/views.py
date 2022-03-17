@@ -64,7 +64,6 @@ def mypage(request) :
         user = WebMember.objects.get(member_id=id)
         cand1posts = Post.objects.filter(writer_id=id, candidate_num=1).order_by('detail_num')
         cand2posts = Post.objects.filter(writer_id=id, candidate_num=2).order_by('detail_num')
-        cand2detailNum = Post.objects.filter(writer_id=id, candidate_num=2).values('detail_num').order_by('detail_num')
         cand3posts = Post.objects.filter(writer_id=id, candidate_num=3).order_by('detail_num')
 
         context = {
