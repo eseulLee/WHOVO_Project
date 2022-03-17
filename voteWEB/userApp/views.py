@@ -65,6 +65,7 @@ def mypage(request) :
         cand1posts = Post.objects.filter(writer_id=id, candidate_num=1).order_by('detail_num')
         cand2posts = Post.objects.filter(writer_id=id, candidate_num=2).order_by('detail_num')
         cand3posts = Post.objects.filter(writer_id=id, candidate_num=3).order_by('detail_num')
+        print('>>>> type check', type(user.member_age), user.member_age)
 
         context = {
             'session_member_name': request.session.get('member_name'),
