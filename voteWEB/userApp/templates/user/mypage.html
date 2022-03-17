@@ -54,10 +54,10 @@
         <script src="{% static 'js/vendor/modernizr-3.11.7.min.js' %}"></script>
 
         <style>
-            table{ width:100% }
+            table{ width:100%; border-bottom: 1px solid #ddd; margin-bottom: 20px;}
             th, td {padding: 10px 5px; }
-            th {text-align:right; font-size:bold; width:30%;}
-            td {text-align:left; width:70%; padding-left: 40px;}
+            th {text-align:right; font-size:bold; width: 45%;}
+            td {text-align:left; width:55%; padding-left: 40px;}
         </style>
 
     </head>
@@ -184,7 +184,7 @@
                                     <div class="team-details-all fix">
                                         <div class="team-details-top">
                                             <div class="team-details-text" align="center">
-                                                <h3>나의 정보</h3>
+                                                <h3>내 정보</h3>
                                                     <table>
                                                         <tbody>
                                                             <tr>
@@ -205,28 +205,22 @@
                                                                 <td>{{user.member_poli}}</td>
                                                             </tr>
                                                             <tr>
-                                                                <th scope="row"><b>가입일자</b></th>
-                                                                <td>{{user.member_regdate|date:'Y.m.d'}}</td>
+                                                                <th scope="row" style="padding-bottom: 30px;"><b>가입일자</b></th>
+                                                                <td style="padding-bottom: 30px;">{{user.member_regdate|date:'Y.m.d'}}</td>
                                                             </tr>
                                                         </tbody>
-
                                                     </table>
-                                                    <a href="../update_page/" class="submit" type="submit">
-                                                    수정
-                                                    </a>
-                                                    <a href="../remove/" class="submit" type="submit">
-                                                    삭제
-                                                    </a>
-
-
-
-
-
+                                                    <button class="submit" type="submit" style="margin: 0 3px;" onclick="javascript: location.href='../update_page/';">
+                                                        내 정보 수정
+                                                    </button>
+                                                    <button class="submit" type="submit" style="margin: 0 3px;" onclick="confirmFunction()">
+                                                        회원 탈퇴
+                                                    </button>
                                             </div>
                                         </div>
                                         <div class="team-details-top">
                                             <div class="team-details-text" align="center">
-                                                <h3>내가 쓴 글 모아보기</h3>
+                                                <h3 style="margin-top: 40px;">내가 쓴 글 모아보기</h3>
                                                 <div class="col-lg-6 col-md-6" style="width: 100%;">
                                                     <div class="faq-accordion">
                                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -388,5 +382,15 @@
 		<!-- main JS
 		============================================ -->		
         <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+        function confirmFunction() {
+            if (confirm("탈퇴하시겠습니까?") == true) {
+                location.href="../remove/";
+            } else {
+                return false;
+            }
+        }
+    </script>
     </body>
 </html>

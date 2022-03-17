@@ -172,14 +172,14 @@
                                                 <input class="form-control2" required="" name="name" placeholder="이름 "value="{{ session_member_name }}" type="text">
                                             </div><p/>
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="age" placeholder="출생 연도 (4자리로 입력 예) 2022)" type="date">
+                                                <input class="form-control2" required="" name="age" placeholder="출생 연도 (4자리로 입력 예) 2022)" value="{{ user.member_age }}" type="date">
                                             </div><p/>
                                             <div class="col-lg-4">
                                                 <select class="email s-email s-wid" name="poli" >
-                                                    <option>선호정당</option>
-                                                    <option>더불어민주당</option>
-                                                    <option>국민의힘</option>
-                                                    <option>정의당</option>
+                                                    <option value='' selected disabled>선호정당</option>
+                                                    <option value="더불어민주당">더불어민주당</option>
+                                                    <option value="국민의힘">국민의힘</option>
+                                                    <option value="정의당">정의당</option>
                                                 </select>
                                         </div>
                                         </div>
@@ -246,5 +246,8 @@
 		<!-- main JS
 		============================================ -->		
         <script src="{% static 'js/main.js'%}"></script>
+
+
+
     </body>
 </html>

@@ -6,6 +6,7 @@ from bbsApp.models    import Post
 # Create your views here.
 
 def loginPage(request):
+    print('>>>> login page')
     return render(request, 'user/login.html')
 
 def donate(request):
@@ -40,10 +41,11 @@ def join(request):
     print('>>>> user join - ')
     id = request.POST['id']
     pwd = request.POST['pwd']
+    pwd2 = request.POST['pwd2']
     name = request.POST['name']
     poli = request.POST['poli']
     age = request.POST['age']
-    print('>>>> param values - ', id, pwd, name,poli,age)
+    print('>>>> param values - ', id, pwd, pwd2, name,poli,age)
     WebMember(member_id=id, member_pwd=pwd, member_name=name, member_poli=poli,member_age=age).save()
     return redirect('whovo')
 
@@ -80,9 +82,12 @@ def mypage(request) :
 def update_page(request):
     print('>>> update_page')
 
+    user = WebMember.objects.get(member_id = request.session.get('member_id'))
+
     context = {
         'session_member_name': request.session.get('member_name'),
         'session_member_id': request.session.get('member_id'),
+        'user' : user,
     }
     return render(request, 'user/member_update.html', context)
 
@@ -114,6 +119,9 @@ def remove(request):
     id= request.session.get('member_id')
     member = WebMember.objects.get(member_id=id)
     member.delete()
+    mem_posts = Post.objects.filter(writer_id=id)
+    mem_posts.delete()
+    print('>>>> mem_posts check', mem_posts)
     request.session['member_name'] = {}
     request.session['member_id'] = {}
     request.session.modified = True
