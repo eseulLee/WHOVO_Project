@@ -52,7 +52,16 @@
 		<!-- modernizr JS
 		============================================ -->
         <script src="{% static 'js/vendor/modernizr-3.11.7.min.js' %}"></script>
+
+        <style>
+            table{ width:100% }
+            th, td {padding: 10px 5px; }
+            th {text-align:right; font-size:bold; width:30%;}
+            td {text-align:left; width:70%; padding-left: 40px;}
+        </style>
+
     </head>
+
     <body>
         <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -174,68 +183,91 @@
                                     </div>
                                     <div class="team-details-all fix">
                                         <div class="team-details-top">
-                                            <div class="team-details-text">
-                                                <h1>회원정보</h1>
-                                                <h3>Volunteer</h3>
-                                                <p class="stone"><span>Michael Stone</span> is the founder and president of Storefront Political Media, a California-based consulting firm with local, state and national clientele. He is also the founding partner of Storefront Political Labs, a firm designed to craft and test the very latest in communications and organizing tactics and tools.</p>
-                                                <p class="sm-none">Jaye launched his career in politics with stints in advance, labor organizing and political journalism. He began work as an account executive and then Senior Vice President and Creative Director at Clinton Reilly Campaigns, at the time the nation’s largest political consulting firm. In 1990, he founded his own firm, Terris and Jaye, which grew into one of the nation’s largest political consulting firms. In 2001, he founded Storefront Political Media to provide political clients the full range of media and message services.</p>
-                                            </div>
-                                            <div class="team-icon">
-                                                <ul>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                            <div class="event-list">
-                                                <h1>내가 쓴 글 모아보기</h1>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="faq-accordion">
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                    <div class="panel sauget-accordion">
-                                        <div class="panel-heading" role="tab" id="headingOne">
-                                            <h4 class="panel-title">
-                                                <a data-bs-toggle="collapse" href="#checkoutMethod" aria-expanded="true" aria-controls="checkoutMethod">
-                                                    How it work?
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="checkoutMethod" data-bs-parent="#accordion" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="panel-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel volutpat felis, eu condimentum massa. Pellentesque mollis eros vel mattis tempor. Aliquam </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel sauget-accordion">
-                                        <div class="panel-heading" role="tab" id="headingTwo">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" data-bs-toggle="collapse" href="#billingInformation" aria-expanded="false" aria-controls="billingInformation">
-                                                    Do I can use tutorial?
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="billingInformation" data-bs-parent="#accordion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                            <div class="panel-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel volutpat felis, eu condimentum massa. Pellentesque mollis eros vel mattis tempor. Aliquam </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel sauget-accordion">
-                                        <div class="panel-heading" role="tab" id="headingThree">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" data-bs-toggle="collapse" href="#shippingMethod" aria-expanded="false" aria-controls="shippingMethod">
-                                                    Do I can use video chat?
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="shippingMethod" data-bs-parent="#accordion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                            <div class="panel-body">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel volutpat felis, eu condimentum massa. Pellentesque mollis eros vel mattis tempor. Aliquam </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                            <div class="team-details-text" align="center">
+                                                <h3>나의 정보</h3>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row"><b>아이디</b></th>
+                                                                <td>{{ session_member_id }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row"><b>이름</b></th>
+                                                                <td>{{session_member_name}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row"><b>생년월일</b></th>
+                                                                <td>{{user.member_age|date:'Y.m.d'}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row"><b>선호정당</b></th>
+                                                                <td>{{user.member_poli}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row"><b>가입일자</b></th>
+                                                                <td>{{user.member_regdate|date:'Y.m.d'}}</td>
+                                                            </tr>
+                                                        </tbody>
 
+                                                    </table>
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="team-details-top">
+                                            <div class="team-details-text" align="center">
+                                                <h3>내가 쓴 글 모아보기</h3>
+                                                <div class="col-lg-6 col-md-6" style="width: 100%;">
+                                                    <div class="faq-accordion">
+                                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                            <div class="panel sauget-accordion">
+                                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                                    <h4 class="panel-title">
+                                                                        <a class="collapsed" data-bs-toggle="collapse" href="#checkoutMethod" aria-expanded="false" aria-controls="checkoutMethod">
+                                                                            이재명 후보 공약 comment
+                                                                        </a>
+                                                                    </h4>
+                                                                </div>
+                                                                <div id="checkoutMethod" data-bs-parent="#accordion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                                    <div class="panel-body">
+                                                                        <p>list 뿌리기</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel sauget-accordion">
+                                                                <div class="panel-heading" role="tab" id="headingTwo">
+                                                                    <h4 class="panel-title">
+                                                                        <a class="collapsed" data-bs-toggle="collapse" href="#billingInformation" aria-expanded="false" aria-controls="billingInformation">
+                                                                            윤석열 후보 공약 comment
+                                                                        </a>
+                                                                    </h4>
+                                                                </div>
+                                                                <div id="billingInformation" data-bs-parent="#accordion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                                    <div class="panel-body">
+                                                                        <p>list 뿌리기</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel sauget-accordion">
+                                                                <div class="panel-heading" role="tab" id="headingThree">
+                                                                    <h4 class="panel-title">
+                                                                        <a class="collapsed" data-bs-toggle="collapse" href="#shippingMethod" aria-expanded="false" aria-controls="shippingMethod">
+                                                                            심상정 후보 공약 comment
+                                                                        </a>
+                                                                    </h4>
+                                                                </div>
+                                                                <div id="shippingMethod" data-bs-parent="#accordion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                                    <div class="panel-body">
+                                                                        <p>list 뿌리기</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

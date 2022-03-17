@@ -3809,9 +3809,11 @@ h3.details-three {
     text-transform: uppercase;
 }
 .team-details-text > h3 {
+    border-bottom: 1px solid #ddd;
     color: #ea000d;
-    font-size: 18px;
-    font-weight: normal;
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 20px;
     margin: 14px 0 20px;
 }
 .team-details-text > p {
@@ -4588,6 +4590,10 @@ span.tag {
     -webkit-transition: all .3s ease 0s;
     transition: all .3s ease 0s;
 }
+
+
+/*--------------- Customizing  ----------------*/
+
 button.submit1 {
     background-color: #ea000d;
     border: inherit;
@@ -4601,4 +4607,35 @@ button.submit1 {
     align-content: end;
 }
 
+.myinfo-box {
+    padding: 16px 17px 10px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 14px 0 rgb(0 164 73 / 8%);
+    border: solid 1px rgb(237 31 31 / 80%);
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.myinfo-inbox-title {
+    padding: 1px 0;
+    float: left;
+    width: 20%;
+    height: 30px;
+    font-weight: bold;
+    text-align: left;
+
+}
+
+.myinfo-inbox-content {
+    padding: 1px 0;
+    text-align: left;
+    height: 30px;
+    width: 80%;
+    margin-left: 100px;
+}
+
+.myinfo-inbox-item {
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 10px;
+}
 

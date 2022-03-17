@@ -53,10 +53,17 @@ def logout(request) :
     request.session.modified = True
     return redirect('whovo')
 
-def mypage(request):
-    context = {
-        'session_member_name': request.session.get('member_name'),
-        'session_member_id': request.session.get('member_id'),
-    }
-    return render(request, 'user/mypage.html', context)
+def mypage(request) :
+    print(">>>> mypage")
+    if request.session.get('member_name') :
+        print('>>> our member')
+        id = request.session.get('member_id')
+        user = WebMember.objects.get(member_id=id)
+
+        context = {
+            'session_member_name': request.session.get('member_name'),
+            'session_member_id': request.session.get('member_id'),
+            'user' : user
+        }
+        return render(request, 'user/mypage.html', context)
 
