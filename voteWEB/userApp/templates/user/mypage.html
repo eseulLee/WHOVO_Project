@@ -247,7 +247,24 @@
                                                                 </div>
                                                                 <div id="billingInformation" data-bs-parent="#accordion" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                                     <div class="panel-body">
-                                                                        <p>list 뿌리기</p>
+                                                                        <table>
+                                                                            <tbody>
+                                                                            {% for post in cand2posts %}
+                                                                                <tr>
+                                                                                    <th>
+                                                                                        <a href="../../candidate2/detail">제 {{post.detail_num}}공약</a>
+                                                                                    </th>
+                                                                                    <td style="padding:5px 5px;">
+                                                                                        {{post.content}}
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            {% endfor %}
+
+                                                                            </tbody>
+                                                                        </table>
+
+
                                                                     </div>
                                                                 </div>
                                                             </div>
