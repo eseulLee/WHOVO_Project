@@ -12,6 +12,7 @@ def index(request) :
     lst1 = []
     lst2 = []
     lst3 = []
+
     # lst1 : 30대 이하 정당 지지도 / lst2 : 4050 정당 지지도 / lst3 : 60대 이상 정당 지지도
     print(df)
     print(df.describe(include='all'))
@@ -62,6 +63,14 @@ def index(request) :
     #
     # for user in users_poli:
     #     pass
+    df = pd.DataFrame(list(WebMember.objects.all().values()))
+    df_1 = pd.DataFrame(list(Post.objects.all().values()))
+    df_lc = df_1.loc[df_1['candidate_num'] == 1]
+    df_yc = df_1.loc[df_1['candidate_num'] == 2]
+    df_sc = df_1.loc[df_1['candidate_num'] == 3]
+    print(len(df_lc), len(df_yc), len(df_sc))
+
+    lst5 = [len(df_lc), len(df_yc), len(df_sc)]
 
 
 
@@ -69,6 +78,8 @@ def index(request) :
     if request.session.get('member_name') :
         print('>>> our member')
         # 세션을 계속 심어줘야 함
+        lst = []
+
 
         context = {
             'session_member_name' :  request.session.get('member_name'),
@@ -76,6 +87,8 @@ def index(request) :
             'chart_data1' : lst1,
             'chart_data2': lst2,
             'chart_data3': lst3,
+            'chart_data4': lst4,
+            'chart_data5': lst5,
 
         }
         return render(request, 'index.html',context)
@@ -84,6 +97,9 @@ def index(request) :
             'chart_data1': lst1,
             'chart_data2': lst2,
             'chart_data3': lst3,
+            'chart_data4': lst4,
+            'chart_data5': lst5,
+
         }
 
         return render(request, 'index.html', context)

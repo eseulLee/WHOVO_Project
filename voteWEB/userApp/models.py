@@ -11,6 +11,10 @@ class WebMember(models.Model):
     member_age = models.DateField()
     member_regdate = models.DateTimeField(auto_now=True)
 
+
+
+
+
     # def ageCalc(self, member_age):
     #     birth_year = member_age.dt.date.year
     #     today = dt.date.today().year
