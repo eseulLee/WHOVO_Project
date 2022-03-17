@@ -58,14 +58,19 @@ def logout(request) :
 def mypage(request) :
     print(">>>> mypage")
     if request.session.get('member_name') :
-        print('>>> our member')
+
         id = request.session.get('member_id')
+        print('>>> our member', id)
         user = WebMember.objects.get(member_id=id)
         cand1posts = Post.objects.filter(writer_id=id, candidate_num=1).order_by('detail_num')
         cand1detailNum = Post.objects.filter(writer_id=id, candidate_num=1).values('detail_num').order_by('detail_num').distinct()
         print('>>>> cand1detailNum', cand1detailNum)
         cand2posts = Post.objects.filter(writer_id=id, candidate_num=2).order_by('detail_num')
+        cand2detailNum = Post.objects.filter(writer_id=id, candidate_num=2).values('detail_num').order_by('detail_num').distinct()
+        print('>>>> cand2detailNum', cand1detailNum)
         cand3posts = Post.objects.filter(writer_id=id, candidate_num=3).order_by('detail_num')
+        cand3detailNum = Post.objects.filter(writer_id=id, candidate_num=3).values('detail_num').order_by('detail_num').distinct()
+        print('>>>> cand3detailNum', cand1detailNum)
 
 
         context = {
