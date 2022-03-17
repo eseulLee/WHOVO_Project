@@ -12,7 +12,49 @@ def candidate1(request):
     Posts = Post.objects.filter(candidate_num=candidate_num).values('detail_num').annotate(dcount=Count('detail_num'))
     # select detal_num , count(detail_num) as dcount from table group by detail_num
 
+    try:
     dcount1 = Posts.get(detail_num=1)['dcount']
+    except:
+    dcount1 = 0
+    try:
+    dcount2 = Posts.get(detail_num=2)['dcount']
+    except:
+    dcount2 = 0
+    try:
+    dcount3 = Posts.get(detail_num=3)['dcount']
+    except:
+    dcount3 = 0
+    try:
+    dcount4 = Posts.get(detail_num=4)['dcount']
+    except:
+    dcount4 = 0
+    try:
+    dcount5 = Posts.get(detail_num=5)['dcount']
+    except:
+    dcount5 = 0
+    try:
+    dcount6 = Posts.get(detail_num=6)['dcount']
+    except:
+    dcount6 = 0
+    try:
+    dcount7 = Posts.get(detail_num=7)['dcount']
+    except:
+    dcount7 = 0
+    try:
+    dcount8 = Posts.get(detail_num=8)['dcount']
+    except:
+    dcount8 = 0
+    try:
+    dcount9 = Posts.get(detail_num=9)['dcount']
+    except:
+    dcount9 = 0
+    try:
+    dcount10 = Posts.get(detail_num=10)['dcount']
+    except:
+    dcount10 = 0
+
+
+
     dcount2 = Posts.get(detail_num=2)['dcount']
     dcount3 = Posts.get(detail_num=3)['dcount']
     dcount4 = Posts.get(detail_num=4)['dcount']
