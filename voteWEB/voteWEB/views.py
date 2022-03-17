@@ -31,8 +31,8 @@ def index(request) :
     cand3_users = WebMember.objects.filter(member_poli = '정의당')
     for user in cand1_users :
         # birth = user.values('member_age')
-        print(user.objects.values('member_age'))
-
+        # print(user.objects.values('member_age'))
+        pass
     print('>>>> 데이터가 모였다', lst1, lst2, lst3)
 
 
