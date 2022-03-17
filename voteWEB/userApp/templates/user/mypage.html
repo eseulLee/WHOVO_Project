@@ -238,7 +238,11 @@
                                                                             {% for post in cand1posts %}
                                                                                 <tr>
                                                                                     <th>
-                                                                                        <a href="../../candidate1/detail">제 {{post.detail_num}}공약</a>
+                                                                                        {% if post.detail_num == 10 %}
+                                                                                        <a href="../../candidate3/detail{{post.detail_num}}">제 {{post.detail_num}}공약</a>
+                                                                                        {% else %}
+                                                                                        <a href="../../candidate3/detail0{{post.detail_num}}">제 {{post.detail_num}}공약</a>
+                                                                                        {% endif %}
                                                                                     </th>
                                                                                     <td style="padding:5px 5px;">
                                                                                         {{post.content}}
@@ -265,7 +269,11 @@
                                                                             {% for post in cand2posts %}
                                                                                 <tr>
                                                                                     <th>
-                                                                                        <a href="../../candidate2/detail">제 {{post.detail_num}}공약</a>
+                                                                                        {% if post.detail_num == 10 %}
+                                                                                        <a href="../../candidate3/detail{{post.detail_num}}">제 {{post.detail_num}}공약</a>
+                                                                                        {% else %}
+                                                                                        <a href="../../candidate3/detail0{{post.detail_num}}">제 {{post.detail_num}}공약</a>
+                                                                                        {% endif %}
                                                                                     </th>
                                                                                     <td style="padding:5px 5px;">
                                                                                         {{post.content}}
@@ -292,7 +300,11 @@
                                                                             {% for post in cand3posts %}
                                                                                 <tr>
                                                                                     <th>
-                                                                                        <a href="../../candidate3/detail">제 {{post.detail_num}}공약</a>
+                                                                                        {% if post.detail_num == 10 %}
+                                                                                        <a href="../../candidate3/detail{{post.detail_num}}">제 {{post.detail_num}}공약</a>
+                                                                                        {% else %}
+                                                                                        <a href="../../candidate3/detail0{{post.detail_num}}">제 {{post.detail_num}}공약</a>
+                                                                                        {% endif %}
                                                                                     </th>
                                                                                     <td style="padding:5px 5px;">
                                                                                         {{post.content}}
