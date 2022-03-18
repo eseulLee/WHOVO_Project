@@ -157,7 +157,7 @@
                                         {% csrf_token %}
                                         <div class="row1">
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="id" id="idcheck" placeholder="ID" type="text" onkeyup="searchajax()">
+                                                <input class="form-control2" required="" name="id" id="id_check" placeholder="ID" type="text" onkeyup="searchajax()" onchange="check_id()">
                                                 <span id="results"></span>
                                             </div><p/>
                                             <div class="col-lg-4">
@@ -291,20 +291,34 @@
                 }
             }
 
+            function check_id(){
+                var userid = document.getElementById('id_check').value;
+
+                if(userid.search(/\s/) != -1){
+                  alert("아이디는 공백 없이 입력해주세요.");
+                  document.getElementById('id_check').value='';
+                  document.getElementById('id_check').focus();
+                }
+                else {
+                    console.log("통과");
+                }
+            }
+
             function searchajax(){
-                $("#idcheck").keyup(function(){
-                    var words = $("#idcheck").val();
+                $("#id_check").keyup(function(){
+                    var words = $("#id_check").val();
                     if( words != ''){
                         $.ajax({
                             type: 'POST',
                             url: '../../user/searchData/',
-                            data: { searchwords : words},
+                            data: { 'csrfmiddlewaretoken' : '{{csrf_token}}' ,
+                                    'searchwords' : words},
                             dataType: 'json',
                             success: function(result){
                                 if ( result.length > 0){
                                     var str = ''
                                     for (var i=0; i<result.length; i++){
-                                        str += '<span>'+ result[i].data + '</span><br/>';
+                                        str += result[i].data;
                                     }
                                     $("#results").html(str);
                                 } else{ $("#results").html(""); }

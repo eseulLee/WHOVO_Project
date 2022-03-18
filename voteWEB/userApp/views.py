@@ -12,6 +12,7 @@ def loginPage(request):
     return render(request, 'user/login.html')
 
 def donate(request):
+    print('>>>> 회원가입 페이지')
     return render(request, 'user/donate.html')
 
 def login(request):
@@ -208,8 +209,8 @@ def searchData(request):
     if 'searchwords' in request.POST:
         findthis = request.POST['searchwords']
 
-    contents = [findthis]
+        contents = [findthis]
 
-    json = simplejson.dumps(contents, cls=simplejson.JSONEncoder)
-    return HttpResponse(json)
+        json = simplejson.dumps(contents, cls=simplejson.JSONEncoder)
+        return HttpResponse(json)
 
