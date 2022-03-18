@@ -149,7 +149,7 @@
                             <div class="donate-sidebar">
                                 <div class="donate-sidebar-bottom" align="center">
                                     <h1>회원가입</h1>
-                                    <form method="post" name="login">
+                                    <form method="post" action="../join/">
                                         {% csrf_token %}
                                         <div class="row1">
                                             <div class="col-lg-4">
@@ -180,7 +180,7 @@
                                                 </select>
                                         </div>
                                         </div>
-                                        <button class="submit" type="submit" id = "joinBtn" onclick=joinConfirm()>
+                                        <button class="submit" type="submit" id = "joinBtn" value="회원가입">
                                             회원가입
                                         </button>
                                     </form>
@@ -267,15 +267,17 @@
         </script>
 
         <script>
-            function joinConfirm() {
-                if (document.getElementById('id_ck') == 0) {
-                    alert('아이디 중복확인을 해주세요.')
-                    document.getElementById('id').focus();
-                    return false;
-                } else {
-                    location.href='../join/';
-                }
-            }
+             $(document).ready(function(){
+                $(document).on('click', '#joinBtn', function() {
+                    alert('joinBtn click')
+                    if ($('#id_ck') == '0') {
+                        alert('id check');
+                    }
+                    else {
+                        alert('pass');
+                    }
+                })
+             });
         </script>
 
         <script>
