@@ -51,6 +51,11 @@
 		<!-- modernizr JS
 		============================================ -->		
         <script src="{% static 'js/vendor/modernizr-3.11.7.min.js'%}"></script>
+        <script type="text/javascript">
+             $(document).ready(function(){
+                searchajax();
+             });
+        </script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -69,12 +74,6 @@
                                     </a>
                                 </div>
                                 <div class="header-search floatright">
-                                    <div id="search" class="search-top floatleft">
-                                       <input class="form-control input-lg" placeholder="Search" value="" name="search" type="text">
-                                        <span class="search">
-                                            <i class="fa fa-search"></i>
-                                        </span>
-                                    </div>
                                     <div class="header-button floatright">
                                         <a href="../../user/index/">로그인</a>
                                     </div>
@@ -158,7 +157,8 @@
                                         {% csrf_token %}
                                         <div class="row1">
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="id" placeholder="ID" type="text">
+                                                <input class="form-control2" required="" name="id" id="idcheck" placeholder="ID" type="text" onkeyup="searchajax()">
+                                                <span id="results"></span>
                                             </div><p/>
                                             <div class="col-lg-4">
                                                 <input class="form-control2" required="" name="pwd" id="pwd" placeholder="PASSWORD" type="password" onchange="check_pw()">
@@ -215,11 +215,6 @@
             </div>
         </div>
         
-        
-        
-        
-        
-        
 		<!-- jquery
 		============================================ -->		
         <script src="{% static 'js/vendor/jquery-v2.2.4.min.js'%}"></script>
@@ -260,8 +255,6 @@
                 })
             });
 
-        </script>
-        <script>
             function check_pw(){
                 var pw = document.getElementById('pwd').value;
                 var checkNumber = pw.search(/[0-9]/g);
@@ -297,7 +290,35 @@
                     }
                 }
             }
+
+            function searchajax(){
+                $("#idcheck").keyup(function(){
+                    var words = $("#idcheck").val();
+                    if( words != ''){
+                        $.ajax({
+                            type: 'POST',
+                            url: '../../user/searchData/',
+                            data: { searchwords : words},
+                            dataType: 'json',
+                            success: function(result){
+                                if ( result.length > 0){
+                                    var str = ''
+                                    for (var i=0; i<result.length; i++){
+                                        str += '<span>'+ result[i].data + '</span><br/>';
+                                    }
+                                    $("#results").html(str);
+                                } else{ $("#results").html(""); }
+                            },
+                            error: function(e) {console.log('error:' + e.status);}
+                        });
+                    } else{ $("#results").html(""); }
+                });
+            }
+
+
         </script>
+
+
 
     </body>
 </html>

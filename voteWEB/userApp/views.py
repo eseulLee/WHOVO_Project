@@ -199,3 +199,17 @@ def remove(request):
     request.session.modified = True
 
     return redirect('../../whovo')
+
+# 아이디 실시간 체크
+import json as simplejson
+from django.http      import HttpResponse
+
+def searchData(request):
+    if 'searchwords' in request.POST:
+        findthis = request.POST['searchwords']
+
+    contents = [findthis]
+
+    json = simplejson.dumps(contents, cls=simplejson.JSONEncoder)
+    return HttpResponse(json)
+
