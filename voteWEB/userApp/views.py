@@ -203,7 +203,7 @@ def remove(request):
 
 # 아이디 실시간 체크
 import json as simplejson
-from django.http      import HttpResponse
+from django.http      import JsonResponse
 
 def searchData(request):
     print('>>>> 회원가입 아이디체크')
