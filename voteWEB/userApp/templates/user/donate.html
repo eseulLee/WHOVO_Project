@@ -156,7 +156,7 @@
                                                 <input class="form-control2" required="" name="id" id="id" placeholder="ID" type="text" onchange="check_id()">
                                                 <span id="results" style="color:#ea000d"></span><br/>
                                                 <button type="button" id = "id_chk_btn" value="중복체크" class = "submit" >중복체크</button>
-                                                <input type="hidden" id="idck" value="0">
+                                                <input type="hidden" id="id_ck" value="0">
                                             </div><p/>
                                             <div class="col-lg-4">
                                                 <input class="form-control2" required="" name="pwd" id="pwd" placeholder="PASSWORD" type="password" onchange="check_pw()">
@@ -253,11 +253,11 @@
                         success : function(lst) {
                             alert('success')
                             $('#results').html( lst[0].msg )
-                            var pw = document.getElementById('idck').value
                             if ( lst[1].idck == 'ok') {
-                                alert('ok');
-                                pw = "1";
+                                alert(lst[1].idck);
+                                document.getElementById('id_ck').setAttribute('value','1');
                             }
+
 
                         }
                     })
@@ -268,8 +268,9 @@
 
         <script>
             function joinConfirm() {
-                if (idchk == 0) {
+                if (document.getElementById('id_ck') == 0) {
                     alert('아이디 중복확인을 해주세요.')
+                    document.getElementById('id').focus();
                     return false;
                 } else {
                     location.href='../join/';
