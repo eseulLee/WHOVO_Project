@@ -206,11 +206,35 @@ import json as simplejson
 from django.http      import HttpResponse
 
 def searchData(request):
-    if 'searchwords' in request.POST:
-        findthis = request.POST['searchwords']
+    print('>>>> 회원가입 아이디체크')
+    id = request.POST['id']
+    # writer_time = request.POST['create_date']
+    print('>>>> debuge -', id)
 
-        contents = [findthis]
+    jsonAry = []
+    try :
+        user = WebMember.objects.get(member_id=id)
+        jsonAry.append({
+            'msg': '이미 사용중인 아이디입니다. 다시 입력해주세요.'
+        })
+    except :
+        user = None
+        jsonAry.append({
+        'msg' : '사용가능한 아이디입니다.'
+        })
 
-        json = simplejson.dumps(contents, cls=simplejson.JSONEncoder)
-        return HttpResponse(json)
+    #
+    # Posts = Post.objects.filter(candidate_num=candidate_num, detail_num=detail_num)
+    # print('data - ', Posts)
+    # for bbs in Posts:
+    #     jsonAry.append({
+    #         'candidate_num': bbs.candidate_num,
+    #         'detail_num': bbs.detail_num,
+    #         'writer_id': bbs.writer_id,
+    #         'content': bbs.content,
+    #         'create_date': bbs.create_date.strftime('%B %d. %Y. %I:%M %p'),
+    #         'id': bbs.id
+    #     })
+
+    return JsonResponse(jsonAry, safe=False)
 

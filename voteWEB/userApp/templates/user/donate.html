@@ -51,11 +51,7 @@
 		<!-- modernizr JS
 		============================================ -->		
         <script src="{% static 'js/vendor/modernizr-3.11.7.min.js'%}"></script>
-        <script type="text/javascript">
-             $(document).ready(function(){
-                searchajax();
-             });
-        </script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -153,12 +149,13 @@
                             <div class="donate-sidebar">
                                 <div class="donate-sidebar-bottom" align="center">
                                     <h1>회원가입</h1>
-                                    <form action="../join/" method="post">
+                                    <form method="post" name="login">
                                         {% csrf_token %}
                                         <div class="row1">
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="id" id="id_check" placeholder="ID" type="text" onkeyup="searchajax()" onchange="check_id()">
+                                                <input class="form-control2" required="" name="id" id="id" placeholder="ID" type="text">
                                                 <span id="results"></span>
+                                                <button type = "submit" id = "id_chk_btn" value="중복체크" class = "submit" onclick ="idCheck()" >중복체크</button>
                                             </div><p/>
                                             <div class="col-lg-4">
                                                 <input class="form-control2" required="" name="pwd" id="pwd" placeholder="PASSWORD" type="password" onchange="check_pw()">
@@ -182,7 +179,7 @@
                                                 </select>
                                         </div>
                                         </div>
-                                        <button class="submit" type="submit">
+                                        <button class="submit" type="submit" onclick="javascript: login.action='../join/';">
                                             회원가입
                                         </button>
                                     </form>
@@ -304,33 +301,30 @@
                 }
             }
 
-            function searchajax(){
-                $("#id_check").keyup(function(){
-                    var words = $("#id_check").val();
-                    if( words != ''){
+        </script>
+        <script >
+
+<!--        function removePost(id) {-->
+
+                 $(document).ready(function(){
+                    function idCheck(){
+                        alert('chk_btn click')
                         $.ajax({
                             type: 'POST',
                             url: '../../user/searchData/',
                             data: { 'csrfmiddlewaretoken' : '{{csrf_token}}' ,
-                                    'searchwords' : words},
+                                    'chkid' : $('#id').val()},
                             dataType: 'json',
-                            success: function(result){
-                                if ( result.length > 0){
-                                    var str = ''
-                                    for (var i=0; i<result.length; i++){
-                                        str += result[i].data;
-                                    }
-                                    $("#results").html(str);
-                                } else{ $("#results").html(""); }
-                            },
-                            error: function(e) {console.log('error:' + e.status);}
-                        });
-                    } else{ $("#results").html(""); }
-                });
-            }
+                            success : function(lst) {
 
+                                $('#results').html( <font color='#ea000d'>lst[0].msg</font> )
 
-        </script>
+                            }
+                        })
+                    })
+
+                 });
+            </script>
 
 
 
