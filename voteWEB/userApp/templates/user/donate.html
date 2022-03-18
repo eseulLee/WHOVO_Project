@@ -149,13 +149,13 @@
                             <div class="donate-sidebar">
                                 <div class="donate-sidebar-bottom" align="center">
                                     <h1>회원가입</h1>
-                                    <form method="post" action="../join/">
+                                    <form method="post" name="joinForm" id="joinForm" onsubmit="return checkIt()" action="../join/">
                                         {% csrf_token %}
                                         <div class="row1">
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="id" id="id" placeholder="ID" type="text" onchange="check_id()">
+                                                <input class="form-control2" required="" name="id" id="id" placeholder="ID" type="text">
                                                 <span id="results" style="color:#ea000d"></span><br/>
-                                                <button type="button" id = "id_chk_btn" value="중복체크" class = "submit" >중복체크</button>
+                                                <button type="button" id = "id_chk_btn" value="중복체크" class = "submit">중복체크</button>
                                                 <input type="hidden" id="id_ck" value="0">
                                             </div><p/>
                                             <div class="col-lg-4">
@@ -180,7 +180,7 @@
                                                 </select>
                                         </div>
                                         </div>
-                                        <button class="submit" type="submit" id = "joinBtn" value="회원가입">
+                                        <button class="submit" type="submit" id = "joinBtn" value="회원가입" onclick=joinFunction()>
                                             회원가입
                                         </button>
                                     </form>
@@ -239,8 +239,10 @@
 		============================================ -->		
         <script src="{% static 'js/main.js'%}"></script>
 
+        <!-- ID & PWD -->
+        <script>
+        <!--  ID 중복 확인/방지      -->
 
-        <script >
              $(document).ready(function(){
                 $(document).on('click', '#id_chk_btn', function() {
                     alert('chk_btn click')
@@ -248,7 +250,7 @@
                         url: '../../user/searchData/',
                         type: 'POST',
                         data: { 'csrfmiddlewaretoken' : '{{csrf_token}}' ,
-                                'id' : $('#id').val() },
+                                'id_value' : $('#id').val() },
                         dataType: 'json',
                         success : function(lst) {
                             alert('success')
@@ -257,56 +259,49 @@
                                 alert(lst[1].idck);
                                 document.getElementById('id_ck').setAttribute('value','1');
                             }
-
-
                         }
                     })
                 })
-             });
 
-        </script>
+                $(document).on("change", "#id", function(){
+                    var userid = $('#id').val();
+                    var idChkValue = $('#id_ck').val();
 
-        <script>
-             $(document).ready(function(){
-                $(document).on('click', '#joinBtn', function() {
-                    alert('joinBtn click')
-                    if ($('#id_ck') == '0') {
-                        alert('id check');
+                    if(userid.search(/\s/) != -1){
+                      alert("아이디는 공백 없이 입력해주세요.");
+                      document.getElementById('id').value='';
+                      document.getElementById('id').focus();
                     }
                     else {
-                        alert('pass');
+                        console.log("ID 공백 체크 통과");
+                    }
+
+                    if($('#id').val() != ""){
+                        $.ajax({
+                            url: '../../user/searchData/',
+                            type: 'POST',
+                            data: { 'csrfmiddlewaretoken' : '{{csrf_token}}' ,
+                                    'id_value' : $('#id').val() },
+                            dataType: 'json',
+                            success : function(lst) {
+                                alert('re-check success')
+                                $('#results').html( lst[0].msg )
+                                if ( lst[1].idck == 'ok') {
+                                    alert(lst[1].idck);
+                                    document.getElementById('id_ck').setAttribute('value','1');
+                                }
+                                else if ( lst[1].idck == 'fail' ) {
+                                    alert(lst[1].idck);
+                                    document.getElementById('id_ck').setAttribute('value','0');
+                                    document.getElementById('id').focus();
+                                }
+                            }
+                        })
                     }
                 })
              });
-        </script>
 
-        <script>
-
-            function check_id(){
-                var userid = $('#id').val();
-
-                if(userid.search(/\s/) != -1){
-                  alert("아이디는 공백 없이 입력해주세요.");
-                  document.getElementById('id').value='';
-                  document.getElementById('id').focus();
-                }
-                else {
-                    console.log("통과");
-                }
-            }
-
-            $(function(){
-            //비밀번호 확인 (팝업으로 한번 더 제한!)
-                $('#pwd2').blur(function(){
-                   if($('#pwd').val() != $('#pwd2').val()){
-                        if($('#pwd2').val()!=''){
-                            alert("비밀번호가 일치하지 않습니다.");
-                            $('#pwd2').val('');
-                            $('#pwd2').focus();
-                        }
-                   }
-                })
-            });
+        <!-- PWD 제약 조건 설정 및 재확인시 메시지 실시간 호출 (through : confirm password - reset) -->
 
             function check_pw(){
                 var pw = document.getElementById('pwd').value;
@@ -344,10 +339,32 @@
                 }
             }
 
+            $(function(){
+            //비밀번호 확인 (팝업으로 한번 더 제한!)
+                $('#pwd2').blur(function(){
+                   if($('#pwd').val() != $('#pwd2').val()){
+                        if($('#pwd2').val()!=''){
+                            alert("비밀번호가 일치하지 않습니다.");
+                            $('#pwd2').val('');
+                            $('#pwd2').focus();
+                        }
+                   }
+                })
+            });
         </script>
 
-
-
+        <!--  회원가입 버튼 클릭시 action  -->
+        <script>
+            function checkIt(){
+                var idChkValue = $('#id_ck').val()
+                if (idChkValue == '0') {
+                    alert('아이디 중복확인이 필요합니다.')
+                    console.log('아이디 중복으로 재시도 요청');
+                    document.getElementById('id').focus()
+                    return false;
+                }
+            }
+        </script>
 
     </body>
 </html>

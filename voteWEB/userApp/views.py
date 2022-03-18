@@ -120,7 +120,7 @@ def join(request):
     age = request.POST['age']
     print('>>>> param values - ', id, pwd, pwd2, name,poli,age)
     WebMember(member_id=id, member_pwd=pwd, member_name=name, member_poli=poli,member_age=age).save()
-    return redirect('whovo')
+    return redirect('loginPage')
 
 
 def logout(request) :
@@ -207,7 +207,8 @@ from django.http      import JsonResponse
 
 def searchData(request):
     print('>>>> 회원가입 아이디체크')
-    id = request.POST['id']
+    print('>>>> request.POST', request.POST)
+    id = request.POST['id_value']
     print('>>>> debuge -', id)
 
     jsonAry = []
