@@ -354,7 +354,7 @@
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
                 id = $('#id').val()
-                if(content ==""){
+                if($.trim(content) ==""){
                     alert("내용을 입력해주세요.")
                     $('#content').val("");
                     return false;

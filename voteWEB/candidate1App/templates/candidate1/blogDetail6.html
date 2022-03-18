@@ -385,7 +385,7 @@
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
-                if(content ==""){
+                if($.trim(content) ==""){
                     alert("내용을 입력해주세요.")
                     $('#content').val("");
                     return false;
