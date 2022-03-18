@@ -153,8 +153,8 @@
                                         {% csrf_token %}
                                         <div class="row1">
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="id" id="id" placeholder="ID" type="text">
-                                                <span id="results"></span>
+                                                <input class="form-control2" required="" name="id" id="id" placeholder="ID" type="text" onchange="check_id()">
+                                                <span id="results" style="color:#ea000d"></span><br/>
                                                 <button type="button" id = "id_chk_btn" value="중복체크" class = "submit" >중복체크</button>
                                             </div><p/>
                                             <div class="col-lg-4">
@@ -261,8 +261,8 @@
 
         <script>
 
-            $(function check_id(){
-                var userid = document.getElementById('id').value;
+            function check_id(){
+                var userid = $('#id').val();
 
                 if(userid.search(/\s/) != -1){
                   alert("아이디는 공백 없이 입력해주세요.");
@@ -272,7 +272,7 @@
                 else {
                     console.log("통과");
                 }
-            });
+            }
 
             $(function(){
             //비밀번호 확인 (팝업으로 한번 더 제한!)
@@ -287,25 +287,25 @@
                 })
             });
 
-            $(function check_pw(){
+            function check_pw(){
                 var pw = document.getElementById('pwd').value;
                 var checkNumber = pw.search(/[0-9]/g);
                 var checkEnglish = pw.search(/[a-z]/ig);
 
-                if(pw.length < 6 || pw.length>16){
-                    window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
-                    document.getElementById('pwd').value='';
-                    document.getElementById('pwd').focus();
+                if(pw.search(/\s/) != -1){
+                  alert("비밀번호는 공백 없이 입력해주세요.");
+                  document.getElementById('pwd').value='';
+                  document.getElementById('pwd').focus();
                 }
                 else if(/(\w)\1\1\1/.test(pw)){
                     alert('같은 문자를 4번 이상 사용하실 수 없습니다.');
                     document.getElementById('pwd').value='';
                     document.getElementById('pwd').focus();
                 }
-                else if(pw.search(/\s/) != -1){
-                  alert("비밀번호는 공백 없이 입력해주세요.");
-                  document.getElementById('pwd').value='';
-                  document.getElementById('pwd').focus();
+                else if(pw.length < 6 || pw.length>16){
+                    window.alert('비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.');
+                    document.getElementById('pwd').value='';
+                    document.getElementById('pwd').focus();
                 }
                 else {
                     console.log("통과");
@@ -321,7 +321,7 @@
                         document.getElementById('check').style.color='red';
                     }
                 }
-            });
+            }
 
         </script>
 
