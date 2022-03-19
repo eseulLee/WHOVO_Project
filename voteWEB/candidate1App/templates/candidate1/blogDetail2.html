@@ -120,6 +120,9 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
+                                            {% if session_member_name is None%}
+                                            <li><a href="../../user/index"> 로그인</a></li>
+                                            {% endif %}
                                             <li><a> 후보별 공약 </a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
@@ -402,6 +405,7 @@
                 candidate_num = $('#candidate_num').val()
                 detail_num = $('#detail_num').val()
                 content = $('#content').val()
+
                 if($.trim(content) ==""){
                     alert("내용을 입력해주세요.")
                     $('#content').val("");

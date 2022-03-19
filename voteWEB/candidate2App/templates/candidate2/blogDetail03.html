@@ -121,6 +121,9 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
+                                            {% if session_member_name is None%}
+                                            <li><a href="../../user/index"> 로그인</a></li>
+                                            {% endif %}
                                             <li><a> 후보별 공약 </a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>

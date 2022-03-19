@@ -125,6 +125,9 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
+                                            {% if session_member_name is None%}
+                                            <li><a href="../../user/index"> 로그인</a></li>
+                                            {% endif %}
                                             <li><a>후보별 공약</a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
@@ -595,7 +598,9 @@
             ]);
 
             var options = {
-            title: '30대 이하 회원 연령별 정당 지지 차트'
+            title: '30대 이하 회원 연령별 정당 지지 차트',
+                width: 400,
+                  legend: { position: 'bottom' },
          };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -623,7 +628,9 @@
             ]);
 
             var options = {
-            title: '4050 회원 연령별 정당 지지 차트'
+            title: '4050 회원 연령별 정당 지지 차트',
+                width: 400,
+                  legend: { position: 'bottom' },
          };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart1'));

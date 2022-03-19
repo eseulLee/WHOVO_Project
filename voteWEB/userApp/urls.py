@@ -16,4 +16,5 @@ urlpatterns = [
     path('password_check_page/', views.password_check_page, name='password_check_page'),
     path('password_check/', views.password_check, name='password_check'),
 
+
 ]
