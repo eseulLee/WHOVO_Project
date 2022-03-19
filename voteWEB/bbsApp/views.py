@@ -3,9 +3,6 @@ from.models           import *
 from django.http      import JsonResponse
 from .urls            import *
 
-import datetime
-
-
 # Create your views here.
 
 
@@ -43,9 +40,6 @@ def postForm(request) :
         })
 
     return JsonResponse(jsonAry, safe=False)
-
-
-    # return render(request, 'html' )
 
 def remove(request):
     print('>>>> bbs remove')
