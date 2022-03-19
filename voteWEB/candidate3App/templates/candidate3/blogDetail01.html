@@ -178,6 +178,7 @@
                                     <div class="blog-content">
                                         <h4>목표</h4>
                                         <h5>탈탄소사회로의 대전환을 통해 기후위기를 극복하고 불평등 해소</h5><br/>
+
                                         <h4>이행방법</h4>
                                         <h5>탈탄소사회로의 전환</h5>
                                         <li>'기후에너지부'를 신설, 대통령 직속의 '탈탄소사회전환 위원회' 설치</li>
@@ -217,10 +218,11 @@
                                         <li>교통시설특별회계를 통한 PSO와 비수익 공영노선 지원 확대</li>
                                         <li>고속도로를 대체하는 철도 중심의 광역교통망 확대</li>
                                         <li>자가용 중심 도시에서의 토지사용 전환, 녹지축의 확대</li></br>
+
                                         <h4>재원조달방안 등</h4>
-                                        <h5>-탄소세 도입, 녹색채권 등 공적재원 활용 및 공공투자를 중심으로 민간펀드 활용</h5>
-                                        <h5>-산업은행을 녹색투자은행으로 전환하고 2030년까지 500조 녹색공공투자</h5>
-                                        <h5>-일반회계 및 특별회계 활용</h5>
+                                        <h5>- 탄소세 도입, 녹색채권 등 공적재원 활용 및 공공투자를 중심으로 민간펀드 활용</h5>
+                                        <h5>- 산업은행을 녹색투자은행으로 전환하고 2030년까지 500조 녹색공공투자</h5>
+                                        <h5>- 일반회계 및 특별회계 활용</h5>
                                     </div>
                                 </div>
 
@@ -374,7 +376,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -387,7 +389,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -414,8 +416,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -427,7 +427,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

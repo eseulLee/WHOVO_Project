@@ -215,9 +215,6 @@
                                         <li>공공기관 소재 지역주민 등이 참여하는 시민이사제 도입</li>
                                         <li>공공기관운영위원회에 국회 추천 민간위원 포함, 기획재정부의 공공기관 관리감독 권한 폐지</li><br/>
 
-                                        <h4>이행기간</h4>
-                                        <h5>임기 내</h5><br/>
-
                                         <h4>재원조달방안 등</h4>
                                         <h5>법·제도 개선</h5>
 
@@ -368,7 +365,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -381,7 +378,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -408,8 +405,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -421,7 +416,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

@@ -214,9 +214,6 @@
                                         <li>2030년 국가 온실가스 감축목표를 2010년 대비 50% 이상으로 상향</li>
                                         <li>노동자, 시민단체, 정부, 산업계가 참여하는 '정의로운 일자리 전환 위원회' 설치</li><br/>
 
-                                        <h4>이행기간</h4>
-                                        <h5>임기 내, 한국형 모병제의 경우 2030년대 완전모병제 완료</h5><br/>
-
                                         <h4>재원조달방안 등</h4>
                                         <h5>불요불급한 군비증강 중지 및 병력감축 등으로 예산 절감</h5>
                                         <h5>일반회계 및 남북협력기금 활용</h5>
@@ -373,7 +370,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -386,7 +383,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val()) ;
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -413,8 +410,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -426,7 +421,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

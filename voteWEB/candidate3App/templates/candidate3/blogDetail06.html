@@ -179,6 +179,7 @@
                                         <h4>목표</h4>
                                         <h5>공공의료 확대와 병원비 연간 100만원 상한제로 국민 건강권 보장</h5>
                                         <h5>요람에서 무덤까지 전국민 돌봄 보장</h5></br>
+
                                         <h4>이행방법</h4>
                                         <h5>공공의료 확대 및 지역별 필수중증의료 보장</h5>
                                         <li>공공병원 예비타당성 면제</li>
@@ -221,6 +222,7 @@
                                         <li>지자체 아동복지 종합 조정체계 마련, 아동복지(아동학대) 인력 및 전담부서 확대</li>
                                         <li>학대아동쉼터, 가정위탁 지원, 공공 그룹홈 확대 등 지역사회 보호인프라 확대</li>
                                         <li>해외입양 일몰 선언 및 공공책임 입양체계 구축</li></br>
+
                                         <h4>재원조달방안 등</h4>
                                         <h5>일반회계 및 기금 활용</h5>
                                     </div>
@@ -370,7 +372,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -383,7 +385,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -410,8 +412,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -423,7 +423,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

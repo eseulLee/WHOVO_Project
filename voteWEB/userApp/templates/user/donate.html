@@ -246,7 +246,7 @@
 
              $(document).ready(function(){
                 $(document).on('click', '#id_chk_btn', function() {
-                    alert('chk_btn click')
+                    console.log('chk_btn click') ;
                     $.ajax({
                         url: '../../user/searchData/',
                         type: 'POST',
@@ -254,7 +254,7 @@
                                 'id_value' : $('#id').val() },
                         dataType: 'json',
                         success : function(lst) {
-                            alert('success')
+                            console.log('id check success');
                             $('#results').html( lst[0].msg )
                             if ( lst[1].idck == 'ok') {
                                 console.log(lst[1].idck);

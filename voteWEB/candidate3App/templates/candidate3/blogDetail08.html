@@ -179,6 +179,7 @@
                                         <h4>목표</h4>
                                         <h5>장애인, 이주민, 성소수자 등 사회적 소수자 차별 해소</h5>
                                         <h5>동물복지 강화와 국민 모두의 삶터 안전 실현</h5></br>
+
                                         <h4>이행방법</h4>
                                         <h5>차별없는 대한민국</h5>
                                         <li>차별금지법 제정, 다양한 가족구성 인정하는 동반자등록법 제정</li>
@@ -220,6 +221,7 @@
                                         <h7>&nbsp;&nbsp;·&nbsp;&nbsp;기본급 공안직 수준 인상 및 위험근무수당‧화재진압수당 등 현실화</h7></br>
                                         <h7>&nbsp;&nbsp;·&nbsp;&nbsp;직급체계 개선으로 승진적체 해소, 소방공무원 공상추정제도 도입</h7></br>
                                         <h7>&nbsp;&nbsp;·&nbsp;&nbsp;경찰공무원 단결권‧단체교섭권 부여</h7></br></br>
+
                                         <h4>재원조달방안 등</h4>
                                         <h5>법·제도 개선, 일반회계 등으로 조달</h5>
                                     </div>
@@ -369,7 +371,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -382,7 +384,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -409,8 +411,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -422,7 +422,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

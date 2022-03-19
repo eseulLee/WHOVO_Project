@@ -179,6 +179,7 @@
                                         <h4>목표</h4>
                                         <h5>유아부터 대학까지 미래형 맞춤교육, 직업교육 강화, 대학서열 완화로 사교육비 경감</h5>
                                         <h5>문화다양성 증진, 표현의 자유 보장</h5></br>
+
                                         <h4>이행방법</h4>
                                         <h5>포스트 코로나 시대를 여는 맞춤교육</h5>
                                         <li>한반 20명 미래형 학교</li>
@@ -217,6 +218,7 @@
                                         <li>전자제품에 ‘수리할 권리’ 보장</li>
                                         <li>‘종이 없는 행정’과 탈탄소 기반 디지털 전환 실현</li>
                                         <li>빅테크 기업의 운영체제(OS) 갑질 금지, 오픈소스SW 이용 활성화 및 산업 육성</li></br>
+
                                         <h4>재원조달방식 등</h4>
                                         <h5>일반회계, 특별회계, 교부금 등 활용</h5>
                                     </div>
@@ -377,7 +379,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -390,7 +392,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -417,8 +419,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -430,7 +430,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

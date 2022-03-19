@@ -181,7 +181,7 @@
                                                 <input class="form-control2" style="background-color: #e9ecef; opacity: 1;" required="" name="name" value="{{session_member_name }}" type="text" readonly>
                                             </div><p/>
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="age" placeholder="출생 연도 (4자리로 입력 예) 2022)" value="{{ user.member_age }}" type="date">
+                                                <input class="form-control2" required="" name="age" value="{{ user.member_age }}" type="date" min="1900-01-01" max="2022-03-19">
                                             </div><p/>
                                             <div class="col-lg-4">
                                                 <select class="email s-email s-wid" name="poli" >

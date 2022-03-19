@@ -179,6 +179,7 @@
                                         <h4>목표</h4>
                                         <h5>불공정한 경제 구조 개혁, 플랫폼경제 민주화와 플랫폼 노동자 권리 강화</h5>
                                         <h5>현장 중심 과학기술 연구개발, 보편적 정보접근권 보장, 시민의 권리 확립</h5></br>
+
                                         <h4>이행방법</h4>
                                         <h5>「디지털플랫폼기업 독점방지법」 제정</h5>
                                         <li>플랫폼 기업의 이해충돌 행위 금지</li>
@@ -215,6 +216,7 @@
                                         <li>단체장 결선투표제 및 광역의회 연동형 비례대표제 도입, 기초의회 중선거구제 강화</li>
                                         <li>지방의원 외유성 해외연수 금지, 선심성 재량사업비 편성 금지, 셀프징계 방지, 지방의원 이해충돌 방지 강화, 시민참여형 지방의회 모니터링 제도화</li>
                                         <li> 지방의회 인사청문회 도입 제도화, 지방의회 소속 독립적 감사위원회 설치, 단체장의 예산안 재의요구권 폐지, 다양한 기관구성 활성화</li></br>
+
                                         <h4>재원조달방안 등</h4>
                                         <h5>법·제도 개선, 일반회계 및 기금 활용</h5>
                                     </div>
@@ -363,7 +365,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -376,7 +378,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -403,8 +405,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -416,7 +416,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

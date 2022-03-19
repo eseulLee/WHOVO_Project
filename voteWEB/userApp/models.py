@@ -13,11 +13,3 @@ class WebMember(models.Model):
 
 
 
-
-
-    # def ageCalc(self, member_age):
-    #     birth_year = member_age.dt.date.year
-    #     today = dt.date.today().year
-    #     age_calc = today - birth_year + 1
-    #     return age_calc
-

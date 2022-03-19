@@ -179,6 +179,7 @@
                                         <h4>목표</h4>
                                         <h5>성차별․ 폭력 없는 성평등 사회 실현</h5>
                                         <h5>청년이 미래를 그릴 수 있는 사회 보장, 청소년이 가진 다양성이 존중받는 사회</h5></br>
+
                                         <h4>이행방법</h4>
                                         <h5>젠더폭력 없는 안전사회 실현</h5>
                                         <li>비동의 강간죄 도입, 스토킹 데이트폭력 규제 강화, 가정폭력범죄처벌법 전면 개정, 성착취·성매매·인신매매 근절 법률 제·개정, 이차피해방지법 마련 개정</li>
@@ -208,6 +209,7 @@
                                         <h5>청소년 무상교통으로 교육체험 기회 확장</h5>
                                         <li>지역부터 시작하여 청소년 버스요금 무상화 (만 7~18세 대상)</li>
                                         <li>이후 지하철 요금 무상화 순차적 추진 및 공공자전거 확대로 대중교통 연계</li></br>
+
                                         <h4>재원조달방안 등</h4>
                                         <h5>일반회계 및 기금 활용</h5>
                                     </div>
@@ -368,7 +370,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -381,7 +383,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -408,8 +410,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -421,7 +421,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

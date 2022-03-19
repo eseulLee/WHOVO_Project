@@ -263,20 +263,8 @@
                                         </div>
                                         <div class="categori-list-one">
                                             <div class="post-details">
-                                                <h3><a href="#"> 기후위기 극복을 위한 정의로운 탈탄소사회로의 전환 </a></h3>
+                                                <h3><a href="../../candidate3/detail01/"> 기후위기 극복을 위한 정의로운 탈탄소사회로의 전환 </a></h3>
                                                 <p>심상정 후보</p>
-                                            </div>
-                                        </div>
-                                        <div class="categori-list-one">
-                                            <div class="post-details">
-                                                <h3><a href="#"> </a></h3>
-                                                <p> </p>
-                                            </div>
-                                        </div>
-                                        <div class="categori-list-one mrg-nn">
-                                            <div class="post-details">
-                                                <h3><a href="#"></a></h3>
-                                                <p> </p>
                                             </div>
                                         </div>
                                     </div>
@@ -351,7 +339,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -364,7 +352,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -391,8 +379,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -404,7 +390,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {
