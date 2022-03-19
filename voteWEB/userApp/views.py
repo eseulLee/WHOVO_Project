@@ -36,18 +36,18 @@ def login(request):
     df_l3 = df_target.loc[(df_target['age'] < 40) & (df_target['member_poli'] == '더불어민주당')]
     df_y3 = df_target.loc[(df_target['age'] < 40) & (df_target['member_poli'] == '국민의힘')]
     df_s3 = df_target.loc[(df_target['age'] < 40) & (df_target['member_poli'] == '정의당')]
-    print(df_l3, type(df_l3))
-    print(df_y3, type(df_y3))
-    print(df_s3, type(df_s3))
-    lst1 = [len(df_l3), len(df_s3), len(df_y3)]
+    print('>>>> 30 이하 더민', df_l3, type(df_l3))
+    print('>>>> 30 이하 국힘', df_y3, type(df_y3))
+    print('>>>> 30 이하 정의', df_s3, type(df_s3))
+    lst1 = [len(df_l3), len(df_y3), len(df_s3)]
     print(lst1)
-    df_l5 = df_target.loc[(df_target['age'] >= 40) & (df_target['age'] < 60) & (df_target['member_poli'] == '더불어민주당')]
-    df_y5 = df_target.loc[(df_target['age'] >= 40) & (df_target['age'] < 60) & (df_target['member_poli'] == '국민의힘')]
-    df_s5 = df_target.loc[(df_target['age'] >= 40) & (df_target['age'] < 60) & (df_target['member_poli'] == '정의당')]
-    print(df_l5, type(df_l5))
-    print(df_y5, type(df_y5))
-    print(df_s5, type(df_s5))
-    lst2 = [len(df_l5), len(df_s5), len(df_y5)]
+    df_l5 = df_target.loc[((df_target['age'] >= 40) & (df_target['age'] < 60)) & (df_target['member_poli'] == '더불어민주당')]
+    df_y5 = df_target.loc[((df_target['age'] >= 40) & (df_target['age'] < 60)) & (df_target['member_poli'] == '국민의힘')]
+    df_s5 = df_target.loc[((df_target['age'] >= 40) & (df_target['age'] < 60)) & (df_target['member_poli'] == '정의당')]
+    print(df_l5, type(df_l5), len(df_l5))
+    print(df_y5, type(df_y5), len(df_y5))
+    print(df_s5, type(df_s5), len(df_s5))
+    lst2 = [len(df_l5), len(df_y5), len(df_s5)]
     print(lst2)
     df_l6 = df_target.loc[(df_target['age'] >= 60) & (df_target['member_poli'] == '더불어민주당')]
     df_y6 = df_target.loc[(df_target['age'] >= 60) & (df_target['member_poli'] == '국민의힘')]
@@ -55,7 +55,7 @@ def login(request):
     print(df_l6, type(df_l6))
     print(df_y6, type(df_y6))
     print(df_s6, type(df_s6))
-    lst3 = [len(df_l6), len(df_s6), len(df_y6)]
+    lst3 = [len(df_l6), len(df_y6), len(df_s6)]
     print(lst3)
 
     df_poli = df[['member_poli']]
@@ -151,6 +151,51 @@ def mypage(request) :
             'cand3posts' : cand3posts,
         }
         return render(request, 'user/mypage.html', context)
+
+def password_check_page(request) :
+    print('>>> password_check page')
+
+    user = WebMember.objects.get(member_id=request.session.get('member_id'))
+
+    context = {
+        'session_member_name': request.session.get('member_name'),
+        'session_member_id': request.session.get('member_id'),
+        'user': user,
+    }
+    return render(request, 'user/pw_chk_for_member_update.html', context)
+
+def password_check(request) :
+    print('>>> password_check')
+
+    if request.method == 'POST':
+        print('>>>> request post')
+        id = request.session.get('member_id')
+        pwd = request.POST['pwd']
+        print('>>>> request param - ', id, pwd)
+
+        try:
+            user = WebMember.objects.get(member_id=id, member_pwd=pwd)
+            print('>>>> user 있음!')
+
+            context = {
+                'session_member_name': request.session.get('member_name'),
+                'session_member_id': request.session.get('member_id'),
+            }
+
+            return render(request, 'user/member_update.html', context)
+
+        except Exception as e:
+            print('>>>> user 없음!')
+
+            context = {
+                'session_member_name': request.session.get('member_name'),
+                'session_member_id': request.session.get('member_id'),
+                'error': '비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.'
+            }
+
+            return render(request, 'user/pw_chk_for_member_update.html', context)
+
+
 
 def update_page(request):
     print('>>> update_page')

@@ -30,7 +30,7 @@ def index(request) :
     print(df_l3, type(df_l3))
     print(df_y3, type(df_y3))
     print(df_s3, type(df_s3))
-    lst1 = [len(df_l3), len(df_s3), len(df_y3)]
+    lst1 = [len(df_l3), len(df_y3), len(df_s3)]
     print(lst1)
     df_l5 = df_target.loc[(df_target['age'] >= 40) & (df_target['age'] < 60) & (df_target['member_poli'] == '더불어민주당')]
     df_y5 = df_target.loc[(df_target['age'] >= 40) & (df_target['age'] < 60) & (df_target['member_poli'] == '국민의힘')]
@@ -38,7 +38,7 @@ def index(request) :
     print(df_l5, type(df_l5))
     print(df_y5, type(df_y5))
     print(df_s5, type(df_s5))
-    lst2 = [len(df_l5), len(df_s5), len(df_y5)]
+    lst2 = [len(df_l5), len(df_y5), len(df_s5)]
     print(lst2)
     df_l6 = df_target.loc[(df_target['age'] >= 60) & (df_target['member_poli'] == '더불어민주당')]
     df_y6 = df_target.loc[(df_target['age'] >= 60) & (df_target['member_poli'] == '국민의힘')]
@@ -46,7 +46,7 @@ def index(request) :
     print(df_l6, type(df_l6))
     print(df_y6, type(df_y6))
     print(df_s6, type(df_s6))
-    lst3 = [len(df_l6), len(df_s6), len(df_y6)]
+    lst3 = [len(df_l6), len(df_y6), len(df_s6)]
     print(lst3)
 
     df_poli = df[['member_poli']]

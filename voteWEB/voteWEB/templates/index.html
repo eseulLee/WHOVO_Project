@@ -595,7 +595,7 @@
             ]);
 
             var options = {
-            title: '30이하 회원 연령별 정당 지지 차트'
+            title: '30대 이하 회원 연령별 정당 지지 차트'
          };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -642,15 +642,21 @@
             console.log(lst)
 
             var data = google.visualization.arrayToDataTable([
-            ['정당', '60대이상 회원수'],
+            ['정당', '60대 이상 회원수'],
             ['더불어민주당',  lst[0]],
             ['국민의힘',  lst[1]],
             ['정의당',  lst[2]]
             ]);
 
-            var options = {
-            title: '60대 이상 회원 연령별 정당 지지 차트'
-         };
+<!--            var options = {-->
+<!--            title: '60대 이상 회원 연령별 정당 지지 차트'-->
+<!--         };-->
+
+                var options = {
+                    title: '60대 이상 회원 연령별 정당 지지 차트',
+                  width: 400,
+                  legend: { position: 'bottom' },
+                };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
 
@@ -708,7 +714,7 @@
                     console.log(lst)
 
                 var data = new google.visualization.arrayToDataTable([
-                  ['정당', '회원수'],
+                  ['정당', '댓글수'],
                   ["이재명", lst[0]],
                   ["윤석열", lst[1]],
                   ["심상정", lst[2]]

@@ -13,5 +13,7 @@ urlpatterns = [
     path('update/', views.update, name='update'),
     path('remove/', views.remove, name='remove'),
     path('searchData/', views.searchData, name='searchData'),
+    path('password_check_page/', views.password_check_page, name='password_check_page'),
+    path('password_check/', views.password_check, name='password_check'),
 
 ]
