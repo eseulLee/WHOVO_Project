@@ -126,7 +126,7 @@
                                             {% if session_member_name is None%}
                                             <li><a href="../../user/index"> 로그인</a></li>
                                             {% endif %}
-                                            <li><a> 후보별 공약 </a>
+                                            <li><a>후보별 공약</a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
                                                         <a href="../../candidate1/index">이재명 후보 공약보기</a>
@@ -141,6 +141,7 @@
                                             </li>
                                             {% if session_member_name %}
                                             <li><a href="../../user/mypage"> MY PAGE</a></li>
+                                            <li><a href="../../user/logout">로그아웃</a></li>
                                             {% endif %}
                                         </ul>
                                     </nav>
@@ -178,6 +179,7 @@
                                         <h4>목표</h4>
                                         <h5>모든 일하는 사람에게 노동권 보장</h5>
                                         <h5>자영업자 코로나 피해 부담 경감 및 골목경제 활성화, 농산어촌의 녹색대전환 시작</h5></br>
+
                                         <h4>이행방법</h4>
                                         <h5>‘일하는 시민’ 모두에게 노동기본권 보장</h5>
                                         <li>< 일하는 시민을 위한 기본법> 제정, 플랫폼·프리랜서·자영업자·특고 등 노동기본권 보장</li>
@@ -216,6 +218,7 @@
                                         <li>유전자변형농식품의 완전표시제 시행</li>
                                         <li>생태농어업 비중 30% 이상 확대, 농약·화학비료사용을 50% 이상 감축</li>
                                         <li>농어업재해보험의 복구비 현실화로 실소득 손실액의 80%까지 지원</li></br>
+
                                         <h4>재원조달방안 등</h4>
                                         <h5>일반회계 및 기금 활용</h5>
                                     </div>
@@ -371,7 +374,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -384,7 +387,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -411,8 +414,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -424,7 +425,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

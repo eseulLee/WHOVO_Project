@@ -66,13 +66,8 @@ def login(request):
     print(len(df_d), len(df_g), len(df_j))
     lst4 = [len(df_d), len(df_g), len(df_j)]
     print(lst4)
-    # birth_year = users_age['member_age'].year
-    # today_year = datetime.date.today().year
-    # mem_age = today_year - birth_year + 1
-    #
-    # for user in users_poli:
-    #     pass
-    df = pd.DataFrame(list(WebMember.objects.all().values()))
+
+    # df = pd.DataFrame(list(WebMember.objects.all().values()))
     df_1 = pd.DataFrame(list(Post.objects.all().values()))
     df_lc = df_1.loc[df_1['candidate_num'] == 1]
     df_yc = df_1.loc[df_1['candidate_num'] == 2]
@@ -247,7 +242,6 @@ def remove(request):
     return redirect('../../whovo')
 
 # 아이디 실시간 체크
-import json as simplejson
 from django.http      import JsonResponse
 
 def searchData(request):

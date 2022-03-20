@@ -3,5 +3,5 @@ from .models        import *
 
 
 # Register your models here.
-# admin.site.register(WebMember)
+
 admin.site.register(Post)

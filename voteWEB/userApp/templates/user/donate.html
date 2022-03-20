@@ -106,7 +106,8 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <li><a href="../../user/index"> 로그인</a></li>
+                                            <li><a>후보별 공약</a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
                                                         <a href="../../candidate1/index">이재명 후보 공약보기</a>
@@ -244,7 +245,7 @@
 
              $(document).ready(function(){
                 $(document).on('click', '#id_chk_btn', function() {
-                    alert('chk_btn click')
+                    console.log('chk_btn click') ;
                     $.ajax({
                         url: '../../user/searchData/',
                         type: 'POST',
@@ -252,7 +253,7 @@
                                 'id_value' : $('#id').val() },
                         dataType: 'json',
                         success : function(lst) {
-                            alert('success')
+                            console.log('id check success');
                             $('#results').html( lst[0].msg )
                             if ( lst[1].idck == 'ok') {
                                 console.log(lst[1].idck);

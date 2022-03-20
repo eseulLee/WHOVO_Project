@@ -143,6 +143,7 @@
                                             </li>
                                             {% if session_member_name %}
                                             <li><a href="../../user/mypage"> MY PAGE</a></li>
+                                            <li><a href="../../user/logout">로그아웃</a></li>
                                             {% endif %}
                                         </ul>
                                     </nav>
@@ -655,10 +656,6 @@
             ['정의당',  lst[2]]
             ]);
 
-<!--            var options = {-->
-<!--            title: '60대 이상 회원 연령별 정당 지지 차트'-->
-<!--         };-->
-
                 var options = {
                     title: '60대 이상 회원 연령별 정당 지지 차트',
                   width: 400,
@@ -750,11 +747,6 @@
                 chart.draw(data, google.charts.Bar.convertOptions(options));
               };
             </script>
-
-
-
-
-
 
     </body>
 </html>

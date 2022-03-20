@@ -126,7 +126,7 @@
                                             {% if session_member_name is None%}
                                             <li><a href="../../user/index"> 로그인</a></li>
                                             {% endif %}
-                                            <li><a> 후보별 공약 </a>
+                                            <li><a>후보별 공약</a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
                                                         <a href="../../candidate1/index">이재명 후보 공약보기</a>
@@ -141,6 +141,7 @@
                                             </li>
                                             {% if session_member_name %}
                                             <li><a href="../../user/mypage"> MY PAGE</a></li>
+                                            <li><a href="../../user/logout">로그아웃</a></li>
                                             {% endif %}
                                         </ul>
                                     </nav>
@@ -179,6 +180,7 @@
                                         <h4>목표</h4>
                                         <h5>제2의 토지개혁으로 부동산 불평등 해소</h5>
                                         <h5>불평등·기후위기·차별 해소를 위한 조세 개혁</h5></br>
+
                                         <h4>이행방법</h4>
                                         <h5>제2의 토지개혁 - 부동산 불평등 해소·투기 근절</h5>
                                         <li>토지초과이득세 도입</li>
@@ -217,6 +219,7 @@
                                         <h5>불평등 기후위기 복지 지출 대응을 위한 세제 개편</h5>
                                         <li>부의 대물림 방지를 위해 세대생략 상속·증여)에 대해 50% 할증 과세</li>
                                         <li>복지재정 확충을 위한 「사회복지제」 신설, 기후위기 대응을 위한 「탄소세」 도입</li></br>
+
                                         <h4>재원조달방안 등</h4>
                                         <h5>주택도시기금 여유자금 활용, 보유세 강화 재원 마련</h5>
                                     </div>
@@ -372,7 +375,7 @@
                     $('#content').val("");
                     return false;
                 }else {
-                    alert("댓글등록");
+                    alert("댓글이 등록되었습니다.");
                 }
                 $.ajax({
                     url : '../../bbs/postForm/' ,
@@ -385,7 +388,7 @@
                              'id' : id } ,
                     dataType : 'json' ,
                     success : function(obj) {
-                        alert($('#writer_id').val())
+                        console.log($('#writer_id').val());
                         $('#blog-top').empty()
                         var txt = ""
                         $.each(obj, function(idx, data) {
@@ -412,8 +415,6 @@
 
         function removePost(id) {
             if(confirm('삭제하시겠습니까?')) {
-            alert('remove')
-            alert(id)
             $.ajax({
                 url : '../../bbs/remove/' ,
                 type : 'post' ,
@@ -425,7 +426,7 @@
                          'id' : id } ,
                 dataType : 'json' ,
                 success : function(obj) {
-                    alert($('#writer_id').val())
+                    console.log('comment removed');
                     $('#blog-top').empty()
                     var txt = ""
                     $.each(obj, function(idx, data) {

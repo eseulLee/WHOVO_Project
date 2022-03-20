@@ -10,7 +10,7 @@ def candidate1(request):
     candidate_num = 1
 
     Posts = Post.objects.filter(candidate_num=candidate_num).values('detail_num').annotate(dcount=Count('detail_num'))
-    # select detal_num , count(detail_num) as dcount from table group by detail_num
+    # select detail_num , count(detail_num) as dcount from table group by detail_num
 
     try:
         dcount1 = Posts.get(detail_num=1)['dcount']

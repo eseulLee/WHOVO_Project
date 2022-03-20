@@ -9,9 +9,9 @@ import pandas as pd
 def index(request) :
     print('>>> whovo')
     df = pd.DataFrame(list(WebMember.objects.all().values()))
-    lst1 = []
-    lst2 = []
-    lst3 = []
+    # lst1 = []
+    # lst2 = []
+    # lst3 = []
 
     # lst1 : 30대 이하 정당 지지도 / lst2 : 4050 정당 지지도 / lst3 : 60대 이상 정당 지지도
     print(df)
@@ -57,12 +57,7 @@ def index(request) :
     print(len(df_d), len(df_g), len(df_j))
     lst4 = [len(df_d), len(df_g), len(df_j)]
     print(lst4)
-    # birth_year = users_age['member_age'].year
-    # today_year = datetime.date.today().year
-    # mem_age = today_year - birth_year + 1
-    #
-    # for user in users_poli:
-    #     pass
+
     df = pd.DataFrame(list(WebMember.objects.all().values()))
     df_1 = pd.DataFrame(list(Post.objects.all().values()))
     df_lc = df_1.loc[df_1['candidate_num'] == 1]
@@ -72,14 +67,9 @@ def index(request) :
 
     lst5 = [len(df_lc), len(df_yc), len(df_sc)]
 
-
-
-
     if request.session.get('member_name') :
         print('>>> our member')
         # 세션을 계속 심어줘야 함
-        lst = []
-
 
         context = {
             'session_member_name' :  request.session.get('member_name'),
@@ -92,6 +82,7 @@ def index(request) :
 
         }
         return render(request, 'index.html',context)
+
     else:
         context = {
             'chart_data1': lst1,
@@ -101,7 +92,6 @@ def index(request) :
             'chart_data5': lst5,
 
         }
-
         return render(request, 'index.html', context)
 
 

@@ -72,11 +72,10 @@
                                     <div class="header-button floatright">
                                     {% if session_member_name %}
                                         <a href="../../user/logout">로그아웃</a>
-                                    </div>
                                     {% else %}
                                         <a href="../../user/index">로그인</a>
-                                    </div>
                                     {% endif %}
+                                    </div>
                                 </div>
                                 <div class="main-menu floatright">
                                     <nav>
@@ -84,7 +83,7 @@
                                             <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
-                                                        <a href="../../candidate1/index">이재명 후보 공약보기</a>
+                                                        <a href="../../../candidate1/index">이재명 후보 공약보기</a>
                                                     </li>
                                                     <li>
                                                         <a href="../../candidate2/index">윤석열 후보 공약보기</a>
@@ -94,6 +93,15 @@
                                                     </li>
                                                 </ul>
                                             </li>
+                                            {% if session_member_name %}
+                                            <li><a href=""> {{ session_member_name }} 님 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <ul class="submenu-mainmenu">
+                                                    <li>
+                                                        <a href="../../user/mypage"> MY PAGE </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -109,7 +117,10 @@
                                 <div class="mobile-menu">
                                     <nav id="dropdown">
                                         <ul>
-                                            <li><a href=""> 후보별 공약 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            {% if session_member_name is None%}
+                                            <li><a href="../../user/index"> 로그인</a></li>
+                                            {% endif %}
+                                            <li><a>후보별 공약</a>
                                                 <ul class="submenu-mainmenu">
                                                     <li>
                                                         <a href="../../candidate1/index">이재명 후보 공약보기</a>
@@ -122,6 +133,10 @@
                                                     </li>
                                                 </ul>
                                             </li>
+                                            {% if session_member_name %}
+                                            <li><a href="../../user/mypage"> MY PAGE</a></li>
+                                            <li><a href="../../user/logout">로그아웃</a></li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -152,20 +167,20 @@
                             <div class="donate-sidebar">
                                 <div class="donate-sidebar-bottom" align="center">
                                     <h1>회원정보수정</h1>
-                                    <form action="../update/" method="post">
+                                    <form name="updateForm" method="post">
                                         {% csrf_token %}
                                         <div class="row1">
                                             <div class="col-lg-4">
-                                                <input class="form-control bmrg" required="" id="id" name= "id" type="text" value="{{ session_member_id }}" readonly>
-                                            </div><br/>
+                                                <input class="form-control2" style="background-color: #e9ecef; opacity: 1;" required="" id="id" name= "id" type="text" value="{{ session_member_id }}" readonly>
+                                            </div><p/>
                                             <div class="col-lg-4">
                                                 <input class="form-control2" required="" name="pwd" placeholder="PASSWORD" type="password">
                                             </div><p/>
                                             <div class="col-lg-4">
-                                                <input class="form-control bmrg" required="" name="name" value="{{ session_member_name }}" type="text" readonly>
-                                            </div><br/>
+                                                <input class="form-control2" style="background-color: #e9ecef; opacity: 1;" required="" name="name" value="{{session_member_name }}" type="text" readonly>
+                                            </div><p/>
                                             <div class="col-lg-4">
-                                                <input class="form-control2" required="" name="age" placeholder="출생 연도 (4자리로 입력 예) 2022)" value="{{ user.member_age }}" type="date">
+                                                <input class="form-control2" required="" name="age" value="{{ user.member_age }}" type="date" min="1900-01-01" max="2022-03-19">
                                             </div><p/>
                                             <div class="col-lg-4">
                                                 <select class="email s-email s-wid" name="poli" >
@@ -176,8 +191,11 @@
                                                 </select>
                                         </div>
                                         </div>
-                                        <button class="submit" type="submit">
+                                        <button class="submit" type="submit" style="margin: 0 3px;" onclick="javascript: updateForm.action='../update/';">
                                             수정
+                                        </button>
+                                        <button class="submit" type="button" style="margin: 0 3px;" onclick="javascript: location.href='../mypage/';">
+                                            취소
                                         </button>
                                     </form>
                                 </div>
