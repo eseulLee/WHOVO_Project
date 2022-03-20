@@ -244,25 +244,6 @@
         <!--  ID 중복 확인/방지      -->
 
              $(document).ready(function(){
-                $(document).on('click', '#id_chk_btn', function() {
-                    console.log('chk_btn click') ;
-                    $.ajax({
-                        url: '../../user/searchData/',
-                        type: 'POST',
-                        data: { 'csrfmiddlewaretoken' : '{{csrf_token}}' ,
-                                'id_value' : $('#id').val() },
-                        dataType: 'json',
-                        success : function(lst) {
-                            console.log('id check success');
-                            $('#results').html( lst[0].msg )
-                            if ( lst[1].idck == 'ok') {
-                                console.log(lst[1].idck);
-                                document.getElementById('id_ck').setAttribute('value','1');
-                            }
-                        }
-                    })
-                })
-
                 $(document).on("change", "#id", function(){
                     var userid = $('#id').val();
                     var idChkValue = $('#id_ck').val();
